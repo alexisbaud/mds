@@ -1,0 +1,182 @@
+/**
+ * TokenDemo Styles
+ * 
+ * This stylesheet demonstrates the consumption of design tokens.
+ * Every style property references a CSS variable generated from tokens.
+ * 
+ * NO MAGIC VALUES - All values come from var(--token-name)
+ */
+
+/* Container */
+.token-demo {
+  padding: var(--spacing-layout-md, 48px);
+  background: var(--color-neutral-surface-base, #ffffff);
+  min-height: 100vh;
+}
+
+.token-demo__container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-stack-lg, 32px);
+}
+
+/* Card Surface */
+.token-demo__card {
+  padding: var(--spacing-inset-lg, 24px);
+  background: var(--color-neutral-surface-soft, #f5f5f5);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--elevation-md-complete, 0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* Typography */
+.token-demo__title {
+  color: var(--color-neutral-content-heavy, #1a1a1a);
+  font-family: var(--typography-heading-md-fontFamily, system-ui);
+  font-size: var(--typography-heading-md-fontSize, 24px);
+  line-height: var(--typography-heading-md-lineHeight, 1.5);
+  font-weight: var(--typography-heading-md-fontWeight, 600);
+  margin: 0 0 var(--spacing-stack-sm, 12px) 0;
+}
+
+.token-demo__body {
+  color: var(--color-neutral-content-default, #404040);
+  font-family: var(--typography-body-md-fontFamily, system-ui);
+  font-size: var(--typography-body-md-fontSize, 16px);
+  line-height: var(--typography-body-md-lineHeight, 1.5);
+  margin: 0 0 var(--spacing-stack-md, 16px) 0;
+}
+
+.token-demo__caption {
+  color: var(--color-neutral-content-weak, #808080);
+  font-family: var(--typography-caption-md-fontFamily, system-ui);
+  font-size: var(--typography-caption-md-fontSize, 14px);
+  line-height: var(--typography-caption-md-lineHeight, 1.5);
+  margin: 0 0 var(--spacing-stack-lg, 24px) 0;
+  font-style: italic;
+}
+
+/* Actions */
+.token-demo__actions {
+  display: flex;
+  gap: var(--spacing-inset-sm, 12px);
+  flex-wrap: wrap;
+}
+
+.token-demo__button {
+  padding: var(--spacing-inset-sm, 12px) var(--spacing-inset-md, 16px);
+  border-radius: var(--radius-sm, 4px);
+  border: none;
+  cursor: pointer;
+  font-family: var(--typography-label-md-fontFamily, system-ui);
+  font-size: var(--typography-label-md-fontSize, 14px);
+  font-weight: var(--typography-label-md-fontWeight, 500);
+  transition: all 0.2s ease;
+}
+
+.token-demo__button:focus-visible {
+  outline: 2px solid var(--color-utility-focus, #0066ff);
+  outline-offset: 2px;
+}
+
+/* Button Primary */
+.token-demo__button--primary {
+  background: var(--color-brand-action-primary-default, #3b82f6);
+  color: var(--color-brand-action-content-inverse, #ffffff);
+}
+
+.token-demo__button--primary:hover {
+  background: var(--color-brand-action-primary-hover, #2563eb);
+}
+
+.token-demo__button--primary:active {
+  background: var(--color-brand-action-primary-pressed, #1d4ed8);
+}
+
+/* Button Secondary */
+.token-demo__button--secondary {
+  background: var(--color-brand-action-toned-transparent-default, rgba(59, 130, 246, 0.1));
+  color: var(--color-brand-action-content-default, #3b82f6);
+}
+
+.token-demo__button--secondary:hover {
+  background: var(--color-brand-action-toned-transparent-hover, rgba(59, 130, 246, 0.2));
+}
+
+.token-demo__button--secondary:active {
+  background: var(--color-brand-action-toned-transparent-pressed, rgba(59, 130, 246, 0.3));
+}
+
+/* Button Ghost */
+.token-demo__button--ghost {
+  background: var(--color-brand-action-ghost-default, transparent);
+  color: var(--color-brand-action-content-default, #3b82f6);
+}
+
+.token-demo__button--ghost:hover {
+  background: var(--color-brand-action-ghost-hover, rgba(59, 130, 246, 0.1));
+}
+
+.token-demo__button--ghost:active {
+  background: var(--color-brand-action-ghost-pressed, rgba(59, 130, 246, 0.2));
+}
+
+/* Reference Section */
+.token-demo__reference {
+  padding: var(--spacing-inset-lg, 24px);
+  background: var(--color-neutral-surface-base, #ffffff);
+  border: 1px solid var(--color-neutral-content-weakest, #e0e0e0);
+  border-radius: var(--radius-sm, 4px);
+}
+
+.token-demo__reference-title {
+  color: var(--color-neutral-content-heavy, #1a1a1a);
+  font-family: var(--typography-title-md-fontFamily, system-ui);
+  font-size: var(--typography-title-md-fontSize, 18px);
+  font-weight: var(--typography-title-md-fontWeight, 600);
+  margin: 0 0 var(--spacing-stack-md, 16px) 0;
+}
+
+.token-demo__reference-list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-micro-xs, 4px) var(--spacing-inset-md, 16px);
+}
+
+.token-demo__reference-list dt {
+  color: var(--color-neutral-content-heavy, #1a1a1a);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.token-demo__reference-list dd {
+  margin: 0;
+  color: var(--color-neutral-content-default, #404040);
+  font-size: 14px;
+  font-family: var(--typography-code-sm-fontFamily, monospace);
+}
+
+.token-demo__reference-list code {
+  background: var(--color-neutral-surface-subtle, #fafafa);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs, 2px);
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .token-demo {
+    padding: var(--spacing-inset-md, 16px);
+  }
+  
+  .token-demo__actions {
+    flex-direction: column;
+  }
+  
+  .token-demo__button {
+    width: 100%;
+  }
+}
+

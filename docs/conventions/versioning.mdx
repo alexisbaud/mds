@@ -1,0 +1,317 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Conventions/Versioning" />
+
+# Versioning sémantique
+
+MDS suit le **versioning sémantique** (SemVer) pour garantir la prévisibilité des mises à jour et minimiser les breaking changes.
+
+## Format : MAJOR.MINOR.PATCH
+
+```
+1.2.3
+│ │ └─ PATCH : corrections de bugs (rétrocompatibles)
+│ └─── MINOR : nouvelles fonctionnalités (rétrocompatibles)
+└───── MAJOR : breaking changes (non rétrocompatibles)
+```
+
+## Règles de versioning
+
+### PATCH (1.2.3 → 1.2.4)
+
+**Corrections de bugs qui ne changent pas l'API.**
+
+✅ **Exemples :**
+- Correction d'un bug de style (mauvaise couleur, mauvais espacement)
+- Correction d'un bug d'accessibilité (attribut ARIA manquant)
+- Correction d'un bug de comportement (event handler qui ne se déclenche pas)
+- Mise à jour de documentation
+
+```
+fix: correct focus ring color on dark backgrounds
+fix: add missing aria-label to close button
+docs: update Button component usage examples
+```
+
+### MINOR (1.2.3 → 1.3.0)
+
+**Nouvelles fonctionnalités rétrocompatibles.**
+
+✅ **Exemples :**
+- Ajout d'un nouveau composant
+- Ajout d'une nouvelle variante à un composant existant
+- Ajout d'une nouvelle prop optionnelle (avec valeur par défaut)
+- Ajout de nouveaux tokens
+
+```
+feat: add Card component
+feat: add ghost variant to Button
+feat: add size prop to Icon (default: 'md')
+feat: add color.data-viz.category.11-15 tokens
+```
+
+### MAJOR (1.2.3 → 2.0.0)
+
+**Breaking changes qui cassent la rétrocompatibilité.**
+
+❌ **Exemples :**
+- Suppression d'un composant
+- Suppression d'une prop
+- Changement de type d'une prop (ex: `string` → `string | number`)
+- Renommage d'un token
+- Changement de valeur d'un token largement utilisé
+- Changement de l'API d'un composant
+
+```
+BREAKING CHANGE: remove deprecated Button.style prop
+BREAKING CHANGE: rename color.brand.primary to color.brand.action.primary
+BREAKING CHANGE: onChange now receives object instead of string
+```
+
+## Gestion des breaking changes
+
+### Dépréciation progressive
+
+**Avant de supprimer quelque chose, le déprécier.**
+
+1. **Version N** : marquer comme déprécié, logger warning
+2. **Version N+1** (MINOR) : garder déprécié, documenter migration
+3. **Version N+2** (MAJOR) : supprimer
+
+**Exemple :**
+```tsx
+// Version 1.5.0 - Dépréciation
+interface ButtonProps {
+  /** @deprecated Use variant="primary" instead. Will be removed in v2.0.0 */
+  isPrimary?: boolean;
+  variant?: 'primary' | 'secondary';
+}
+
+function Button({ isPrimary, variant, ...props }: ButtonProps) {
+  if (isPrimary && process.env.NODE_ENV === 'development') {
+    console.warn('Button: isPrimary is deprecated. Use variant="primary" instead.');
+  }
+  
+  const finalVariant = isPrimary ? 'primary' : variant;
+  // ...
+}
+
+// Version 2.0.0 - Suppression
+interface ButtonProps {
+  variant?: 'primary' | 'secondary';
+}
+```
+
+### Alias de migration pour tokens
+
+**Maintenir des alias temporaires lors de renommages.**
+
+```json
+// semantic.json v1.5.0
+{
+  "color": {
+    "brand": {
+      "primary": "{color.brand.action.primary}",  // Alias deprecated
+      "action": {
+        "primary": "#3b82f6"
+      }
+    }
+  }
+}
+```
+
+```json
+// semantic.json v2.0.0
+{
+  "color": {
+    "brand": {
+      "action": {
+        "primary": "#3b82f6"
+      }
+    }
+  }
+}
+```
+
+## CHANGELOG.md
+
+**Documenter tous les changements dans CHANGELOG.md.**
+
+```markdown
+# Changelog
+
+## [2.0.0] - 2024-03-15
+
+### Breaking Changes
+- **Tokens**: Renamed `color.brand.primary.*` to `color.brand.action.primary.*`
+- **Button**: Removed deprecated `isPrimary` prop. Use `variant="primary"` instead
+
+### Migration Guide
+\```tsx
+// Before
+<Button isPrimary>Click</Button>
+
+// After
+<Button variant="primary">Click</Button>
+\```
+
+## [1.5.0] - 2024-02-20
+
+### Added
+- **Card**: New component for containing content
+- **Button**: Added `ghost` variant
+
+### Deprecated
+- **Button**: `isPrimary` prop deprecated in favor of `variant`
+
+### Fixed
+- **Button**: Fixed focus ring not visible on dark backgrounds
+
+## [1.4.1] - 2024-02-10
+
+### Fixed
+- **Button**: Fixed onClick not firing on Space key press
+```
+
+## Workflow de release
+
+### 1. Préparer la release
+
+```bash
+# Vérifier que tout est à jour
+git pull origin main
+
+# Vérifier que les tests passent
+npm run test:coverage
+npm run lint
+npm run typecheck
+
+# Générer les tokens
+npm run generate:tokens
+
+# Build
+npm run build
+```
+
+### 2. Mettre à jour la version
+
+```bash
+# PATCH
+npm version patch -m "chore: release v%s"
+
+# MINOR
+npm version minor -m "chore: release v%s"
+
+# MAJOR
+npm version major -m "chore: release v%s"
+```
+
+### 3. Mettre à jour CHANGELOG.md
+
+Ajouter une section pour la nouvelle version avec tous les changements.
+
+### 4. Commit et push
+
+```bash
+git add CHANGELOG.md
+git commit --amend --no-edit
+git push origin main --follow-tags
+```
+
+### 5. Créer une GitHub Release
+
+```bash
+gh release create v1.5.0 \
+  --title "v1.5.0" \
+  --notes-file CHANGELOG.md \
+  --latest
+```
+
+### 6. Publier sur npm (futur)
+
+```bash
+npm publish
+```
+
+## Conventions de commits
+
+**Utiliser Conventional Commits pour faciliter la génération du changelog.**
+
+```
+<type>(<scope>): <description>
+
+[optional body]
+
+[optional footer]
+```
+
+**Types :**
+- `feat`: nouvelle fonctionnalité (MINOR)
+- `fix`: correction de bug (PATCH)
+- `docs`: changements de documentation
+- `style`: formatage, point-virgules (pas de changement de code)
+- `refactor`: refactoring sans changement de comportement
+- `test`: ajout ou correction de tests
+- `chore`: tâches de maintenance (deps, config)
+- `BREAKING CHANGE`: dans le footer pour MAJOR
+
+**Exemples :**
+```
+feat(button): add ghost variant
+
+Add a new ghost variant that has transparent background and
+only shows background on hover/pressed states.
+
+Closes #123
+```
+
+```
+fix(button): correct focus ring on dark backgrounds
+
+The focus ring was not visible on dark backgrounds due to
+insufficient contrast. Now uses --color-utility-focus token.
+
+Fixes #456
+```
+
+```
+feat(tokens)!: rename brand.primary to brand.action.primary
+
+BREAKING CHANGE: color.brand.primary.* tokens have been renamed
+to color.brand.action.primary.* for consistency with other
+action tokens. Update your CSS to use the new token names.
+
+Migration:
+- color.brand.primary.default → color.brand.action.primary.default
+- color.brand.primary.hover → color.brand.action.primary.hover
+```
+
+## Checklist de release
+
+Avant chaque release, vérifier :
+
+- [ ] Tous les tests passent (`npm test`)
+- [ ] Couverture ≥ 80% (`npm run test:coverage`)
+- [ ] Aucune erreur de lint (`npm run lint`)
+- [ ] Aucune erreur de type (`npm run typecheck`)
+- [ ] Tokens générés (`npm run generate:tokens`)
+- [ ] Build réussit (`npm run build`)
+- [ ] Storybook build réussit (`npm run build:storybook`)
+- [ ] CHANGELOG.md mis à jour
+- [ ] Version bump appropriée (patch/minor/major)
+- [ ] Git tag créé
+- [ ] GitHub Release créée
+- [ ] Documentation à jour
+
+## Politique de support
+
+- **Dernière MAJOR** : support actif (nouvelles features + fixes)
+- **MAJOR précédente** : support maintenance (fixes critiques uniquement)
+- **Versions plus anciennes** : non supportées
+
+## Ressources
+
+- [Semantic Versioning](https://semver.org/)
+- [Conventional Commits](https://www.conventionalcommits.org/)
+- [Keep a Changelog](https://keepachangelog.com/)
+

@@ -1,0 +1,229 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Conventions/Separation of Concerns" />
+
+# Separation of Concerns
+
+La séparation des préoccupations (SoC) est un principe fondamental dans MDS pour garantir la maintenabilité et la scalabilité du code.
+
+## Principes généraux
+
+### 1. Séparation Styles / Logique
+
+**Les styles (apparence) doivent être découplés de la logique (comportement).**
+
+❌ **Mauvais exemple :**
+```tsx
+function Button({ onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{ 
+        background: '#3b82f6',  // Valeur magique !
+        padding: '12px 24px',   // Valeur magique !
+        borderRadius: '8px'     // Valeur magique !
+      }}
+    >
+      Click
+    </button>
+  );
+}
+```
+
+✅ **Bon exemple :**
+```tsx
+import './Button.css';
+
+function Button({ onClick }) {
+  return (
+    <button className="button" onClick={onClick}>
+      Click
+    </button>
+  );
+}
+```
+
+```css
+/* Button.css */
+.button {
+  background: var(--color-brand-action-primary-default);
+  padding: var(--spacing-inset-sm) var(--spacing-inset-md);
+  border-radius: var(--radius-sm);
+}
+```
+
+### 2. Tokens vs Valeurs magiques
+
+**Zéro valeur magique. Tous les styles doivent référencer des tokens.**
+
+❌ **Mauvais :**
+```css
+.card {
+  padding: 16px;              /* Valeur magique */
+  background: #f5f5f5;        /* Valeur magique */
+  border-radius: 12px;        /* Valeur magique */
+}
+```
+
+✅ **Bon :**
+```css
+.card {
+  padding: var(--spacing-inset-lg);
+  background: var(--color-neutral-surface-soft);
+  border-radius: var(--radius-md);
+}
+```
+
+### 3. Composants unitaires
+
+**Chaque composant a une responsabilité unique et bien définie.**
+
+❌ **Mauvais (composant multi-responsabilités) :**
+```tsx
+function UserDashboard() {
+  const [user, setUser] = useState(null);
+  const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
+  
+  // Fetch user, posts, comments...
+  // Render entire dashboard layout...
+  // Handle form submissions...
+  // etc.
+}
+```
+
+✅ **Bon (composants décomposés) :**
+```tsx
+function UserDashboard() {
+  return (
+    <DashboardLayout>
+      <UserProfile />
+      <PostsList />
+      <CommentsSection />
+    </DashboardLayout>
+  );
+}
+```
+
+### 4. API stables et typées
+
+**Les props des composants doivent avoir des interfaces TypeScript claires et stables.**
+
+✅ **Bon exemple :**
+```tsx
+/**
+ * Button component with multiple variants and states
+ * @param variant - Visual style variant
+ * @param size - Size of the button
+ * @param isDisabled - Whether the button is disabled
+ * @param onClick - Click event handler
+ */
+interface ButtonProps {
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  isDisabled?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  children: React.ReactNode;
+  'aria-label'?: string;
+}
+
+export function Button({
+  variant = 'primary',
+  size = 'md',
+  isDisabled = false,
+  onClick,
+  children,
+  ...ariaProps
+}: ButtonProps) {
+  // Implementation
+}
+```
+
+## Organisation des fichiers
+
+### Structure recommandée
+
+```
+components/
+├── Button/
+│   ├── Button.tsx           # Composant principal
+│   ├── Button.css           # Styles
+│   ├── Button.test.tsx      # Tests unitaires
+│   ├── Button.stories.tsx   # Stories Storybook
+│   ├── useButton.ts         # Hook custom si logique complexe
+│   └── index.ts             # Barrel export
+```
+
+### Responsabilités par fichier
+
+- **`.tsx`** : Structure JSX, props, types, exports
+- **`.css`** : Styles visuels (uniquement des tokens CSS)
+- **`.test.tsx`** : Tests (rendu, interactions, a11y)
+- **`.stories.tsx`** : Documentation et exemples interactifs
+- **`useXxx.ts`** : Logique réutilisable (state, effects, callbacks)
+
+## Hooks personnalisés
+
+**Extraire la logique complexe dans des hooks customs.**
+
+✅ **Exemple :**
+```tsx
+// useToggle.ts
+export function useToggle(initialState = false) {
+  const [isOn, setIsOn] = useState(initialState);
+  
+  const toggle = useCallback(() => setIsOn((prev) => !prev), []);
+  const turnOn = useCallback(() => setIsOn(true), []);
+  const turnOff = useCallback(() => setIsOn(false), []);
+  
+  return { isOn, toggle, turnOn, turnOff };
+}
+
+// Switch.tsx
+function Switch({ defaultChecked, onChange }) {
+  const { isOn, toggle } = useToggle(defaultChecked);
+  
+  const handleClick = () => {
+    toggle();
+    onChange?.(isOn);
+  };
+  
+  return (
+    <button 
+      role="switch" 
+      aria-checked={isOn}
+      onClick={handleClick}
+      className="switch"
+    >
+      {/* JSX */}
+    </button>
+  );
+}
+```
+
+## Thème vs Composant
+
+**Le thème (tokens) ne doit pas dépendre des composants. Les composants dépendent du thème.**
+
+```
+Tokens (indépendant)
+    ↓ consommé par
+Composants (dépendants)
+```
+
+- ✅ Les tokens peuvent évoluer indépendamment
+- ✅ Les composants s'adaptent automatiquement aux tokens
+- ❌ Ne jamais référencer des composants dans les tokens
+
+## Résumé — Checklist
+
+Lors de la création d'un composant, vérifier :
+
+- [ ] **Styles séparés** : CSS dans fichier dédié, pas de style inline avec valeurs magiques
+- [ ] **Uniquement tokens** : tous les styles référencent `var(--token-name)`
+- [ ] **Responsabilité unique** : le composant fait une seule chose, bien
+- [ ] **Props typées** : interface TypeScript claire avec JSDoc
+- [ ] **Logique extraite** : hooks customs si logique complexe
+- [ ] **Tests isolés** : tests unitaires ne dépendent pas d'autres composants
+- [ ] **Documentation claire** : Stories Storybook avec exemples
+

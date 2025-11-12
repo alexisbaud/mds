@@ -1,0 +1,141 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Primitives" />
+
+# Primitive Tokens
+
+Les **primitive tokens** sont la matière première du design system. Ils définissent les valeurs brutes (couleurs hex, tailles en pixels, noms de polices) qui seront référencées par les niveaux supérieurs (brand, sémantiques).
+
+## Règle d'or
+
+**Ne jamais utiliser les primitives directement dans les composants UI.**
+
+Les primitives servent uniquement à :
+- Définir les tokens brand
+- Définir les tokens sémantiques
+- Composer des recettes (elevation, typography)
+
+## Collections disponibles
+
+### Couleurs (`color`)
+
+Palettes complètes avec progression perceptuelle :
+
+**Accents :**
+- `pink`, `fuchsia`, `purple`, `blue`, `cyan`, `teal`, `super-teal`, `green`, `lime`, `yellow`, `orange`, `red`
+
+**Neutres :**
+- `warm-gray`, `gray`, `cold-gray`
+
+**Paliers :** `5, 8, 15, 22, 30, 37, 45, 52, 60, 67, 75, 82, 90, 95, 100, 105`
+
+**Spéciaux :**
+- `super-teal.light-brand`, `super-teal.dark-brand`
+- Neutres incluent aussi le palier `0`
+
+**Exemple :**
+```json
+{
+  "color": {
+    "super-teal": {
+      "30": { "$value": "#00d4ca", "$type": "color" },
+      "light-brand": { "$value": "#00d4ca", "$type": "color" }
+    }
+  }
+}
+```
+
+### Transparences (`transparent`)
+
+Versions RGBA de toutes les couleurs avec paliers d'opacité :
+
+**Structure :** `transparent.{family}.{shade}.{alpha}`
+
+**Alpha disponibles :** `5, 10, 15, 20, 30, 40, 50, 60, 70, 80`
+
+**Spéciaux :** `transparent.black.*` et `transparent.white.*` avec échelle étendue : `1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 99, 100, none`
+
+### Opacité (`opacity`)
+
+- `opacity.transparent.*` : `1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95`
+- `opacity.opaque` : `100%`
+
+### Tailles (`size`)
+
+**Pixels :** `2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128, 160, 192, 256, 320, 384, 512, 640, 768, 896, 1024`
+
+**Pourcentages :** `5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 75, 80, 85, 90, 95, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200`
+
+### Espacements (`spacing`)
+
+**Pixels :** `2, 4, 6, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 128, 160, 192, 256`
+
+### Rayons de bordure (`border-radius`)
+
+**Pixels :** `2, 4, 8, 12, 16, 24, 32, 40, 48, 64, 1000`  
+**Pourcentages :** `5, 10, 15, 20, 25, 30, 35, 40, 45, 50`
+
+### Largeurs de bordure (`border-width`)
+
+**Pixels :** `05` (0.5px), `1, 2, 4, 8, 16`
+
+### Polices (`font-family`)
+
+**Sans-serif :** `inter`, `ibm-sans`, `strawford`, `outfit`, `sf-pro`, `lexend`, `poppins`, `funnel`  
+**Styled :** `mondwest`, `playpen-sans`, `sansita`  
+**Serif :** `argent-cf`, `lora`, `podkova`, `roboto-slab`, `times-new-roman`, `new-york`, `arvo`  
+**Mono :** `ibm-mono`, `space-mono`, `sf-mono`
+
+### Poids de police (`font-weight`)
+
+**Numérique :** `100, 200, 300, 400, 500, 600, 700, 800, 900`  
+**Mots-clés :** `thin, extra-light, light, regular, medium, semi-bold, bold, extra-bold, black`
+
+### Hauteur de ligne (`line-height`)
+
+**Pourcentages :** `80, 100, 120, 150, 200`  
+**Pixels :** `8, 10, 12, 14, 16, 18, 20, 24, 32, 40, 48, 64`
+
+### Taille de police (`font-size`)
+
+**Pixels :** `8, 10, 12, 14, 16, 18, 20, 24, 32, 40, 48, 64, 80`  
+**Rem :** Mêmes valeurs en rem
+
+### Espacement des lettres (`letter-spacing`)
+
+**Négatif :** `-5, -10, -25, -50, -75, -100, -150, -200` (px)  
+**Positif :** `5, 10, 25, 50, 75, 100, 150, 200` (px)  
+**Aucun :** `0px`
+
+### Espacement des paragraphes (`paragraph-spacing`)
+
+**Pixels :** `2, 4, 8, 12, 16, 20, 24, 32, 40, 48`
+
+### Casse du texte (`text-case`)
+
+`none`, `uppercase`, `lowercase`, `capitalize`
+
+### Décoration du texte (`text-decoration`)
+
+`none`, `underline`, `line-through`, `overline`
+
+### Booléens (`boolean`)
+
+`true`, `false`
+
+### Dimensions (`dimension`)
+
+**Pixels :** `1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 40, 48, 64, 96, 128, 256, 512, 1024`  
+**Spécial :** `null` = `0px`
+
+## Fichier source
+
+📄 **`src/tokens/primitives.json`**
+
+Pour la documentation complète, consultez le fichier `primitive-tokens-doc.md` à la racine du projet (sera déplacé dans cette section).
+
+## Prochaines étapes
+
+- Voir comment les primitives sont référencées dans **[Brand Tokens](/docs/tokens/brand)**
+- Comprendre comment elles sont consommées via **[Semantic Tokens](/docs/tokens/semantic)**
+

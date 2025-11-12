@@ -1,0 +1,173 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Brand" />
+
+# Brand Tokens
+
+Les **brand tokens** centralisent les décisions d'identité de marque. Ils permettent de gérer les couleurs et polices de marque de manière cohérente et de faciliter les refontes ou rebranding.
+
+## Rôle
+
+Les brand tokens servent d'**ancres d'identité** entre les primitives (matière brute) et les sémantiques (rôles UI). Ils ne sont **jamais consommés directement par les composants**, mais sont référencés par les tokens sémantiques.
+
+## Collections disponibles
+
+### Couleurs de marque (`color.brand-color`)
+
+Palette principale de l'identité visuelle.
+
+**Structure :**
+- Paliers numériques : `5, 8, 15, 22, 30, 37, 45, 52, 60, 67, 75, 82, 90, 95, 100, 105`
+- Raccourcis : `light-brand`, `dark-brand`
+
+**Référence :**
+Pointe vers les primitives, typiquement `{color.super-teal.*}`
+
+**Exemple :**
+```json
+{
+  "color": {
+    "brand-color": {
+      "30": { "$value": "{color.super-teal.30}" },
+      "light-brand": { "$value": "{color.super-teal.light-brand}" },
+      "dark-brand": { "$value": "{color.super-teal.dark-brand}" }
+    }
+  }
+}
+```
+
+### Couleur d'accent (`color.brand-accent`)
+
+Palette d'accent secondaire pour mettre en avant certains éléments.
+
+**Structure :**
+- Paliers numériques : `5...105`
+
+**Référence :**
+Pointe vers une primitive d'accent, par exemple `{color.pink.*}`
+
+**Exemple :**
+```json
+{
+  "color": {
+    "brand-accent": {
+      "67": { "$value": "{color.pink.67}" }
+    }
+  }
+}
+```
+
+### Polices de marque (`font-family`)
+
+Alias de polices pour assurer une cohérence typographique.
+
+**Alias disponibles :**
+- `main` : police principale (corps de texte)
+- `brand` : police de marque (titres, éléments brandés)
+- `technic` : police technique (code, données)
+
+**Exemple :**
+```json
+{
+  "font-family": {
+    "main": { "$value": "{font-family.sans-serif.ibm-sans}" },
+    "brand": { "$value": "{font-family.sans-serif.funnel}" },
+    "technic": { "$value": "{font-family.mono.ibm-mono}" }
+  }
+}
+```
+
+## Usage recommandé
+
+### ✅ À faire
+
+**Référencer les brand tokens dans les tokens sémantiques :**
+
+```json
+{
+  "color": {
+    "brand": {
+      "surface": {
+        "intense": { "$value": "{color.brand-color.75}" }
+      },
+      "action": {
+        "primary": {
+          "default": { "$value": "{color.brand-color.light-brand}" }
+        }
+      }
+    }
+  }
+}
+```
+
+### ❌ À éviter
+
+**Ne jamais consommer directement dans les composants :**
+
+```tsx
+// ❌ Mauvais
+<Button style={{ background: 'var(--color-brand-color-light-brand)' }}>
+  Click
+</Button>
+
+// ✅ Bon
+<Button style={{ background: 'var(--color-brand-action-primary-default)' }}>
+  Click
+</Button>
+```
+
+## Intégration aux sémantiques
+
+Les tokens sémantiques référencent les brand tokens pour construire les rôles UI :
+
+**Surfaces :**
+- `color.brand.surface.*` → `brand-color.*`
+
+**Actions :**
+- `color.brand.action.primary.*` → `brand-color.light-brand`
+
+**Accents :**
+- `color.accent.*` → `brand-accent.*`
+
+**Effets :**
+- `color.brand.effect.glow.*` → `transparent.brand-color.*`
+
+## Avantages du système
+
+### Rebranding simplifié
+
+Changer l'identité visuelle ne nécessite que de modifier les références dans `brand.json` :
+
+```json
+// Avant
+"brand-color": {
+  "30": { "$value": "{color.super-teal.30}" }
+}
+
+// Après rebranding
+"brand-color": {
+  "30": { "$value": "{color.purple.30}" }
+}
+```
+
+Tous les tokens sémantiques et composants s'ajustent automatiquement.
+
+### Cohérence garantie
+
+Les décisions de marque sont centralisées. Impossible d'utiliser accidentellement une couleur qui ne fait pas partie de l'identité.
+
+### Documentation vivante
+
+Les brand tokens documentent explicitement quelles primitives représentent l'identité de marque.
+
+## Fichier source
+
+📄 **`src/tokens/brand.json`**
+
+Pour la documentation complète, consultez le fichier `brand-tokens-doc.md` à la racine du projet (sera déplacé dans cette section).
+
+## Prochaines étapes
+
+- Voir comment les brand tokens sont consommés dans **[Semantic Tokens](/docs/tokens/semantic)**
+- Comprendre la hiérarchie complète dans **[Overview](/docs/tokens/overview)**
+

@@ -1,0 +1,179 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Components/Overview" />
+
+# Catalogue de Composants
+
+Bienvenue dans le catalogue des composants MDS. Cette section documente tous les composants disponibles, leurs APIs, variantes, états et critères d'accessibilité.
+
+## Composants disponibles
+
+_Les composants seront ajoutés ici au fur et à mesure du développement._
+
+**Status actuel :** Architecture prête, composants à venir.
+
+## Template de documentation
+
+Chaque composant doit être documenté avec les informations suivantes :
+
+### 1. Description
+
+Brève description du composant, son usage et son contexte.
+
+### 2. Props
+
+Liste complète des props avec types TypeScript et descriptions.
+
+**Exemple :**
+```tsx
+interface ButtonProps {
+  /** Visual variant of the button */
+  variant?: 'primary' | 'secondary' | 'ghost';
+  
+  /** Size of the button */
+  size?: 'sm' | 'md' | 'lg';
+  
+  /** Whether the button is disabled */
+  isDisabled?: boolean;
+  
+  /** Whether the button is in loading state */
+  isLoading?: boolean;
+  
+  /** Click event handler */
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  
+  /** Button content */
+  children: React.ReactNode;
+}
+```
+
+### 3. Variantes
+
+Toutes les variantes visuelles avec exemples interactifs.
+
+**Exemple :**
+- Primary
+- Secondary
+- Ghost
+- Danger
+- Success
+
+### 4. États
+
+Tous les états possibles du composant.
+
+**Exemple :**
+- Default
+- Hover
+- Pressed / Active
+- Focus
+- Disabled
+- Loading
+- Error
+
+### 5. Tokens consommés
+
+Liste des tokens CSS utilisés par le composant.
+
+**Exemple :**
+```
+Background:
+- --button-primary-background
+- --button-primary-background-hover
+- --button-primary-background-pressed
+
+Content:
+- --button-primary-content
+
+Spacing:
+- --button-primary-padding-y
+- --button-primary-padding-x
+
+Typography:
+- --button-primary-font
+
+Border:
+- --button-primary-border-radius
+```
+
+### 6. Critères d'accessibilité
+
+Liste des critères a11y respectés.
+
+**Exemple :**
+- ✅ Navigation clavier (Tab, Enter, Space)
+- ✅ Focus visible avec `--color-utility-focus`
+- ✅ Attributs ARIA appropriés (`role`, `aria-disabled`, `aria-busy`)
+- ✅ Contraste validé APCA (Lc ≥ 75)
+- ✅ États communiqués aux lecteurs d'écran
+
+### 7. Exemples d'usage
+
+Code snippets montrant les cas d'usage courants.
+
+**Exemple :**
+```tsx
+// Basic usage
+<Button>Click me</Button>
+
+// Primary variant
+<Button variant="primary" onClick={handleClick}>
+  Submit
+</Button>
+
+// Disabled state
+<Button isDisabled>
+  Can't click
+</Button>
+
+// Loading state
+<Button isLoading>
+  Processing...
+</Button>
+
+// With icon
+<Button>
+  <Icon name="check" />
+  Confirm
+</Button>
+```
+
+### 8. Tests
+
+Lien vers les tests du composant et couverture.
+
+### 9. Changelog
+
+Historique des changements du composant.
+
+## Checklist de documentation
+
+Avant de valider un composant, s'assurer que :
+
+- [ ] Description claire et concise
+- [ ] Props documentées avec types TS
+- [ ] Toutes les variantes documentées avec stories
+- [ ] Tous les états documentés avec stories
+- [ ] Tokens consommés listés
+- [ ] Critères a11y documentés et validés
+- [ ] Exemples d'usage fournis
+- [ ] Tests écrits avec couverture ≥ 80%
+- [ ] Aucune violation a11y dans addon Storybook
+- [ ] Contraste validé APCA pour toutes les paires
+
+## Comment contribuer
+
+1. **Créer le composant** dans `src/components/`
+2. **Écrire les tests** dans `ComponentName.test.tsx`
+3. **Créer les stories** dans `ComponentName.stories.tsx`
+4. **Documenter** en créant `docs/components/ComponentName.mdx`
+5. **Valider** avec la checklist ci-dessus
+6. **Ouvrir une PR** avec description complète
+
+## Prochaines étapes
+
+- Créer votre premier composant en suivant les **[Conventions](/docs/conventions/naming)**
+- Consulter les **[Exigences de tests](/docs/conventions/testing)**
+- Lire les **[Critères d'accessibilité](/docs/conventions/accessibility)**
+- Utiliser les **[Tokens](/docs/tokens/overview)** pour les styles
+

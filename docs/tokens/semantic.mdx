@@ -1,0 +1,259 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Semantic" />
+
+# Semantic Tokens
+
+Les **semantic tokens** sont le cœur du système. Ils définissent des rôles UI stables et contextuels qui sont consommés directement par les composants.
+
+## Principe fondamental
+
+**Les composants ne doivent consommer QUE des tokens sémantiques (ou component), jamais des primitives ou brand directement.**
+
+Les tokens sémantiques offrent :
+- **Stabilité** : les noms restent cohérents même si les valeurs changent
+- **Contexte** : les noms indiquent l'intention (`surface`, `content`, `action`)
+- **Flexibilité** : facilite les thèmes multiples (dark mode, high contrast)
+
+## Collections principales
+
+### Couleurs (`color`)
+
+#### Rôles disponibles
+
+- `neutral` : surfaces et contenus neutres (gris)
+- `brand` : éléments brandés (couleur de marque)
+- `accent` : éléments d'accent secondaire
+- `danger` : erreurs, alertes critiques
+- `warning` : avertissements
+- `success` : succès, validations
+- `info` : informations, notifications
+- `utility` : focus, sélection
+- `data-viz` : visualisations de données
+
+#### Structure par rôle
+
+Chaque rôle (`neutral`, `brand`, etc.) contient :
+
+**Surfaces (`surface`)** :
+- Niveaux : `subtle`, `soft`, `medium`, `strong`, `intense` (+ `base` pour neutral)
+- Variants : `default`, `inverse`
+- Usage : arrière-plans, cartes, panneaux
+
+**Contenus (`content`)** :
+- Niveaux : `weakest`, `weaker`, `weak`, `heavy`, `heavier`, `heaviest`
+- Variants : `default`, `on-surface`, `inverse`
+- Usage : texte, icônes, séparateurs
+
+**Actions (`action`)** :
+- `primary` : `default`, `hover`, `pressed`
+- `toned.transparent` : `default`, `hover`, `pressed`
+- `toned.fix` : `default`, `hover`, `pressed`
+- `ghost` : `default`, `hover`, `pressed`
+- `content` : `default`, `on-surface`, `inverse`
+- `border` : `weak`, `heavy`, `heavier`
+- Usage : boutons, liens, CTA
+
+**Effets (`effect`)** :
+- `shadow` : `soft`, `medium`, `intense` (profondeur, élévation)
+- `glow` : `soft`, `medium`, `intense` (halos lumineux)
+- `light` : `soft`, `medium`, `intense` (rayons, éclairages)
+
+**Identité brand (`brand` uniquement)** :
+- `light-brand`, `dark-brand`
+- Usage : logos, éléments d'identité forte
+
+#### Utilitaires (`utility`)
+
+- `focus` : couleur de focus ring (accessibilité)
+- `selection.text` : `background`, `content`, `inverse-background`, `inverse-content`
+
+#### Data-viz (`data-viz`)
+
+- `category.1..10` : palettes catégorielles
+- `scale.{family}.1..9` : scales séquentielles (pink, blue, green, etc.)
+- `utility.axis`, `utility.grid`, `utility.label` : scaffolding de graphiques
+
+### Espacements (`spacing`)
+
+Espacements par usage contextuel :
+
+- `micro` : espacements minuscules (2-4px)
+- `inset` : padding interne d'éléments
+- `stack` : espacement vertical entre éléments empilés
+- `layout` : marges de layout principales
+- `wide` : espacements larges pour respiration
+
+**Exemple :**
+```json
+{
+  "spacing": {
+    "inset": {
+      "sm": { "$value": "{spacing.pixel.12}" },
+      "md": { "$value": "{spacing.pixel.16}" },
+      "lg": { "$value": "{spacing.pixel.24}" }
+    }
+  }
+}
+```
+
+### Tailles (`sizing`)
+
+Tailles par type d'élément :
+
+- `icon` : tailles d'icônes
+- `atom` : éléments atomiques (inputs, badges)
+- `molecule` : composants simples (buttons, cards)
+- `component` : composants complexes
+- `container` : conteneurs de layout
+
+### Rayons (`radius`)
+
+- `xs`, `sm`, `md`, `lg`, `xl`, `pill`
+
+### Largeurs de bordure (`border-width`)
+
+- `xs`, `sm`, `md`, `lg`, `focus`
+
+### Élévation (`elevation`)
+
+Ombres composées pour profondeur :
+
+- Tailles : `xs`, `sm`, `md`, `lg`, `xl`
+- Chaque taille contient :
+  - `hard-layer` : ombre nette
+  - `soft-layer` : ombre douce
+  - `complete` : combinaison des deux
+
+**Exemple :**
+```json
+{
+  "elevation": {
+    "md": {
+      "complete": {
+        "$value": [
+          { "type": "dropShadow", "x": "0", "y": "4px", "blur": "8px", "color": "{transparent.black.15}" },
+          { "type": "dropShadow", "x": "0", "y": "2px", "blur": "4px", "color": "{transparent.black.10}" }
+        ]
+      }
+    }
+  }
+}
+```
+
+### Typographie (`typography`)
+
+Styles de texte par rôle :
+
+- `display` : titres brandés (xs, sm, md, lg, xl)
+- `heading` : hiérarchie UI (xs, sm, md, lg, xl, xxl)
+- `title` : éléments UI (xs, sm, md, lg, xl)
+- `body` : contenu (sm, md, lg)
+- `label` : labels de formulaires (xs, sm, md, lg, xl)
+- `caption` : légendes (sm, md, lg)
+- `overline` : sur-titres (sm, md, lg)
+- `code` : code et technique (sm, md, lg)
+- `lead` : paragraphes d'intro (sm, md, lg, xl)
+
+**Chaque style combine :**
+```json
+{
+  "fontFamily": "{font-family.main}",
+  "fontSize": "{font-size.pixel.16}",
+  "lineHeight": "{line-height.percent.150}",
+  "fontWeight": "{font-weight.numeric.400}",
+  "letterSpacing": "{letter-spacing.pixel.none}"
+}
+```
+
+### Opacité (`opacity`)
+
+- `state.hidden` : éléments cachés
+- `state.disabled` : éléments désactivés
+- `interaction.visited` : liens visités
+- `interaction.default` : état par défaut
+
+### Taille de flou (`blur-size`)
+
+Pour backdrops et scrims :
+
+- `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `max`
+
+## Guide d'usage
+
+### Surfaces et contenus
+
+**Toujours associer surface + content du même rôle.**
+
+✅ **Bon :**
+```css
+.card {
+  background: var(--color-neutral-surface-soft);
+  color: var(--color-neutral-content-heavy);
+}
+```
+
+❌ **Mauvais :**
+```css
+.card {
+  background: var(--color-neutral-surface-soft);
+  color: var(--color-brand-content-heavy);  /* Mismatch ! */
+}
+```
+
+### Progression des niveaux
+
+**Utiliser les niveaux pour créer la hiérarchie visuelle.**
+
+```css
+/* Subtil → Intense */
+.surface-card-1 { background: var(--color-neutral-surface-subtle); }
+.surface-card-2 { background: var(--color-neutral-surface-soft); }
+.surface-card-3 { background: var(--color-neutral-surface-medium); }
+
+/* Weakest → Heaviest */
+.text-secondary { color: var(--color-neutral-content-weak); }
+.text-primary { color: var(--color-neutral-content-heavy); }
+.text-emphasis { color: var(--color-neutral-content-heaviest); }
+```
+
+### Actions
+
+**Utiliser les variants d'action selon le contexte.**
+
+```css
+/* Bouton principal */
+.button-primary {
+  background: var(--color-brand-action-primary-default);
+  color: var(--color-brand-action-content-inverse);
+}
+
+.button-primary:hover {
+  background: var(--color-brand-action-primary-hover);
+}
+
+/* Bouton secondaire discret */
+.button-secondary {
+  background: var(--color-brand-action-toned-transparent-default);
+  color: var(--color-brand-action-content-default);
+}
+
+/* Bouton ghost */
+.button-ghost {
+  background: var(--color-brand-action-ghost-default);
+  color: var(--color-brand-action-content-default);
+}
+```
+
+## Fichier source
+
+📄 **`src/tokens/semantic.json`**
+
+Pour la documentation complète, consultez le fichier `semantic-tokens-doc.md` à la racine du projet (sera déplacé dans cette section).
+
+## Prochaines étapes
+
+- Voir les **[Component Tokens](/docs/tokens/component)** pour des recettes spécifiques
+- Consulter **[Contrast Pairs](/docs/tokens/contrast-pairs)** pour les combinaisons validées
+- Apprendre à créer des **[Thèmes](/docs/tokens/theming)** personnalisés
+

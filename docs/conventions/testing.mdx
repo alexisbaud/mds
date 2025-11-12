@@ -1,0 +1,316 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Conventions/Testing" />
+
+# Exigences de tests
+
+Les tests garantissent la stabilité et la qualité du design system. Chaque composant doit avoir une couverture de tests minimale de **80%**.
+
+## Types de tests
+
+### 1. Tests de rendu
+
+**Vérifier que le composant se rend correctement.**
+
+```tsx
+import { render, screen } from '@/tests/utils/test-helpers';
+import { Button } from './Button';
+
+describe('Button', () => {
+  it('renders with children', () => {
+    render(<Button>Click me</Button>);
+    expect(screen.getByRole('button', { name: 'Click me' })).toBeInTheDocument();
+  });
+
+  it('renders with different variants', () => {
+    const { rerender } = render(<Button variant="primary">Primary</Button>);
+    expect(screen.getByRole('button')).toHaveClass('button-primary');
+    
+    rerender(<Button variant="secondary">Secondary</Button>);
+    expect(screen.getByRole('button')).toHaveClass('button-secondary');
+  });
+});
+```
+
+### 2. Tests d'interactions
+
+**Vérifier les événements et les comportements interactifs.**
+
+```tsx
+import { render, screen, userEvent } from '@/tests/utils/test-helpers';
+
+describe('Button interactions', () => {
+  it('calls onClick when clicked', async () => {
+    const handleClick = vi.fn();
+    const user = userEvent.setup();
+    
+    render(<Button onClick={handleClick}>Click</Button>);
+    await user.click(screen.getByRole('button'));
+    
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not call onClick when disabled', async () => {
+    const handleClick = vi.fn();
+    const user = userEvent.setup();
+    
+    render(<Button onClick={handleClick} isDisabled>Click</Button>);
+    await user.click(screen.getByRole('button'));
+    
+    expect(handleClick).not.toHaveBeenCalled();
+  });
+});
+```
+
+### 3. Tests de navigation clavier
+
+**Vérifier l'accessibilité au clavier.**
+
+```tsx
+describe('Button keyboard navigation', () => {
+  it('triggers onClick on Enter key', async () => {
+    const handleClick = vi.fn();
+    const user = userEvent.setup();
+    
+    render(<Button onClick={handleClick}>Click</Button>);
+    
+    const button = screen.getByRole('button');
+    button.focus();
+    await user.keyboard('{Enter}');
+    
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('triggers onClick on Space key', async () => {
+    const handleClick = vi.fn();
+    const user = userEvent.setup();
+    
+    render(<Button onClick={handleClick}>Click</Button>);
+    
+    const button = screen.getByRole('button');
+    button.focus();
+    await user.keyboard(' ');
+    
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+});
+```
+
+### 4. Tests d'accessibilité
+
+**Vérifier les attributs ARIA et le contraste.**
+
+```tsx
+import { axe } from 'jest-axe';
+
+describe('Button accessibility', () => {
+  it('has no accessibility violations', async () => {
+    const { container } = render(<Button>Click</Button>);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
+  it('has correct ARIA attributes when disabled', () => {
+    render(<Button isDisabled>Click</Button>);
+    const button = screen.getByRole('button');
+    
+    expect(button).toHaveAttribute('aria-disabled', 'true');
+    expect(button).toHaveAttribute('tabIndex', '-1');
+  });
+
+  it('has accessible label', () => {
+    render(<Button aria-label="Close dialog">×</Button>);
+    expect(screen.getByRole('button', { name: 'Close dialog' })).toBeInTheDocument();
+  });
+});
+```
+
+### 5. Tests de variants et états
+
+**Vérifier toutes les variantes et tous les états.**
+
+```tsx
+describe('Button variants', () => {
+  it.each([
+    ['primary', 'button-primary'],
+    ['secondary', 'button-secondary'],
+    ['ghost', 'button-ghost'],
+  ])('applies correct class for %s variant', (variant, expectedClass) => {
+    render(<Button variant={variant as any}>Click</Button>);
+    expect(screen.getByRole('button')).toHaveClass(expectedClass);
+  });
+});
+
+describe('Button states', () => {
+  it('shows loading state', () => {
+    render(<Button isLoading>Submit</Button>);
+    expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'true');
+  });
+
+  it('applies disabled styling', () => {
+    render(<Button isDisabled>Click</Button>);
+    expect(screen.getByRole('button')).toBeDisabled();
+  });
+});
+```
+
+## Configuration Vitest
+
+```ts
+// vitest.config.ts
+export default defineConfig({
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./tests/setup.ts'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html', 'lcov'],
+      thresholds: {
+        lines: 80,
+        functions: 80,
+        branches: 80,
+        statements: 80,
+      },
+    },
+  },
+});
+```
+
+## Helpers de test
+
+```tsx
+// tests/utils/test-helpers.ts
+import { render, type RenderOptions } from '@testing-library/react';
+import { type ReactElement } from 'react';
+
+export const customRender = (
+  ui: ReactElement,
+  options?: Omit<RenderOptions, 'wrapper'>
+) => {
+  return render(ui, { ...options });
+};
+
+// Re-export everything
+export * from '@testing-library/react';
+export { default as userEvent } from '@testing-library/user-event';
+```
+
+## Commandes
+
+```bash
+# Lancer les tests
+npm test
+
+# Tests en mode watch
+npm test -- --watch
+
+# Couverture de tests
+npm run test:coverage
+
+# Tester un fichier spécifique
+npm test Button.test.tsx
+```
+
+## Checklist par composant
+
+Avant de valider un composant :
+
+- [ ] **Tests de rendu** : au moins 1 test par variante
+- [ ] **Tests d'interactions** : tous les événements (`onClick`, `onChange`, etc.)
+- [ ] **Tests clavier** : `Enter`, `Space`, `Escape`, `Arrow keys` si applicable
+- [ ] **Tests a11y** : axe-core sans violations
+- [ ] **Tests ARIA** : tous les attributs ARIA présents et corrects
+- [ ] **Tests d'états** : disabled, loading, error, etc.
+- [ ] **Couverture ≥ 80%** : lignes, branches, fonctions, statements
+- [ ] **Snapshots** : si pertinent pour détecter régressions visuelles
+- [ ] **Edge cases** : valeurs limites, cas d'erreur
+
+## Structure de tests recommandée
+
+```tsx
+describe('ComponentName', () => {
+  describe('Rendering', () => {
+    // Tests de rendu
+  });
+
+  describe('Interactions', () => {
+    // Tests d'événements
+  });
+
+  describe('Keyboard Navigation', () => {
+    // Tests clavier
+  });
+
+  describe('Accessibility', () => {
+    // Tests a11y
+  });
+
+  describe('Variants', () => {
+    // Tests de variantes
+  });
+
+  describe('States', () => {
+    // Tests d'états
+  });
+});
+```
+
+## Bonnes pratiques
+
+### Utiliser les queries accessibles
+
+✅ **Préférer :**
+```tsx
+screen.getByRole('button', { name: 'Submit' })
+screen.getByLabelText('Email')
+screen.getByPlaceholderText('Enter your name')
+```
+
+❌ **Éviter :**
+```tsx
+container.querySelector('.button')  // Trop fragile
+screen.getByTestId('submit-btn')    // Moins accessible
+```
+
+### Tester le comportement, pas l'implémentation
+
+✅ **Bon :**
+```tsx
+it('shows error message when email is invalid', async () => {
+  render(<Form />);
+  await user.type(screen.getByLabelText('Email'), 'invalid-email');
+  await user.click(screen.getByRole('button', { name: 'Submit' }));
+  
+  expect(screen.getByText('Email invalide')).toBeInTheDocument();
+});
+```
+
+❌ **Mauvais :**
+```tsx
+it('sets error state to true', () => {
+  const { result } = renderHook(() => useForm());
+  act(() => result.current.validateEmail('invalid'));
+  
+  expect(result.current.errors.email).toBe(true); // Détail d'implémentation
+});
+```
+
+### Nettoyer après chaque test
+
+```tsx
+import { cleanup } from '@testing-library/react';
+import { afterEach } from 'vitest';
+
+afterEach(() => {
+  cleanup();
+});
+```
+
+## Ressources
+
+- [Testing Library Docs](https://testing-library.com/docs/react-testing-library/intro/)
+- [Vitest Docs](https://vitest.dev/)
+- [Jest-Axe](https://github.com/nickcolley/jest-axe)
+- [Common Testing Mistakes](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
+

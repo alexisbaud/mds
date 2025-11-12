@@ -1,0 +1,100 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started" />
+
+# Getting Started with MDS
+
+Bienvenue dans **MDS** (Modul Design System) — un design system TypeScript/React construit avec Vite, pensé pour être maintenable, accessible et production-ready.
+
+## Installation
+
+```bash
+npm install mds
+```
+
+## Configuration de base
+
+### 1. Importer les styles CSS
+
+Dans votre fichier d'entrée principal (ex: `main.tsx` ou `App.tsx`), importez les styles MDS :
+
+```tsx
+import 'mds/styles/reset.css';
+import 'mds/styles/global.css';
+import 'mds/styles/tokens.css';
+```
+
+**Ordre d'import important :**
+1. `reset.css` — Reset CSS minimal pour une base cohérente
+2. `global.css` — Styles globaux et utilitaires (focus-visible, sr-only, etc.)
+3. `tokens.css` — Variables CSS générées depuis les tokens
+
+### 2. Utiliser les composants
+
+```tsx
+import { Button } from 'mds';
+
+function App() {
+  return (
+    <Button onClick={() => console.log('Clicked!')}>
+      Click me
+    </Button>
+  );
+}
+```
+
+### 3. Utiliser les tokens CSS
+
+Les tokens sont exposés en tant que variables CSS et peuvent être utilisés directement dans vos styles :
+
+```css
+.custom-card {
+  background: var(--color-neutral-surface-soft);
+  padding: var(--spacing-inset-lg);
+  border-radius: var(--radius-md);
+  color: var(--color-neutral-content-heavy);
+}
+```
+
+## Thématisation
+
+MDS utilise des variables CSS pour faciliter la personnalisation. Vous pouvez override les tokens au niveau `:root` ou avec des attributs de données :
+
+```css
+/* Theme override global */
+:root {
+  --color-brand-action-primary-default: #ff6b6b;
+}
+
+/* Theme conditionnel */
+[data-theme="dark"] {
+  --color-neutral-surface-base: #1a1a1a;
+  --color-neutral-content-default: #ffffff;
+}
+```
+
+## Structure du projet
+
+```
+your-project/
+├── src/
+│   ├── main.tsx              # Importer les styles MDS ici
+│   ├── App.tsx               # Utiliser les composants MDS
+│   └── styles/
+│       └── custom.css        # Vos styles personnalisés utilisant les tokens
+```
+
+## Prochaines étapes
+
+- 📖 Consultez les **[Conventions](/docs/conventions/naming)** pour comprendre les règles de nommage
+- 🎨 Explorez les **[Tokens](/docs/tokens/overview)** disponibles
+- 🧩 Découvrez les **[Composants](/docs/components)** et leurs APIs
+- ♿️ Lisez les **[Critères d'accessibilité](/docs/conventions/accessibility)** que nous respectons
+
+## Support
+
+Pour toute question ou problème :
+- 📝 Ouvrez une issue sur [GitHub](https://github.com/alexisbaud/mds/issues)
+- 💬 Consultez la documentation complète dans Storybook
+- 🤝 Lisez le guide de [contribution](/docs/conventions/contributing)
+

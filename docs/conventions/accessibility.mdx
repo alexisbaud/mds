@@ -1,0 +1,289 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Conventions/Accessibility" />
+
+# Critères d'accessibilité
+
+L'accessibilité (a11y) est une priorité dans MDS. Tous les composants doivent respecter les standards WCAG 2.1 niveau AA minimum.
+
+## Principes fondamentaux
+
+### 1. Navigation clavier
+
+**Tous les composants interactifs doivent être utilisables au clavier.**
+
+✅ **Requis :**
+- `Tab` / `Shift+Tab` : navigation entre éléments
+- `Enter` / `Space` : activation (boutons, liens, checkbox, etc.)
+- `Escape` : fermeture (modals, dropdowns, etc.)
+- `Arrow keys` : navigation dans listes/menus
+
+**Exemple Button :**
+```tsx
+function Button({ onClick, isDisabled, children }) {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (isDisabled) return;
+    
+    // Enter ou Space déclenche le clic
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onClick?.();
+    }
+  };
+  
+  return (
+    <button
+      onClick={onClick}
+      onKeyDown={handleKeyDown}
+      disabled={isDisabled}
+      tabIndex={isDisabled ? -1 : 0}
+    >
+      {children}
+    </button>
+  );
+}
+```
+
+### 2. Focus visible
+
+**Le focus doit toujours être visible.**
+
+✅ **Implémentation :**
+```css
+:focus-visible {
+  outline: 2px solid var(--color-utility-focus);
+  outline-offset: 2px;
+}
+
+/* Supprimer outline pour souris, conserver pour clavier */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+```
+
+**Ne jamais faire :**
+```css
+❌ *:focus { outline: none; } /* Interdit ! */
+```
+
+### 3. Rôles ARIA
+
+**Utiliser les rôles ARIA appropriés.**
+
+| Élément | Rôle ARIA | Attributs requis |
+|---------|-----------|------------------|
+| Bouton personnalisé | `role="button"` | `tabIndex={0}` |
+| Switch/Toggle | `role="switch"` | `aria-checked` |
+| Modal | `role="dialog"` | `aria-modal`, `aria-labelledby` |
+| Tabs | `role="tablist"`, `role="tab"`, `role="tabpanel"` | `aria-selected`, `aria-controls` |
+| Alert | `role="alert"` | `aria-live="assertive"` |
+
+**Exemple Switch :**
+```tsx
+function Switch({ isChecked, onChange, label }) {
+  return (
+    <button
+      role="switch"
+      aria-checked={isChecked}
+      aria-label={label}
+      onClick={() => onChange(!isChecked)}
+    >
+      {/* Visuel du switch */}
+    </button>
+  );
+}
+```
+
+### 4. États et propriétés
+
+**Communiquer les états via ARIA.**
+
+- `aria-disabled` : élément désactivé
+- `aria-expanded` : élément déployé/replié
+- `aria-hidden` : élément caché visuellement et aux lecteurs d'écran
+- `aria-label` : label pour lecteurs d'écran
+- `aria-labelledby` : référence à un élément label
+- `aria-describedby` : description additionnelle
+- `aria-live` : annonces dynamiques
+
+**Exemple Dropdown :**
+```tsx
+function Dropdown({ isOpen, label, children }) {
+  return (
+    <div>
+      <button
+        aria-expanded={isOpen}
+        aria-controls="dropdown-content"
+        aria-haspopup="true"
+      >
+        {label}
+      </button>
+      {isOpen && (
+        <div id="dropdown-content" role="menu">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+### 5. Contraste des couleurs
+
+**Respecter les cibles APCA (Advanced Perceptual Contrast Algorithm).**
+
+| Usage | APCA Lc minimum | Exemple |
+|-------|-----------------|---------|
+| Texte corps (body) | ≥ 60 | Paragraphes, listes |
+| Titres et gros textes | ≥ 45 | Headings, display |
+| UI discrète, icônes | ≥ 30 | Séparateurs, pictos secondaires |
+
+**Vérification :**
+- Utiliser [APCA Calculator](https://www.myndex.com/APCA/)
+- Documenter les paires validées dans `contrast-pairs.mdx`
+- Tester avec addon Storybook a11y
+
+**Paires à documenter :**
+```
+color.neutral.surface.soft + color.neutral.content.heavy = Lc 75 ✅
+color.brand.surface.intense + color.brand.content.inverse = Lc 90 ✅
+```
+
+### 6. Labels et descriptions
+
+**Tous les éléments interactifs doivent avoir un label accessible.**
+
+✅ **Bon :**
+```tsx
+// Label visible
+<label htmlFor="email">Email</label>
+<input id="email" type="email" />
+
+// Label invisible (aria-label)
+<button aria-label="Fermer">
+  <CloseIcon />
+</button>
+
+// Description additionnelle
+<input
+  id="password"
+  type="password"
+  aria-describedby="password-hint"
+/>
+<p id="password-hint">
+  Minimum 8 caractères
+</p>
+```
+
+❌ **Mauvais :**
+```tsx
+<button>
+  <Icon /> {/* Pas de label ! */}
+</button>
+```
+
+### 7. Gestion du focus (focus trap)
+
+**Les modales et overlays doivent piéger le focus.**
+
+✅ **Implémentation :**
+```tsx
+import { createFocusTrap } from '@/utils/accessibility';
+
+function Modal({ isOpen, onClose, children }) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    if (isOpen && modalRef.current) {
+      const cleanup = createFocusTrap(modalRef.current);
+      return cleanup;
+    }
+  }, [isOpen]);
+  
+  return (
+    <div
+      ref={modalRef}
+      role="dialog"
+      aria-modal="true"
+    >
+      {children}
+    </div>
+  );
+}
+```
+
+### 8. Annonces aux lecteurs d'écran
+
+**Utiliser `aria-live` pour les changements dynamiques.**
+
+```tsx
+import { announceToScreenReader } from '@/utils/accessibility';
+
+function SaveButton({ onSave }) {
+  const handleSave = async () => {
+    await onSave();
+    announceToScreenReader('Enregistré avec succès', 'polite');
+  };
+  
+  return <button onClick={handleSave}>Enregistrer</button>;
+}
+```
+
+## Checklist par composant
+
+Avant de valider un composant, vérifier :
+
+- [ ] **Navigation clavier** : `Tab`, `Enter`, `Space`, `Escape`, `Arrow keys`
+- [ ] **Focus visible** : outline avec `--color-utility-focus`
+- [ ] **Rôles ARIA** : `role`, `aria-*` attributs appropriés
+- [ ] **États communiqués** : `aria-disabled`, `aria-expanded`, `aria-checked`, etc.
+- [ ] **Contraste validé** : toutes les paires `surface/content` ≥ cibles APCA
+- [ ] **Labels présents** : tous les interactifs ont `aria-label` ou label visible
+- [ ] **Focus trap** : modales/overlays piègent le focus
+- [ ] **Annonces** : changements dynamiques annoncés via `aria-live`
+- [ ] **Tests axe** : aucune violation dans addon Storybook a11y
+- [ ] **Tests manuels** : navigation complète au clavier sans souris
+
+## Outils de validation
+
+### Storybook addon-a11y
+
+Détecte automatiquement les violations a11y via axe-core.
+
+```tsx
+// Button.stories.tsx
+export default {
+  component: Button,
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          { id: 'color-contrast', enabled: true },
+          { id: 'focus-visible', enabled: true },
+        ],
+      },
+    },
+  },
+};
+```
+
+### Tests automatisés
+
+```tsx
+import { render } from '@/tests/utils/test-helpers';
+import { axe } from 'jest-axe';
+
+it('has no accessibility violations', async () => {
+  const { container } = render(<Button>Click</Button>);
+  const results = await axe(container);
+  expect(results).toHaveNoViolations();
+});
+```
+
+## Ressources
+
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
+- [APCA Contrast Calculator](https://www.myndex.com/APCA/)
+- [WebAIM Articles](https://webaim.org/articles/)
+

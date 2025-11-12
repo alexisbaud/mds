@@ -1,0 +1,277 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Component" />
+
+# Component Tokens
+
+Les **component tokens** sont des recettes spécifiques à chaque composant. Ils composent les tokens sémantiques pour créer des décisions de design atomiques par composant.
+
+## Rôle
+
+Les component tokens permettent de :
+- **Centraliser** les décisions de design par composant
+- **Faciliter** la cohérence entre variantes d'un même composant
+- **Simplifier** les modifications de design (une seule source de vérité)
+- **Découpler** les composants des tokens sémantiques (abstraction)
+
+## Principe
+
+**Les component tokens référencent UNIQUEMENT des tokens sémantiques.**
+
+```
+Primitives → Brand → Sémantiques → Component → UI
+```
+
+## Structure
+
+Les component tokens sont organisés par composant, puis par propriété :
+
+```json
+{
+  "button": {
+    "primary": {
+      "background": { "$value": "{color.brand.action.primary.default}" },
+      "background-hover": { "$value": "{color.brand.action.primary.hover}" },
+      "background-pressed": { "$value": "{color.brand.action.primary.pressed}" },
+      "content": { "$value": "{color.brand.action.content.inverse}" },
+      "border-radius": { "$value": "{radius.sm}" },
+      "padding-vertical": { "$value": "{spacing.inset.sm}" },
+      "padding-horizontal": { "$value": "{spacing.inset.md}" }
+    },
+    "secondary": {
+      "background": { "$value": "{color.brand.action.toned.transparent.default}" },
+      "content": { "$value": "{color.brand.action.content.default}" }
+    }
+  }
+}
+```
+
+## Exemples par composant
+
+### Button
+
+```json
+{
+  "button": {
+    "primary": {
+      "background": "{color.brand.action.primary.default}",
+      "background-hover": "{color.brand.action.primary.hover}",
+      "background-pressed": "{color.brand.action.primary.pressed}",
+      "content": "{color.brand.action.content.inverse}",
+      "border-radius": "{radius.sm}",
+      "padding-y": "{spacing.inset.sm}",
+      "padding-x": "{spacing.inset.md}",
+      "font": "{typography.label.md}"
+    },
+    "ghost": {
+      "background": "{color.brand.action.ghost.default}",
+      "background-hover": "{color.brand.action.ghost.hover}",
+      "content": "{color.brand.action.content.default}"
+    },
+    "size": {
+      "sm": {
+        "padding-y": "{spacing.inset.xs}",
+        "padding-x": "{spacing.inset.sm}",
+        "font": "{typography.label.sm}"
+      },
+      "lg": {
+        "padding-y": "{spacing.inset.md}",
+        "padding-x": "{spacing.inset.lg}",
+        "font": "{typography.label.lg}"
+      }
+    }
+  }
+}
+```
+
+### Card
+
+```json
+{
+  "card": {
+    "background": "{color.neutral.surface.soft}",
+    "border-radius": "{radius.md}",
+    "padding": "{spacing.inset.lg}",
+    "elevation": "{elevation.md.complete}",
+    "title": {
+      "color": "{color.neutral.content.heavy}",
+      "font": "{typography.heading.md}"
+    },
+    "body": {
+      "color": "{color.neutral.content.default}",
+      "font": "{typography.body.md}"
+    },
+    "gap": "{spacing.stack.md}"
+  }
+}
+```
+
+### Input
+
+```json
+{
+  "input": {
+    "background": "{color.neutral.surface.base}",
+    "border": "{color.neutral.content.weak}",
+    "border-width": "{border-width.sm}",
+    "border-radius": "{radius.sm}",
+    "padding-y": "{spacing.inset.sm}",
+    "padding-x": "{spacing.inset.md}",
+    "content": "{color.neutral.content.heavy}",
+    "placeholder": "{color.neutral.content.weak}",
+    "font": "{typography.body.md}",
+    "focus": {
+      "border": "{color.utility.focus}",
+      "border-width": "{border-width.focus}"
+    },
+    "error": {
+      "border": "{color.danger.action.border.heavy}",
+      "content": "{color.danger.content.heavy}"
+    }
+  }
+}
+```
+
+## Usage dans les composants
+
+### Avec variables CSS
+
+```tsx
+// Button.tsx
+import './Button.css';
+
+export function Button({ variant = 'primary', children }) {
+  return (
+    <button className={`button button--${variant}`}>
+      {children}
+    </button>
+  );
+}
+```
+
+```css
+/* Button.css */
+.button {
+  border-radius: var(--button-primary-border-radius);
+  padding: var(--button-primary-padding-y) var(--button-primary-padding-x);
+  font: var(--button-primary-font);
+}
+
+.button--primary {
+  background: var(--button-primary-background);
+  color: var(--button-primary-content);
+}
+
+.button--primary:hover {
+  background: var(--button-primary-background-hover);
+}
+
+.button--primary:active {
+  background: var(--button-primary-background-pressed);
+}
+```
+
+### Avantages
+
+**Modification centralisée :**
+```json
+// Changer tous les boutons primary en un seul endroit
+{
+  "button": {
+    "primary": {
+      "border-radius": "{radius.pill}"  // Tous les boutons deviennent pills
+    }
+  }
+}
+```
+
+**Cohérence garantie :**
+Impossible d'utiliser accidentellement un espacement ou une couleur qui ne fait pas partie de la recette du composant.
+
+**Documentation vivante :**
+Les component tokens documentent explicitement les décisions de design par composant.
+
+## Workflow de création
+
+### 1. Créer le composant avec tokens sémantiques
+
+```tsx
+function Button() {
+  return (
+    <button style={{
+      background: 'var(--color-brand-action-primary-default)',
+      padding: 'var(--spacing-inset-sm) var(--spacing-inset-md)',
+      borderRadius: 'var(--radius-sm)'
+    }}>
+      Click
+    </button>
+  );
+}
+```
+
+### 2. Identifier les patterns récurrents
+
+Si plusieurs variantes utilisent les mêmes combinaisons, créer des component tokens.
+
+### 3. Ajouter dans `component.json`
+
+```json
+{
+  "button": {
+    "primary": {
+      "background": "{color.brand.action.primary.default}",
+      "padding-y": "{spacing.inset.sm}",
+      "padding-x": "{spacing.inset.md}",
+      "border-radius": "{radius.sm}"
+    }
+  }
+}
+```
+
+### 4. Générer les CSS vars
+
+```bash
+npm run generate:tokens
+```
+
+### 5. Utiliser dans le composant
+
+```tsx
+function Button() {
+  return (
+    <button style={{
+      background: 'var(--button-primary-background)',
+      padding: 'var(--button-primary-padding-y) var(--button-primary-padding-x)',
+      borderRadius: 'var(--button-primary-border-radius)'
+    }}>
+      Click
+    </button>
+  );
+}
+```
+
+## Fichier source
+
+📄 **`src/tokens/component.json`**
+
+Les component tokens sont créés **au fil de l'eau** lors du développement des composants.
+
+## Quand créer des component tokens ?
+
+✅ **Oui :**
+- Le composant a plusieurs variantes avec patterns similaires
+- Les mêmes combinaisons de tokens sémantiques reviennent souvent
+- Le composant est réutilisé dans de nombreux endroits
+- Les décisions de design doivent être centralisées
+
+❌ **Non :**
+- Le composant est très simple (un seul style)
+- Les tokens sémantiques suffisent
+- Le composant est unique et expérimental
+
+## Prochaines étapes
+
+- Consulter les **[Semantic Tokens](/docs/tokens/semantic)** pour comprendre les tokens de base
+- Voir des exemples d'utilisation dans **[Token Demo](/docs/examples/token-demo)**
+- Lire le guide de **[Theming](/docs/tokens/theming)** pour personnaliser les component tokens
+

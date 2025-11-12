@@ -1,0 +1,176 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Overview" />
+
+# Vue d'ensemble des Tokens
+
+Les tokens sont les **décisions de design atomiques** du système. Ils définissent les couleurs, espacements, tailles, typographies et autres propriétés visuelles de manière cohérente et réutilisable.
+
+## Hiérarchie des tokens
+
+MDS organise les tokens en **4 niveaux hiérarchiques** :
+
+```
+Primitives → Brand → Sémantiques → Composants → UI
+```
+
+### 1. Primitives
+
+**Matière première brute.**
+
+- Palettes de couleurs complètes (pink, blue, gray, etc.)
+- Échelles de tailles et espacements
+- Polices et poids typographiques
+- **Usage** : uniquement pour définir les niveaux supérieurs, **jamais directement dans les composants**
+
+**Exemples :**
+- `color.super-teal.45` → `#00a8a0`
+- `spacing.pixel.16` → `16px`
+- `font-family.sans-serif.ibm-sans` → `'IBM Plex Sans'`
+
+### 2. Brand
+
+**Ancres d'identité de marque.**
+
+- Couleur principale de marque (`brand-color`)
+- Couleur d'accent de marque (`brand-accent`)
+- Polices de marque (`main`, `brand`, `technic`)
+- **Usage** : référencés par les tokens sémantiques, **jamais directement dans les composants**
+
+**Exemples :**
+- `color.brand-color.light-brand` → `{color.super-teal.30}`
+- `font-family.main` → `{font-family.sans-serif.ibm-sans}`
+
+### 3. Sémantiques
+
+**Rôles UI stables et contextuels.**
+
+- Surfaces et contenus (`neutral`, `brand`, `accent`, `danger`, etc.)
+- Espacements par usage (`micro`, `inset`, `stack`, `layout`)
+- Tailles par type (`icon`, `atom`, `molecule`, `component`)
+- Typographies par rôle (`display`, `heading`, `body`, `label`)
+- **Usage** : **cœur de la consommation par les composants**
+
+**Exemples :**
+- `color.neutral.surface.soft` → `{color.cold-gray.5}`
+- `spacing.inset.lg` → `{spacing.pixel.24}`
+- `typography.heading.md` → `{ fontFamily, fontSize, lineHeight, ... }`
+
+### 4. Composants
+
+**Recettes spécifiques à chaque composant.**
+
+- Décisions de design par composant (Button, Card, Input, etc.)
+- Compositions de tokens sémantiques
+- **Usage** : consommés uniquement par le composant correspondant
+
+**Exemples :**
+- `button.primary.background` → `{color.brand.action.primary.default}`
+- `card.padding` → `{spacing.inset.lg}`
+
+## Pourquoi cette hiérarchie ?
+
+### Flexibilité
+
+Changer une couleur de marque ou un espacement de base ne nécessite qu'un changement à un seul endroit (primitives ou brand), et tous les tokens sémantiques et composants s'ajustent automatiquement.
+
+### Cohérence
+
+Les rôles sémantiques garantissent que les mêmes intentions de design produisent les mêmes résultats visuels partout dans l'interface.
+
+### Maintenabilité
+
+Les composants ne dépendent que des tokens sémantiques, pas des primitives. Cela facilite les refontes, les thèmes multiples et les migrations.
+
+### Scalabilité
+
+Ajouter un nouveau thème (dark mode, high contrast) ne nécessite que de redéfinir les tokens sémantiques, pas de toucher aux composants.
+
+## Nomenclature
+
+### Structure des chemins
+
+```
+groupe.sous-groupe.niveau.variation
+```
+
+**Exemples :**
+- `color.brand.action.primary.default`
+- `spacing.inset.lg`
+- `typography.body.md`
+
+### Règles de nommage
+
+- **kebab-case** : tirets entre mots (`brand-color`, `light-brand`)
+- **Sensible à la casse** : respecter exactement les clés JSON
+- **Déterministe** : mêmes chemins = mêmes valeurs
+
+### Variables CSS
+
+Les tokens sémantiques et composants sont convertis en variables CSS :
+
+```
+Token:        color.brand.action.primary.default
+CSS var:      --color-brand-action-primary-default
+```
+
+## Consommation recommandée
+
+### ✅ À faire
+
+```tsx
+// Utiliser les tokens sémantiques
+<div style={{ 
+  background: 'var(--color-neutral-surface-soft)',
+  padding: 'var(--spacing-inset-lg)',
+  color: 'var(--color-neutral-content-heavy)'
+}}>
+  Content
+</div>
+```
+
+```css
+.card {
+  background: var(--color-neutral-surface-soft);
+  padding: var(--spacing-inset-lg);
+  border-radius: var(--radius-md);
+}
+```
+
+### ❌ À éviter
+
+```tsx
+// NE PAS utiliser les primitives directement
+<div style={{ 
+  background: '#f5f5f5',      // Valeur magique !
+  padding: '24px',            // Valeur magique !
+  color: '#1a1a1a'            // Valeur magique !
+}}>
+  Content
+</div>
+```
+
+## Documentation détaillée
+
+- **[Primitives](/docs/tokens/primitives)** : matière première complète
+- **[Brand](/docs/tokens/brand)** : tokens d'identité de marque
+- **[Semantic](/docs/tokens/semantic)** : rôles UI et guide d'usage
+- **[Component](/docs/tokens/component)** : recettes par composant
+- **[Theming](/docs/tokens/theming)** : créer des thèmes personnalisés
+- **[Contrast Pairs](/docs/tokens/contrast-pairs)** : paires validées APCA
+
+## Mise à jour des tokens
+
+Les tokens JSON sont situés dans `src/tokens/` :
+
+1. Éditer les fichiers JSON (idéalement depuis Tokens Studio for Figma)
+2. Exécuter `npm run generate:tokens`
+3. Les variables CSS sont générées dans `src/styles/tokens.css`
+4. Les composants utilisent automatiquement les nouvelles valeurs
+
+## Prochaines étapes
+
+- Consultez **[Semantic Tokens](/docs/tokens/semantic)** pour la liste complète des tokens disponibles
+- Lisez **[Theming](/docs/tokens/theming)** pour créer un thème personnalisé
+- Vérifiez **[Contrast Pairs](/docs/tokens/contrast-pairs)** pour les combinaisons validées
+

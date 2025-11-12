@@ -1,0 +1,169 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Conventions/Naming" />
+
+# Conventions de nommage
+
+Les conventions de nommage dans MDS garantissent la cohérence, la prévisibilité et la maintenabilité du système.
+
+## Tokens
+
+### Structure hiérarchique
+
+Les tokens suivent une structure en segments séparés par des points (`.`) :
+
+```
+groupe.sous-groupe.niveau.variation
+```
+
+**Exemples :**
+- `color.neutral.surface.default`
+- `spacing.inset.lg`
+- `typography.body.md`
+- `color.brand.action.primary.hover`
+
+### Casse et orthographe
+
+- **kebab-case** pour les clés (tirets entre mots)
+- **Sensible à la casse** : respecter exactement les clés JSON
+- **Déterministe** : les mêmes chemins doivent toujours pointer vers les mêmes valeurs
+
+**Exemples :**
+- ✅ `light-brand`, `dark-brand`
+- ✅ `border-width`, `font-family`
+- ❌ `lightBrand` (camelCase non utilisé)
+- ❌ `Light-Brand` (casse incorrecte)
+
+### Variables CSS
+
+Les tokens sont convertis en variables CSS en remplaçant les points par des tirets et en préfixant par `--` :
+
+```
+Token JSON:     color.brand.action.primary.default
+CSS variable:   --color-brand-action-primary-default
+```
+
+## Composants
+
+### Fichiers et dossiers
+
+- **PascalCase** pour les noms de composants : `Button.tsx`, `Card.tsx`
+- **kebab-case** pour les dossiers contenant plusieurs fichiers : `button/`, `card/`
+
+```
+components/
+├── Button.tsx              # Composant simple
+├── button/
+│   ├── Button.tsx         # Composant principal
+│   ├── Button.test.tsx    # Tests
+│   ├── Button.stories.tsx # Stories Storybook
+│   └── Button.css         # Styles (si CSS modules)
+```
+
+### Props
+
+- **camelCase** pour les noms de props
+- **Préfixes conventionnels** :
+  - `on*` pour les callbacks : `onClick`, `onChange`
+  - `is*` pour les booléens : `isDisabled`, `isLoading`
+  - `has*` pour les booléens de présence : `hasIcon`, `hasError`
+
+```tsx
+interface ButtonProps {
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  isDisabled?: boolean;
+  isLoading?: boolean;
+  onClick?: () => void;
+  children: React.ReactNode;
+}
+```
+
+## Tests
+
+- **Suffixe `.test.tsx`** pour les fichiers de test
+- **Descriptions en langage naturel** avec `describe` et `it`
+
+```tsx
+describe('Button', () => {
+  it('renders with children', () => {
+    // test
+  });
+
+  it('calls onClick when clicked', () => {
+    // test
+  });
+
+  it('is disabled when isDisabled is true', () => {
+    // test
+  });
+});
+```
+
+## Stories Storybook
+
+- **Suffixe `.stories.tsx`** pour les fichiers de stories
+- **PascalCase** pour les noms de stories : `Default`, `Primary`, `WithIcon`
+
+```tsx
+export default {
+  title: 'Components/Button',
+  component: Button,
+};
+
+export const Default = {};
+export const Primary = { args: { variant: 'primary' } };
+export const WithIcon = { args: { children: <Icon /> } };
+```
+
+## Classes CSS
+
+- **kebab-case** pour les noms de classes
+- **Préfixes BEM** si utilisation de BEM (optionnel)
+
+```css
+/* Simple */
+.button { }
+.button-primary { }
+.button-disabled { }
+
+/* BEM (optionnel) */
+.button { }
+.button__icon { }
+.button--primary { }
+.button--disabled { }
+```
+
+## Commits Git
+
+Suivre la convention **Conventional Commits** :
+
+- `feat:` — Nouvelle fonctionnalité
+- `fix:` — Correction de bug
+- `docs:` — Changements de documentation
+- `style:` — Formatage, point-virgules, etc. (pas de changement de code)
+- `refactor:` — Refactorisation sans changement de comportement
+- `test:` — Ajout ou correction de tests
+- `chore:` — Tâches de maintenance (dependencies, config, etc.)
+
+**Exemples :**
+```
+feat: add Button component with variants
+fix: correct focus ring color on dark backgrounds
+docs: update getting started guide
+test: add accessibility tests for Button
+```
+
+## Résumé
+
+| Élément | Convention | Exemple |
+|---------|-----------|---------|
+| Tokens JSON | kebab-case, points | `color.brand-action.primary.default` |
+| Variables CSS | kebab-case, tirets, préfixe `--` | `--color-brand-action-primary-default` |
+| Composants | PascalCase | `Button`, `Card`, `TextField` |
+| Props | camelCase | `onClick`, `isDisabled`, `hasError` |
+| Fichiers de test | `.test.tsx` | `Button.test.tsx` |
+| Stories | `.stories.tsx` | `Button.stories.tsx` |
+| Classes CSS | kebab-case | `button`, `button-primary` |
+| Commits | Conventional | `feat:`, `fix:`, `docs:` |
+

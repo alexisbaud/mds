@@ -1,0 +1,21 @@
+{
+  "$description": "Primitive tokens - Matière première du design system. Ces tokens ne doivent jamais être consommés directement par les composants.",
+  "color": {},
+  "transparent": {},
+  "opacity": {},
+  "size": {},
+  "spacing": {},
+  "border-radius": {},
+  "border-width": {},
+  "font-family": {},
+  "font-weight": {},
+  "line-height": {},
+  "font-size": {},
+  "letter-spacing": {},
+  "paragraph-spacing": {},
+  "text-case": {},
+  "text-decoration": {},
+  "boolean": {},
+  "dimension": {}
+}
+

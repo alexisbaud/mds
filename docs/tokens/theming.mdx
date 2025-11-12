@@ -1,0 +1,344 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Theming" />
+
+# Guide de Thématisation
+
+MDS utilise des **variables CSS** pour faciliter la création de thèmes personnalisés. Vous pouvez override les tokens pour créer des thèmes dark, high contrast, ou entièrement personnalisés.
+
+## Principe
+
+Les tokens sont exposés comme variables CSS (`--token-name`). Pour créer un thème, il suffit de redéfinir ces variables dans un contexte spécifique.
+
+## Thème global
+
+### Override au niveau `:root`
+
+Redéfinissez les variables CSS directement dans `:root` pour un changement global :
+
+```css
+/* custom-theme.css */
+:root {
+  /* Changer la couleur d'action principale */
+  --color-brand-action-primary-default: #ff6b6b;
+  --color-brand-action-primary-hover: #ff5252;
+  --color-brand-action-primary-pressed: #ff3838;
+  
+  /* Changer les espacements */
+  --spacing-inset-sm: 8px;
+  --spacing-inset-md: 16px;
+  --spacing-inset-lg: 24px;
+  
+  /* Changer les rayons */
+  --radius-sm: 16px;
+  --radius-md: 24px;
+}
+```
+
+**Utilisation :**
+```tsx
+import 'mds/styles/tokens.css';
+import './custom-theme.css';  // Après tokens.css
+
+function App() {
+  return <Button>Click me</Button>;
+}
+```
+
+## Thèmes conditionnels
+
+### Attribut de données
+
+Utilisez des attributs comme `[data-theme]` pour des thèmes switchables :
+
+```css
+/* themes.css */
+
+/* Dark theme */
+[data-theme="dark"] {
+  --color-neutral-surface-base: #1a1a1a;
+  --color-neutral-surface-soft: #2a2a2a;
+  --color-neutral-surface-medium: #3a3a3a;
+  
+  --color-neutral-content-heaviest: #ffffff;
+  --color-neutral-content-heavy: #e0e0e0;
+  --color-neutral-content-default: #c0c0c0;
+  --color-neutral-content-weak: #999999;
+}
+
+/* High contrast theme */
+[data-theme="high-contrast"] {
+  --color-neutral-surface-base: #000000;
+  --color-neutral-content-heaviest: #ffffff;
+  
+  /* Augmenter les contrastes */
+  --color-brand-action-primary-default: #0066ff;
+  --border-width-sm: 2px;
+  --border-width-md: 3px;
+}
+```
+
+**Utilisation :**
+```tsx
+function App() {
+  const [theme, setTheme] = useState('light');
+  
+  return (
+    <div data-theme={theme}>
+      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+        Toggle theme
+      </button>
+      <Button>Click me</Button>
+    </div>
+  );
+}
+```
+
+### Classe CSS
+
+Alternativement, utilisez des classes :
+
+```css
+.theme-dark {
+  --color-neutral-surface-base: #1a1a1a;
+  /* ... */
+}
+```
+
+```tsx
+<div className={`app ${isDark ? 'theme-dark' : ''}`}>
+  {/* ... */}
+</div>
+```
+
+## Exemple : Dark Theme complet
+
+```css
+/* dark-theme.css */
+[data-theme="dark"] {
+  /* Surfaces */
+  --color-neutral-surface-base: #0f0f0f;
+  --color-neutral-surface-subtle: #1a1a1a;
+  --color-neutral-surface-soft: #262626;
+  --color-neutral-surface-medium: #333333;
+  --color-neutral-surface-strong: #404040;
+  --color-neutral-surface-intense: #4d4d4d;
+  
+  /* Contents */
+  --color-neutral-content-heaviest: #ffffff;
+  --color-neutral-content-heavier: #f0f0f0;
+  --color-neutral-content-heavy: #e0e0e0;
+  --color-neutral-content-default: #b0b0b0;
+  --color-neutral-content-weak: #808080;
+  --color-neutral-content-weaker: #606060;
+  --color-neutral-content-weakest: #404040;
+  
+  /* Ajuster les ombres pour le dark */
+  --color-neutral-effect-shadow-soft: rgba(0, 0, 0, 0.5);
+  --color-neutral-effect-shadow-medium: rgba(0, 0, 0, 0.6);
+  --color-neutral-effect-shadow-intense: rgba(0, 0, 0, 0.8);
+  
+  /* Brand colors peuvent rester ou s'ajuster */
+  --color-brand-action-primary-default: #4dabf7;
+  --color-brand-action-primary-hover: #339af0;
+  --color-brand-action-primary-pressed: #1c7ed6;
+}
+```
+
+## Thèmes partiels (scoped)
+
+Vous pouvez créer des thèmes pour des sections spécifiques :
+
+```css
+/* Sidebar avec thème indépendant */
+.sidebar {
+  --color-neutral-surface-base: #f5f5f5;
+  --color-neutral-content-heavy: #1a1a1a;
+}
+
+/* Modal avec fond sombre */
+.modal-overlay {
+  --color-neutral-surface-base: rgba(0, 0, 0, 0.8);
+  --color-neutral-content-heaviest: #ffffff;
+}
+```
+
+## Préférences système
+
+Respectez les préférences système de l'utilisateur :
+
+```css
+/* Auto dark mode basé sur préférences OS */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-neutral-surface-base: #1a1a1a;
+    --color-neutral-content-heaviest: #ffffff;
+    /* ... */
+  }
+}
+
+/* Ou avec classe conditionnelle */
+@media (prefers-color-scheme: dark) {
+  .auto-theme {
+    --color-neutral-surface-base: #1a1a1a;
+    /* ... */
+  }
+}
+```
+
+```tsx
+function App() {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [theme, setTheme] = useState(prefersDark ? 'dark' : 'light');
+  
+  return <div data-theme={theme}>{/* ... */}</div>;
+}
+```
+
+## Bonnes pratiques
+
+### 1. Override uniquement ce qui change
+
+❌ **Éviter :**
+```css
+[data-theme="dark"] {
+  /* Redéfinir TOUS les tokens */
+  --spacing-inset-sm: 12px;  /* Inutile si inchangé */
+  --radius-md: 8px;          /* Inutile si inchangé */
+}
+```
+
+✅ **Préférer :**
+```css
+[data-theme="dark"] {
+  /* Uniquement les tokens qui changent */
+  --color-neutral-surface-base: #1a1a1a;
+  --color-neutral-content-heaviest: #ffffff;
+}
+```
+
+### 2. Maintenir le contraste
+
+Vérifiez toujours que vos paires `surface/content` respectent les cibles APCA. Consultez **[Contrast Pairs](/docs/tokens/contrast-pairs)**.
+
+### 3. Tester l'accessibilité
+
+```tsx
+// Testez avec addon a11y de Storybook
+export const DarkTheme = {
+  decorators: [
+    (Story) => (
+      <div data-theme="dark">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    a11y: {
+      config: {
+        rules: [{ id: 'color-contrast', enabled: true }],
+      },
+    },
+  },
+};
+```
+
+### 4. Prévoir les transitions
+
+```css
+* {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+  }
+}
+```
+
+## Outils recommandés
+
+### Générateur de thèmes
+
+Créez un helper pour générer des thèmes programmatiquement :
+
+```tsx
+// utils/theme-generator.ts
+export function generateTheme(overrides: Record<string, string>) {
+  return Object.entries(overrides)
+    .map(([key, value]) => `--${key}: ${value};`)
+    .join('\n');
+}
+
+// Usage
+const darkTheme = generateTheme({
+  'color-neutral-surface-base': '#1a1a1a',
+  'color-neutral-content-heaviest': '#ffffff',
+});
+```
+
+### Persistance du thème
+
+```tsx
+// hooks/useTheme.ts
+export function useTheme() {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
+  
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+  
+  return { theme, setTheme };
+}
+```
+
+## Exemple complet : Theme Switcher
+
+```tsx
+import { useEffect, useState } from 'react';
+import { Button } from 'mds';
+import './themes.css';
+
+function ThemeSwitcher() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+  
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+  
+  return (
+    <Button onClick={toggleTheme}>
+      {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+    </Button>
+  );
+}
+
+export default ThemeSwitcher;
+```
+
+## Roadmap des thèmes
+
+**Phase actuelle :**
+- ✅ Variables CSS générées
+- ✅ Override simple via `:root` ou `[data-theme]`
+
+**Phase future :**
+- 🔜 Dark theme officiel dans `semantic.json`
+- 🔜 High contrast theme
+- 🔜 Générateur de thèmes automatique
+- 🔜 Support de plusieurs thèmes en parallèle
+
+## Ressources
+
+- **[Semantic Tokens](/docs/tokens/semantic)** : tokens disponibles pour override
+- **[Contrast Pairs](/docs/tokens/contrast-pairs)** : vérifier les contrastes
+- **[Component Tokens](/docs/tokens/component)** : override au niveau composant
+

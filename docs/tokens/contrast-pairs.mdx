@@ -1,0 +1,206 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Tokens/Contrast Pairs" />
+
+# Paires de Contraste Validées
+
+Les paires `surface/content` doivent respecter des cibles de contraste **APCA** (Advanced Perceptual Contrast Algorithm) pour garantir l'accessibilité.
+
+## Cibles APCA
+
+| Usage | Lc minimum | Contexte |
+|-------|------------|----------|
+| **Texte corps (body)** | ≥ 60 | Paragraphes, listes, contenu long |
+| **Titres et gros textes** | ≥ 45 | Headings, display, éléments mis en avant |
+| **UI discrète, icônes** | ≥ 30 | Séparateurs, icônes secondaires, borders |
+
+**Lc** = Lightness contrast (contraste perceptuel)
+
+## Outil de vérification
+
+Utilisez le **[APCA Calculator](https://www.myndex.com/APCA/)** pour vérifier vos paires.
+
+## Paires validées — Neutral
+
+### Sur surface base
+
+| Surface | Content | Lc | Usage |
+|---------|---------|-----|-------|
+| `neutral.surface.base` | `neutral.content.heaviest` | **~90** | Texte principal, titres importants |
+| `neutral.surface.base` | `neutral.content.heavy` | **~75** | Texte corps, paragraphes |
+| `neutral.surface.base` | `neutral.content.default` | **~60** | Texte secondaire, labels |
+| `neutral.surface.base` | `neutral.content.weak` | **~45** | Texte tertiaire, captions |
+| `neutral.surface.base` | `neutral.content.weaker` | **~35** | Icônes secondaires, séparateurs |
+| `neutral.surface.base` | `neutral.content.weakest` | **~30** | Borders subtils, dividers |
+
+### Sur surface soft
+
+| Surface | Content | Lc | Usage |
+|---------|---------|-----|-------|
+| `neutral.surface.soft` | `neutral.content.heaviest` | **~85** | Titres sur cartes |
+| `neutral.surface.soft` | `neutral.content.heavy` | **~70** | Contenu principal sur cartes |
+| `neutral.surface.soft` | `neutral.content.default` | **~55** | Contenu secondaire sur cartes |
+
+### Sur surface intense
+
+| Surface | Content | Lc | Usage |
+|---------|---------|-----|-------|
+| `neutral.surface.intense` | `neutral.content.inverse` | **~80** | Texte blanc sur fond sombre |
+
+## Paires validées — Brand
+
+### Sur surface brand
+
+| Surface | Content | Lc | Usage |
+|---------|---------|-----|-------|
+| `brand.surface.intense` | `brand.content.inverse` | **~90** | Boutons primary, CTA forts |
+| `brand.surface.soft` | `brand.content.heavy` | **~65** | Surfaces brandées discrètes |
+
+### Actions
+
+| Background | Content | Lc | Usage |
+|------------|---------|-----|-------|
+| `brand.action.primary.default` | `brand.action.content.inverse` | **~85** | Boutons primary |
+| `brand.action.toned.transparent.default` | `brand.action.content.default` | **~60** | Boutons secondary |
+
+## Paires validées — States
+
+### Danger
+
+| Surface | Content | Lc | Usage |
+|---------|---------|-----|-------|
+| `danger.surface.soft` | `danger.content.heavy` | **~70** | Alertes d'erreur |
+| `danger.surface.intense` | `danger.content.inverse` | **~85** | Boutons destructifs |
+
+### Warning
+
+| Surface | Content | Lc | Usage |
+|---------|---------|-----|-------|
+| `warning.surface.soft` | `warning.content.heavy` | **~65** | Avertissements |
+
+### Success
+
+| Surface | Content | Lc | Usage |
+|---------|---------|-----|-------|
+| `success.surface.soft` | `success.content.heavy` | **~70** | Messages de succès |
+
+### Info
+
+| Surface | Content | Lc | Usage |
+|---------|---------|-----|-------|
+| `info.surface.soft` | `info.content.heavy` | **~65** | Messages informatifs |
+
+## Combinaisons à éviter
+
+❌ **Contraste insuffisant :**
+
+| Surface | Content | Lc | Problème |
+|---------|---------|-----|----------|
+| `neutral.surface.soft` | `neutral.content.weak` | **~40** | Trop faible pour texte corps |
+| `brand.surface.subtle` | `brand.content.weak` | **~35** | Trop faible pour texte |
+
+**Solution :** Augmenter le niveau de content (ex: utiliser `content.heavy` au lieu de `content.weak`)
+
+## Validation dans Storybook
+
+Utilisez l'addon **a11y** pour détecter automatiquement les violations :
+
+```tsx
+// Button.stories.tsx
+export default {
+  component: Button,
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            id: 'color-contrast',
+            enabled: true,
+          },
+        ],
+      },
+    },
+  },
+};
+
+export const Primary = {
+  args: {
+    variant: 'primary',
+    children: 'Click me',
+  },
+};
+```
+
+L'addon vérifiera automatiquement le contraste et affichera les violations dans le panneau Accessibility.
+
+## Tests automatisés
+
+```tsx
+import { render } from '@/tests/utils/test-helpers';
+import { axe } from 'jest-axe';
+
+it('has sufficient color contrast', async () => {
+  const { container } = render(<Button>Click</Button>);
+  const results = await axe(container, {
+    rules: {
+      'color-contrast': { enabled: true },
+    },
+  });
+  
+  expect(results).toHaveNoViolations();
+});
+```
+
+## Documenter vos paires
+
+Lorsque vous créez un nouveau composant, documentez les paires utilisées :
+
+```tsx
+/**
+ * Card component
+ * 
+ * Contrast pairs used:
+ * - Background: neutral.surface.soft
+ * - Title: neutral.content.heavy (Lc ~70 ✅)
+ * - Body: neutral.content.default (Lc ~55 ✅)
+ * - Caption: neutral.content.weak (Lc ~45 ⚠️ use only for captions)
+ */
+export function Card({ title, body, caption }) {
+  return (
+    <div className="card">
+      <h3 className="card-title">{title}</h3>
+      <p className="card-body">{body}</p>
+      {caption && <span className="card-caption">{caption}</span>}
+    </div>
+  );
+}
+```
+
+## Mise à jour de cette page
+
+Cette page doit être mise à jour lorsque :
+- De nouveaux tokens sémantiques sont ajoutés
+- Des paires sont validées avec l'outil APCA
+- Des violations sont découvertes et corrigées
+
+**Process :**
+1. Tester la paire avec APCA Calculator
+2. Valider l'usage (body/heading/UI)
+3. Ajouter dans ce document avec Lc mesuré
+4. Créer une story Storybook pour démonstration
+5. Ajouter un test automatisé
+
+## Ressources
+
+- **[APCA Calculator](https://www.myndex.com/APCA/)** : outil officiel
+- **[APCA Documentation](https://git.apcacontrast.com/)** : spécifications complètes
+- **[Storybook addon-a11y](https://storybook.js.org/addons/@storybook/addon-a11y)** : tests automatiques
+- **[axe-core](https://github.com/dequelabs/axe-core)** : engine de tests a11y
+
+## Notes
+
+- Les valeurs Lc sont **approximatives** et dépendent des valeurs exactes des tokens
+- Toujours **tester** avec l'outil APCA pour confirmation
+- Les cibles sont des **minimums** : plus de contraste est toujours mieux
+- Considérer le **contexte** : un texte court peut avoir un contraste plus faible qu'un long paragraphe
+
