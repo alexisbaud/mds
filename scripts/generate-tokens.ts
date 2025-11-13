@@ -58,7 +58,7 @@ function loadTokenFile(filename: string): TokenObject {
  * e.g., { color: { neutral: { surface: { default: '#fff' } } } }
  * becomes { 'color.neutral.surface.default': '#fff' }
  * 
- * Complex objects (typography, elevation) are decomposed into separate properties
+ * Complex objects (typography, shadows) are stored as JSON strings
  */
 function flattenTokens(
   obj: TokenObject,
@@ -76,27 +76,11 @@ function flattenTokens(
       // Check if it's a token value object with $value
       if ('$value' in value) {
         const tokenValue = (value as TokenValue).$value;
-        
         if (typeof tokenValue === 'string' || typeof tokenValue === 'number') {
           result[path] = tokenValue;
         } else if (typeof tokenValue === 'object' && tokenValue !== null) {
-          // Handle complex values (typography, shadows, etc.)
-          if (Array.isArray(tokenValue)) {
-            // Arrays (like elevation shadows) - store as JSON
-            // Mark as shadow to handle references silently
-            result[`${path}.__type`] = 'shadow';
-            result[path] = JSON.stringify(tokenValue);
-          } else {
-            // Objects (like typography) - decompose into separate properties
-            for (const subKey in tokenValue) {
-              if (typeof tokenValue[subKey] === 'string' || typeof tokenValue[subKey] === 'number') {
-                result[`${path}.${subKey}`] = tokenValue[subKey];
-              } else {
-                // Nested objects - stringify
-                result[`${path}.${subKey}`] = JSON.stringify(tokenValue[subKey]);
-              }
-            }
-          }
+          // Store complex values as JSON strings (will be resolved later)
+          result[path] = JSON.stringify(tokenValue);
         }
       } else {
         // Recurse into nested object
@@ -112,54 +96,77 @@ function flattenTokens(
 
 /**
  * Resolve token references in format {token.path.here}
- * Also handles references inside JSON strings (for shadows, etc.)
  */
 function resolveReferences(
   value: string | number,
   allTokens: Record<string, string | number>,
-  visited = new Set<string>(),
-  silent = false
+  visited = new Set<string>()
 ): string | number {
   if (typeof value !== 'string') return value;
 
   // Match {token.path} pattern
   const referencePattern = /\{([^}]+)\}/g;
   let resolved = value;
-  const matches: RegExpExecArray[] = [];
   let match;
 
-  // Collect all matches first to avoid infinite loop
   while ((match = referencePattern.exec(value)) !== null) {
-    matches.push(match);
-  }
-
-  // Process matches in reverse order to preserve indices
-  for (const match of matches.reverse()) {
     const refPath = match[1];
 
     // Prevent circular references
     if (visited.has(refPath)) {
-      if (!silent) console.warn(`Circular reference detected: ${refPath}`);
+      console.warn(`Circular reference detected: ${refPath}`);
       continue;
     }
 
     const refValue = allTokens[refPath];
     if (refValue !== undefined) {
       visited.add(refPath);
-      const resolvedRef = resolveReferences(refValue, allTokens, visited, silent);
+      const resolvedRef = resolveReferences(refValue, allTokens, visited);
       resolved = resolved.replace(match[0], String(resolvedRef));
       visited.delete(refPath);
     } else {
-      // Special handling for common missing tokens
-      if (refPath === 'dimension.pixel.null') {
-        resolved = resolved.replace(match[0], '0');
-      } else if (!silent) {
-        console.warn(`Reference not found: ${refPath}`);
-      }
+      console.warn(`Reference not found: ${refPath}`);
     }
   }
 
   return resolved;
+}
+
+/**
+ * Recursively resolve references within complex objects (typography, shadows, etc.)
+ * This walks through objects and arrays, resolving any {token.path} references found
+ */
+function resolveObjectReferences(
+  value: unknown,
+  allTokens: Record<string, string | number>,
+  visited = new Set<string>()
+): unknown {
+  // Handle null/undefined
+  if (value === null || value === undefined) {
+    return value;
+  }
+
+  // Handle arrays (e.g., shadow arrays)
+  if (Array.isArray(value)) {
+    return value.map((item) => resolveObjectReferences(item, allTokens, visited));
+  }
+
+  // Handle objects (e.g., typography objects)
+  if (typeof value === 'object') {
+    const resolved: Record<string, unknown> = {};
+    for (const [key, val] of Object.entries(value)) {
+      resolved[key] = resolveObjectReferences(val, allTokens, visited);
+    }
+    return resolved;
+  }
+
+  // Handle strings with references
+  if (typeof value === 'string' && value.includes('{')) {
+    return resolveReferences(value, allTokens, visited);
+  }
+
+  // Return primitives as-is
+  return value;
 }
 
 /**
@@ -176,9 +183,23 @@ function toCSSVariableName(path: string): string {
 function formatCSSValue(value: string | number): string {
   const str = String(value);
 
-  // Remove quotes from font family strings
-  if (str.startsWith('"') && str.endsWith('"')) {
-    return str.slice(1, -1);
+  // If it's a JSON string (for complex values), parse and format
+  if (str.startsWith('{') || str.startsWith('[')) {
+    try {
+      const parsed = JSON.parse(str);
+
+      // Handle typography tokens
+      if (parsed.fontFamily) {
+        return str; // Keep as-is for now, will need special handling in components
+      }
+
+      // Handle shadow tokens
+      if (Array.isArray(parsed)) {
+        return str; // Keep as-is for now
+      }
+    } catch {
+      // Not JSON, continue
+    }
   }
 
   return str;
@@ -203,32 +224,10 @@ function generateCSS(tokens: Record<string, string | number>): string {
   // Sort tokens alphabetically for consistency
   const sortedPaths = Object.keys(tokens).sort();
 
-  // Group tokens by category for better readability
-  const categories = new Map<string, string[]>();
-  
   for (const path of sortedPaths) {
-    const category = path.split('.')[0];
-    if (!categories.has(category)) {
-      categories.set(category, []);
-    }
-    categories.get(category)!.push(path);
-  }
-
-  // Generate CSS with category comments
-  let isFirst = true;
-  for (const [category, paths] of Array.from(categories.entries()).sort()) {
-    if (!isFirst) {
-      lines.push('');
-    }
-    lines.push(`  /* ${category} */`);
-    
-    for (const path of paths) {
-      const cssVar = toCSSVariableName(path);
-      const value = formatCSSValue(tokens[path]);
-      lines.push(`  ${cssVar}: ${value};`);
-    }
-    
-    isFirst = false;
+    const cssVar = toCSSVariableName(path);
+    const value = formatCSSValue(tokens[path]);
+    lines.push(`  ${cssVar}: ${value};`);
   }
 
   lines.push('}');
@@ -250,14 +249,19 @@ function main() {
   const semantic = loadTokenFile(TOKEN_FILES.semantic);
   const component = loadTokenFile(TOKEN_FILES.component);
 
-  // Flatten all tokens for reference resolution
-  console.log('🔄 Flattening tokens...');
+  // PASS 1: Flatten all tokens without resolving complex objects
+  console.log('🔄 Flattening tokens (first pass)...');
   const flatPrimitives = flattenTokens(primitives);
   const flatBrand = flattenTokens(brand);
   const flatSemantic = flattenTokens(semantic);
   const flatComponent = flattenTokens(component);
 
-  // Combine all tokens for reference resolution
+  console.log(`  Found ${Object.keys(flatPrimitives).length} primitive tokens`);
+  console.log(`  Found ${Object.keys(flatBrand).length} brand tokens`);
+  console.log(`  Found ${Object.keys(flatSemantic).length} semantic tokens`);
+  console.log(`  Found ${Object.keys(flatComponent).length} component tokens`);
+
+  // PASS 2: Create complete token map for reference resolution
   const allTokens = {
     ...flatPrimitives,
     ...flatBrand,
@@ -265,53 +269,78 @@ function main() {
     ...flatComponent,
   };
 
-  console.log(
-    `  Found ${Object.keys(flatPrimitives).length} primitive tokens`
-  );
-  console.log(`  Found ${Object.keys(flatBrand).length} brand tokens`);
-  console.log(`  Found ${Object.keys(flatSemantic).length} semantic tokens`);
-  console.log(`  Found ${Object.keys(flatComponent).length} component tokens`);
-
-  // Resolve references in semantic and component tokens
-  console.log('\n🔗 Resolving token references...');
-  const resolvedSemantic: Record<string, string | number> = {};
-  const resolvedComponent: Record<string, string | number> = {};
+  // PASS 3: Resolve complex objects in semantic and component tokens
+  console.log('🔄 Resolving complex objects (typography, shadows)...');
+  const semanticResolved: Record<string, string | number> = {};
+  const componentResolved: Record<string, string | number> = {};
 
   for (const [path, value] of Object.entries(flatSemantic)) {
-    // Skip internal type markers
-    if (path.endsWith('.__type')) continue;
-    
-    // Check if this is a shadow token (silent resolution for references inside)
-    const isShadow = flatSemantic[`${path}.__type`] === 'shadow';
-    let resolved = resolveReferences(value, allTokens, new Set(), isShadow);
-    
-    // Post-process shadows to resolve references inside JSON
-    if (isShadow && typeof resolved === 'string') {
-      resolved = resolved.replace(/\{dimension\.pixel\.null\}/g, '0');
+    // Check if value is a JSON string (complex object)
+    if (typeof value === 'string' && (value.startsWith('{') || value.startsWith('['))) {
+      try {
+        const parsed = JSON.parse(value);
+        const resolved = resolveObjectReferences(parsed, allTokens);
+        semanticResolved[path] = JSON.stringify(resolved);
+      } catch {
+        // Not valid JSON, keep as-is
+        semanticResolved[path] = value;
+      }
+    } else {
+      semanticResolved[path] = value;
     }
-    
-    resolvedSemantic[path] = resolved;
   }
 
   for (const [path, value] of Object.entries(flatComponent)) {
-    // Skip internal type markers
-    if (path.endsWith('.__type')) continue;
-    
-    const isShadow = flatComponent[`${path}.__type`] === 'shadow';
-    let resolved = resolveReferences(value, allTokens, new Set(), isShadow);
-    
-    // Post-process shadows to resolve references inside JSON
-    if (isShadow && typeof resolved === 'string') {
-      resolved = resolved.replace(/\{dimension\.pixel\.null\}/g, '0');
+    // Check if value is a JSON string (complex object)
+    if (typeof value === 'string' && (value.startsWith('{') || value.startsWith('['))) {
+      try {
+        const parsed = JSON.parse(value);
+        const resolved = resolveObjectReferences(parsed, allTokens);
+        componentResolved[path] = JSON.stringify(resolved);
+      } catch {
+        // Not valid JSON, keep as-is
+        componentResolved[path] = value;
+      }
+    } else {
+      componentResolved[path] = value;
     }
-    
-    resolvedComponent[path] = resolved;
+  }
+
+  // PASS 4: Resolve simple string references in semantic and component tokens
+  console.log('🔗 Resolving token references...');
+  const finalSemantic: Record<string, string | number> = {};
+  const finalComponent: Record<string, string | number> = {};
+
+  // Update allTokens with resolved objects for final pass
+  const allTokensWithResolved = {
+    ...flatPrimitives,
+    ...flatBrand,
+    ...semanticResolved,
+    ...componentResolved,
+  };
+
+  for (const [path, value] of Object.entries(semanticResolved)) {
+    // Only resolve if it's a simple string with references, not a JSON object
+    if (typeof value === 'string' && value.includes('{') && !value.startsWith('{') && !value.startsWith('[')) {
+      finalSemantic[path] = resolveReferences(value, allTokensWithResolved);
+    } else {
+      finalSemantic[path] = value;
+    }
+  }
+
+  for (const [path, value] of Object.entries(componentResolved)) {
+    // Only resolve if it's a simple string with references, not a JSON object
+    if (typeof value === 'string' && value.includes('{') && !value.startsWith('{') && !value.startsWith('[')) {
+      finalComponent[path] = resolveReferences(value, allTokensWithResolved);
+    } else {
+      finalComponent[path] = value;
+    }
   }
 
   // Combine semantic and component tokens for CSS output
   const cssTokens = {
-    ...resolvedSemantic,
-    ...resolvedComponent,
+    ...finalSemantic,
+    ...finalComponent,
   };
 
   console.log(`  Resolved ${Object.keys(cssTokens).length} tokens for CSS`);

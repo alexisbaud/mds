@@ -2091,6 +2091,10 @@
   },
   "dimension": {
     "pixel": {
+      "null": {
+        "$type": "dimension",
+        "$value": "0px"
+      },
       "1": {
         "$type": "dimension",
         "$value": "1px"
@@ -2166,10 +2170,6 @@
       "1024": {
         "$type": "dimension",
         "$value": "1024px"
-      },
-      "null": {
-        "$type": "dimension",
-        "$value": "0px"
       }
     }
   },
