@@ -1,0 +1,5194 @@
+{
+  "color": {
+    "neutral": {
+      "surface": {
+        "base": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.cold-gray.0}",
+            "$description": "Background surface at base for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.105}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "subtle": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.cold-gray.5}",
+            "$description": "Background surface at subtle for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.100}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "soft": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.cold-gray.8}",
+            "$description": "Background surface at soft for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.95}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "medium": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.cold-gray.15}",
+            "$description": "Background surface at medium for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.90}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "strong": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.cold-gray.22}",
+            "$description": "Background surface at strong for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.82}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "intense": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.cold-gray.30}",
+            "$description": "Background surface at intense for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.75}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        }
+      },
+      "content": {
+        "plain": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.30}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.45}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.75}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.45}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.60}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.60}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.60}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.75}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.45}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.75}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.90}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.30}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.90}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.100}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.15}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.100}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.105}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.0}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          }
+        },
+        "stroke": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.15}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.22}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.90}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.30}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.37}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.75}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.45}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.52}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.60}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.60}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.67}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.45}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.75}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.82}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.30}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.90}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.cold-gray.95}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.cold-gray.15}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          }
+        }
+      },
+      "effect": {
+        "shadow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.cold-gray.105.5}",
+            "$description": "Elevation shadow for subtle depth (cards, small surfaces)."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.cold-gray.105.15}",
+            "$description": "Elevation shadow for medium depth (panels, popovers)."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.cold-gray.105.30}",
+            "$description": "Strong elevation shadow for overlays and modals (combine with blur for backdrops)."
+          }
+        },
+        "glow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.cold-gray.45.20}",
+            "$description": "Subtle outer glow for emphasis or luminous accents."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.cold-gray.45.40}",
+            "$description": "Moderate outer glow for highlighted states or featured elements."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.cold-gray.45.60}",
+            "$description": "Strong outer glow for standout emphasis and special effects."
+          }
+        },
+        "light": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.cold-gray.5.40}",
+            "$description": "Soft light tint for highlights or gently elevated surfaces."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.cold-gray.5.60}",
+            "$description": "Medium light tint for pronounced highlights."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.cold-gray.5.80}",
+            "$description": "Intense light tint for dramatic highlights or illuminated accents."
+          }
+        }
+      },
+      "action": {
+        "primary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.cold-gray.100}",
+            "$description": "Solid fill for primary actions and links (buttons, CTAs, prominent interactive elements)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.cold-gray.95}",
+            "$description": "Hover state for primary actions and links; slightly stronger to increase affordance."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.cold-gray.90}",
+            "$description": "Pressed/active state for primary actions and links; strongest for tactile feedback."
+          }
+        },
+        "toned": {
+          "transparent": {
+            "default": {
+              "$type": "color",
+              "$value": "{transparent.cold-gray.75.10}",
+              "$description": "Low-emphasis background for actions and link containers using a transparent role color on light surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{transparent.cold-gray.75.15}",
+              "$description": "Hover state for toned actions/links; slightly stronger while remaining subtle."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{transparent.cold-gray.75.20}",
+              "$description": "Pressed state for toned actions/links; stronger for clear interaction feedback."
+            }
+          },
+          "fix": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.cold-gray.8}",
+              "$description": "Fixed low-contrast fill for de-emphasized actions on busy imagery or complex surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.cold-gray.15}",
+              "$description": "Hover state for fixed fill; slightly stronger to improve affordance."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.cold-gray.22}",
+              "$description": "Pressed state for fixed fill; stronger for tactile feedback."
+            }
+          }
+        },
+        "ghost": {
+          "default": {
+            "$type": "color",
+            "$value": "{transparent.white.none}",
+            "$description": "Ghost action background that preserves the underlying surface (links, tertiary buttons)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{transparent.cold-gray.45.10}",
+            "$description": "Ghost action hover state; adds a subtle tint to signal interactivity."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{transparent.cold-gray.45.15}",
+            "$description": "Ghost action pressed state; slightly stronger tint for feedback."
+          }
+        },
+        "content": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.cold-gray.100}",
+            "$description": "Text and icon color for actions and links in the role context."
+          },
+          "on-surface": {
+            "$type": "color",
+            "$value": "{color.cold-gray.105}",
+            "$description": "Slightly darker action/link content for slightly darker surfaces to maintain contrast."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.0}",
+            "$description": "Action/link content on inverted or dark surfaces."
+          }
+        },
+        "border": {
+          "weak": {
+            "$type": "color",
+            "$value": "{transparent.black.5}",
+            "$description": "Subtle border for low-emphasis actions, lightweight inputs, and quiet containers."
+          },
+          "heavy": {
+            "$type": "color",
+            "$value": "{color.cold-gray.22}",
+            "$description": "Standard border for actions, inputs, and general UI boundaries."
+          },
+          "heavier": {
+            "$type": "color",
+            "$value": "{color.cold-gray.90}",
+            "$description": "High-contrast border for selected, active, or critical emphasis."
+          }
+        }
+      }
+    },
+    "brand": {
+      "surface": {
+        "subtle": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-color.5}",
+            "$description": "Background surface at subtle for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.brand-color.100}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "soft": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-color.8}",
+            "$description": "Background surface at soft for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.brand-color.95}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "medium": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-color.15}",
+            "$description": "Background surface at medium for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.brand-color.90}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "strong": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-color.22}",
+            "$description": "Background surface at strong for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.brand-color.82}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "intense": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-color.30}",
+            "$description": "Background surface at intense for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.brand-color.75}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        }
+      },
+      "content": {
+        "plain": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.30}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.45}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.75}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.45}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.60}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.60}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.60}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.75}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.45}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.75}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.90}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.30}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.90}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.100}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.15}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.100}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.105}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.5}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          }
+        },
+        "stroke": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.15}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.22}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.90}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.30}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.37}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.75}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.45}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.52}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.60}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.60}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.67}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.45}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.75}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.82}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.30}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.90}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-color.95}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-color.15}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          }
+        }
+      },
+      "effect": {
+        "shadow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.95.10}",
+            "$description": "Elevation shadow for subtle depth (cards, small surfaces)."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.95.15}",
+            "$description": "Elevation shadow for medium depth (panels, popovers)."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.95.30}",
+            "$description": "Strong elevation shadow for overlays and modals (combine with blur for backdrops)."
+          }
+        },
+        "glow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.light-brand.20}",
+            "$description": "Subtle outer glow for emphasis or luminous accents."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.light-brand.40}",
+            "$description": "Moderate outer glow for highlighted states or featured elements."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.light-brand.60}",
+            "$description": "Strong outer glow for standout emphasis and special effects."
+          }
+        },
+        "light": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.5.40}",
+            "$description": "Soft light tint for highlights or gently elevated surfaces."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.5.60}",
+            "$description": "Medium light tint for pronounced highlights."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.5.80}",
+            "$description": "Intense light tint for dramatic highlights or illuminated accents."
+          }
+        }
+      },
+      "brand": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.brand-color.light-brand}",
+          "$description": "Primary brand color for logos, brand accents, and key highlights."
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{color.brand-color.dark-brand}",
+          "$description": "Inverse brand color for dark contexts or inverted brand applications."
+        }
+      },
+      "action": {
+        "primary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-color.light-brand}",
+            "$description": "Solid fill for primary actions and links (buttons, CTAs, prominent interactive elements)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.brand-color.52}",
+            "$description": "Hover state for primary actions and links; slightly stronger to increase affordance."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.brand-color.60}",
+            "$description": "Pressed/active state for primary actions and links; strongest for tactile feedback."
+          }
+        },
+        "toned": {
+          "transparent": {
+            "default": {
+              "$type": "color",
+              "$value": "{transparent.brand-color.45.15}",
+              "$description": "Low-emphasis background for actions and link containers using a transparent role color on light surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{transparent.brand-color.45.20}",
+              "$description": "Hover state for toned actions/links; slightly stronger while remaining subtle."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{transparent.brand-color.45.30}",
+              "$description": "Pressed state for toned actions/links; stronger for clear interaction feedback."
+            }
+          },
+          "fix": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-color.8}",
+              "$description": "Fixed low-contrast fill for de-emphasized actions on busy imagery or complex surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.brand-color.15}",
+              "$description": "Hover state for fixed fill; slightly stronger to improve affordance."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.brand-color.22}",
+              "$description": "Pressed state for fixed fill; stronger for tactile feedback."
+            }
+          }
+        },
+        "ghost": {
+          "default": {
+            "$type": "color",
+            "$value": "{transparent.white.none}",
+            "$description": "Ghost action background that preserves the underlying surface (links, tertiary buttons)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.30.10}",
+            "$description": "Ghost action hover state; adds a subtle tint to signal interactivity."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.30.15}",
+            "$description": "Ghost action pressed state; slightly stronger tint for feedback."
+          }
+        },
+        "content": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-color.light-brand}",
+            "$description": "Text and icon color for actions and links in the role context."
+          },
+          "on-surface": {
+            "$type": "color",
+            "$value": "{color.brand-color.60}",
+            "$description": "Slightly darker action/link content for slightly darker surfaces to maintain contrast."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.0}",
+            "$description": "Action/link content on inverted or dark surfaces."
+          }
+        },
+        "border": {
+          "weak": {
+            "$type": "color",
+            "$value": "{transparent.black.5}",
+            "$description": "Subtle border for low-emphasis actions, lightweight inputs, and quiet containers."
+          },
+          "heavy": {
+            "$type": "color",
+            "$value": "{transparent.brand-color.light-brand.30}",
+            "$description": "Standard border for actions, inputs, and general UI boundaries."
+          },
+          "heavier": {
+            "$type": "color",
+            "$value": "{color.brand-color.37}",
+            "$description": "High-contrast border for selected, active, or critical emphasis."
+          }
+        }
+      }
+    },
+    "accent": {
+      "surface": {
+        "subtle": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-accent.5}",
+            "$description": "Background surface at subtle for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.brand-accent.100}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "soft": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-accent.8}",
+            "$description": "Background surface at soft for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.brand-accent.95}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "medium": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-accent.15}",
+            "$description": "Background surface at medium for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.brand-accent.90}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "strong": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-accent.22}",
+            "$description": "Background surface at strong for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.brand-accent.82}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "intense": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-accent.30}",
+            "$description": "Background surface at intense for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.brand-accent.75}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        }
+      },
+      "content": {
+        "plain": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.30}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.45}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.75}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.45}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.60}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.60}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.60}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.75}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.45}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.75}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.90}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.30}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.90}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.100}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.15}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.100}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.105}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.5}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          }
+        },
+        "stroke": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.15}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.22}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.90}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.30}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.37}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.75}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.45}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.52}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.60}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.60}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.67}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.45}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.75}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.82}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.30}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.90}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.brand-accent.95}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.brand-accent.15}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          }
+        }
+      },
+      "effect": {
+        "shadow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.brand-accent.95.10}",
+            "$description": "Elevation shadow for subtle depth (cards, small surfaces)."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.brand-accent.95.15}",
+            "$description": "Elevation shadow for medium depth (panels, popovers)."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.brand-accent.95.30}",
+            "$description": "Strong elevation shadow for overlays and modals (combine with blur for backdrops)."
+          }
+        },
+        "glow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.brand-accent.45.20}",
+            "$description": "Subtle outer glow for emphasis or luminous accents."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.brand-accent.45.40}",
+            "$description": "Moderate outer glow for highlighted states or featured elements."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.brand-accent.45.60}",
+            "$description": "Strong outer glow for standout emphasis and special effects."
+          }
+        },
+        "light": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.brand-accent.5.40}",
+            "$description": "Soft light tint for highlights or gently elevated surfaces."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.brand-accent.5.60}",
+            "$description": "Medium light tint for pronounced highlights."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.brand-accent.5.80}",
+            "$description": "Intense light tint for dramatic highlights or illuminated accents."
+          }
+        }
+      },
+      "action": {
+        "primary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-accent.67}",
+            "$description": "Solid fill for primary actions and links (buttons, CTAs, prominent interactive elements)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.brand-accent.75}",
+            "$description": "Hover state for primary actions and links; slightly stronger to increase affordance."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.brand-accent.82}",
+            "$description": "Pressed/active state for primary actions and links; strongest for tactile feedback."
+          }
+        },
+        "toned": {
+          "transparent": {
+            "default": {
+              "$type": "color",
+              "$value": "{transparent.brand-accent.67.10}",
+              "$description": "Low-emphasis background for actions and link containers using a transparent role color on light surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{transparent.brand-accent.67.15}",
+              "$description": "Hover state for toned actions/links; slightly stronger while remaining subtle."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{transparent.brand-accent.67.20}",
+              "$description": "Pressed state for toned actions/links; stronger for clear interaction feedback."
+            }
+          },
+          "fix": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand-accent.8}",
+              "$description": "Fixed low-contrast fill for de-emphasized actions on busy imagery or complex surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.brand-accent.15}",
+              "$description": "Hover state for fixed fill; slightly stronger to improve affordance."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.brand-accent.22}",
+              "$description": "Pressed state for fixed fill; stronger for tactile feedback."
+            }
+          }
+        },
+        "ghost": {
+          "default": {
+            "$type": "color",
+            "$value": "{transparent.white.none}",
+            "$description": "Ghost action background that preserves the underlying surface (links, tertiary buttons)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{transparent.brand-accent.30.10}",
+            "$description": "Ghost action hover state; adds a subtle tint to signal interactivity."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{transparent.brand-accent.30.15}",
+            "$description": "Ghost action pressed state; slightly stronger tint for feedback."
+          }
+        },
+        "content": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand-accent.67}",
+            "$description": "Text and icon color for actions and links in the role context."
+          },
+          "on-surface": {
+            "$type": "color",
+            "$value": "{color.brand-accent.75}",
+            "$description": "Slightly darker action/link content for slightly darker surfaces to maintain contrast."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.0}",
+            "$description": "Action/link content on inverted or dark surfaces."
+          }
+        },
+        "border": {
+          "weak": {
+            "$type": "color",
+            "$value": "{transparent.black.5}",
+            "$description": "Subtle border for low-emphasis actions, lightweight inputs, and quiet containers."
+          },
+          "heavy": {
+            "$type": "color",
+            "$value": "{color.brand-accent.15}",
+            "$description": "Standard border for actions, inputs, and general UI boundaries."
+          },
+          "heavier": {
+            "$type": "color",
+            "$value": "{color.brand-accent.60}",
+            "$description": "High-contrast border for selected, active, or critical emphasis."
+          }
+        }
+      }
+    },
+    "danger": {
+      "surface": {
+        "subtle": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.red.5}",
+            "$description": "Background surface at subtle for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.red.100}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "soft": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.red.8}",
+            "$description": "Background surface at soft for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.red.95}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "medium": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.red.15}",
+            "$description": "Background surface at medium for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.red.90}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "strong": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.red.22}",
+            "$description": "Background surface at strong for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.red.82}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "intense": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.red.30}",
+            "$description": "Background surface at intense for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.red.75}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        }
+      },
+      "content": {
+        "plain": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.30}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.45}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.75}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.45}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.60}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.60}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.60}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.75}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.45}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.75}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.90}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.30}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.90}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.100}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.15}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.100}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.105}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.5}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          }
+        },
+        "stroke": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.15}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.22}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.90}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.30}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.37}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.75}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.45}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.52}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.60}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.60}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.67}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.45}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.75}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.82}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.30}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.90}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.red.95}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.red.15}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          }
+        }
+      },
+      "effect": {
+        "shadow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.red.95.10}",
+            "$description": "Elevation shadow for subtle depth (cards, small surfaces)."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.red.95.15}",
+            "$description": "Elevation shadow for medium depth (panels, popovers)."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.red.95.30}",
+            "$description": "Strong elevation shadow for overlays and modals (combine with blur for backdrops)."
+          }
+        },
+        "glow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.red.45.20}",
+            "$description": "Subtle outer glow for emphasis or luminous accents."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.red.45.40}",
+            "$description": "Moderate outer glow for highlighted states or featured elements."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.red.45.60}",
+            "$description": "Strong outer glow for standout emphasis and special effects."
+          }
+        },
+        "light": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.red.5.40}",
+            "$description": "Soft light tint for highlights or gently elevated surfaces."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.red.5.60}",
+            "$description": "Medium light tint for pronounced highlights."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.red.5.80}",
+            "$description": "Intense light tint for dramatic highlights or illuminated accents."
+          }
+        }
+      },
+      "action": {
+        "primary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.red.67}",
+            "$description": "Solid fill for primary actions and links (buttons, CTAs, prominent interactive elements)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.red.75}",
+            "$description": "Hover state for primary actions and links; slightly stronger to increase affordance."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.red.82}",
+            "$description": "Pressed/active state for primary actions and links; strongest for tactile feedback."
+          }
+        },
+        "toned": {
+          "transparent": {
+            "default": {
+              "$type": "color",
+              "$value": "{transparent.red.67.10}",
+              "$description": "Low-emphasis background for actions and link containers using a transparent role color on light surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{transparent.red.67.15}",
+              "$description": "Hover state for toned actions/links; slightly stronger while remaining subtle."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{transparent.red.67.20}",
+              "$description": "Pressed state for toned actions/links; stronger for clear interaction feedback."
+            }
+          },
+          "fix": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.red.8}",
+              "$description": "Fixed low-contrast fill for de-emphasized actions on busy imagery or complex surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.red.15}",
+              "$description": "Hover state for fixed fill; slightly stronger to improve affordance."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.red.22}",
+              "$description": "Pressed state for fixed fill; stronger for tactile feedback."
+            }
+          }
+        },
+        "ghost": {
+          "default": {
+            "$type": "color",
+            "$value": "{transparent.white.none}",
+            "$description": "Ghost action background that preserves the underlying surface (links, tertiary buttons)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{transparent.red.30.10}",
+            "$description": "Ghost action hover state; adds a subtle tint to signal interactivity."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{transparent.red.30.15}",
+            "$description": "Ghost action pressed state; slightly stronger tint for feedback."
+          }
+        },
+        "content": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.red.67}",
+            "$description": "Text and icon color for actions and links in the role context."
+          },
+          "on-surface": {
+            "$type": "color",
+            "$value": "{color.red.75}",
+            "$description": "Slightly darker action/link content for slightly darker surfaces to maintain contrast."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.0}",
+            "$description": "Action/link content on inverted or dark surfaces."
+          }
+        },
+        "border": {
+          "weak": {
+            "$type": "color",
+            "$value": "{transparent.black.5}",
+            "$description": "Subtle border for low-emphasis actions, lightweight inputs, and quiet containers."
+          },
+          "heavy": {
+            "$type": "color",
+            "$value": "{color.red.15}",
+            "$description": "Standard border for actions, inputs, and general UI boundaries."
+          },
+          "heavier": {
+            "$type": "color",
+            "$value": "{color.red.60}",
+            "$description": "High-contrast border for selected, active, or critical emphasis."
+          }
+        }
+      }
+    },
+    "warning": {
+      "surface": {
+        "subtle": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.yellow.5}",
+            "$description": "Background surface at subtle for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.yellow.100}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "soft": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.yellow.8}",
+            "$description": "Background surface at soft for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.yellow.95}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "medium": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.yellow.15}",
+            "$description": "Background surface at medium for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.yellow.90}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "strong": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.yellow.22}",
+            "$description": "Background surface at strong for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.yellow.82}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "intense": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.yellow.30}",
+            "$description": "Background surface at intense for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.yellow.75}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        }
+      },
+      "content": {
+        "plain": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.30}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.45}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.75}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.45}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.60}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.60}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.60}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.75}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.45}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.75}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.90}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.30}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.90}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.100}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.15}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.100}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.105}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.5}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          }
+        },
+        "stroke": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.15}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.22}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.90}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.30}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.37}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.75}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.45}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.52}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.60}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.60}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.67}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.45}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.75}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.82}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.30}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.90}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.yellow.95}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.yellow.15}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          }
+        }
+      },
+      "effect": {
+        "shadow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.yellow.95.10}",
+            "$description": "Elevation shadow for subtle depth (cards, small surfaces)."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.yellow.95.15}",
+            "$description": "Elevation shadow for medium depth (panels, popovers)."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.yellow.95.30}",
+            "$description": "Strong elevation shadow for overlays and modals (combine with blur for backdrops)."
+          }
+        },
+        "glow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.yellow.45.20}",
+            "$description": "Subtle outer glow for emphasis or luminous accents."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.yellow.45.40}",
+            "$description": "Moderate outer glow for highlighted states or featured elements."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.yellow.45.60}",
+            "$description": "Strong outer glow for standout emphasis and special effects."
+          }
+        },
+        "light": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.yellow.5.40}",
+            "$description": "Soft light tint for highlights or gently elevated surfaces."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.yellow.5.60}",
+            "$description": "Medium light tint for pronounced highlights."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.yellow.5.80}",
+            "$description": "Intense light tint for dramatic highlights or illuminated accents."
+          }
+        }
+      },
+      "action": {
+        "primary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.yellow.45}",
+            "$description": "Solid fill for primary actions and links (buttons, CTAs, prominent interactive elements)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.yellow.52}",
+            "$description": "Hover state for primary actions and links; slightly stronger to increase affordance."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.yellow.60}",
+            "$description": "Pressed/active state for primary actions and links; strongest for tactile feedback."
+          }
+        },
+        "toned": {
+          "transparent": {
+            "default": {
+              "$type": "color",
+              "$value": "{transparent.yellow.30.15}",
+              "$description": "Low-emphasis background for actions and link containers using a transparent role color on light surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{transparent.yellow.30.20}",
+              "$description": "Hover state for toned actions/links; slightly stronger while remaining subtle."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{transparent.yellow.30.30}",
+              "$description": "Pressed state for toned actions/links; stronger for clear interaction feedback."
+            }
+          },
+          "fix": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.yellow.8}",
+              "$description": "Fixed low-contrast fill for de-emphasized actions on busy imagery or complex surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.yellow.15}",
+              "$description": "Hover state for fixed fill; slightly stronger to improve affordance."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.yellow.22}",
+              "$description": "Pressed state for fixed fill; stronger for tactile feedback."
+            }
+          }
+        },
+        "ghost": {
+          "default": {
+            "$type": "color",
+            "$value": "{transparent.white.none}",
+            "$description": "Ghost action background that preserves the underlying surface (links, tertiary buttons)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{transparent.yellow.15.15}",
+            "$description": "Ghost action hover state; adds a subtle tint to signal interactivity."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{transparent.yellow.15.20}",
+            "$description": "Ghost action pressed state; slightly stronger tint for feedback."
+          }
+        },
+        "content": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.yellow.45}",
+            "$description": "Text and icon color for actions and links in the role context."
+          },
+          "on-surface": {
+            "$type": "color",
+            "$value": "{color.yellow.60}",
+            "$description": "Slightly darker action/link content for slightly darker surfaces to maintain contrast."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.0}",
+            "$description": "Action/link content on inverted or dark surfaces."
+          }
+        },
+        "border": {
+          "weak": {
+            "$type": "color",
+            "$value": "{transparent.black.5}",
+            "$description": "Subtle border for low-emphasis actions, lightweight inputs, and quiet containers."
+          },
+          "heavy": {
+            "$type": "color",
+            "$value": "{color.yellow.8}",
+            "$description": "Standard border for actions, inputs, and general UI boundaries."
+          },
+          "heavier": {
+            "$type": "color",
+            "$value": "{color.yellow.37}",
+            "$description": "High-contrast border for selected, active, or critical emphasis."
+          }
+        }
+      }
+    },
+    "success": {
+      "surface": {
+        "subtle": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.green.5}",
+            "$description": "Background surface at subtle for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.green.100}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "soft": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.green.8}",
+            "$description": "Background surface at soft for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.green.95}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "medium": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.green.15}",
+            "$description": "Background surface at medium for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.green.90}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "strong": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.green.22}",
+            "$description": "Background surface at strong for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.green.82}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "intense": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.green.30}",
+            "$description": "Background surface at intense for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.green.75}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        }
+      },
+      "content": {
+        "plain": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.30}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.45}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.75}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.45}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.60}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.60}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.60}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.75}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.45}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.75}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.90}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.30}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.90}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.100}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.15}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.100}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.105}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.5}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          }
+        },
+        "stroke": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.15}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.22}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.90}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.30}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.37}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.75}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.45}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.52}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.60}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.60}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.67}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.45}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.75}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.82}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.30}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.90}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.green.95}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.green.15}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          }
+        }
+      },
+      "effect": {
+        "shadow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.green.95.10}",
+            "$description": "Elevation shadow for subtle depth (cards, small surfaces)."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.green.95.15}",
+            "$description": "Elevation shadow for medium depth (panels, popovers)."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.green.95.30}",
+            "$description": "Strong elevation shadow for overlays and modals (combine with blur for backdrops)."
+          }
+        },
+        "glow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.green.45.20}",
+            "$description": "Subtle outer glow for emphasis or luminous accents."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.green.45.40}",
+            "$description": "Moderate outer glow for highlighted states or featured elements."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.green.45.60}",
+            "$description": "Strong outer glow for standout emphasis and special effects."
+          }
+        },
+        "light": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.green.5.40}",
+            "$description": "Soft light tint for highlights or gently elevated surfaces."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.green.5.60}",
+            "$description": "Medium light tint for pronounced highlights."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.green.5.80}",
+            "$description": "Intense light tint for dramatic highlights or illuminated accents."
+          }
+        }
+      },
+      "action": {
+        "primary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.green.67}",
+            "$description": "Solid fill for primary actions and links (buttons, CTAs, prominent interactive elements)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.green.75}",
+            "$description": "Hover state for primary actions and links; slightly stronger to increase affordance."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.green.82}",
+            "$description": "Pressed/active state for primary actions and links; strongest for tactile feedback."
+          }
+        },
+        "toned": {
+          "transparent": {
+            "default": {
+              "$type": "color",
+              "$value": "{transparent.green.67.10}",
+              "$description": "Low-emphasis background for actions and link containers using a transparent role color on light surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{transparent.green.67.15}",
+              "$description": "Hover state for toned actions/links; slightly stronger while remaining subtle."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{transparent.green.67.20}",
+              "$description": "Pressed state for toned actions/links; stronger for clear interaction feedback."
+            }
+          },
+          "fix": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.green.8}",
+              "$description": "Fixed low-contrast fill for de-emphasized actions on busy imagery or complex surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.green.15}",
+              "$description": "Hover state for fixed fill; slightly stronger to improve affordance."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.green.22}",
+              "$description": "Pressed state for fixed fill; stronger for tactile feedback."
+            }
+          }
+        },
+        "ghost": {
+          "default": {
+            "$type": "color",
+            "$value": "{transparent.white.none}",
+            "$description": "Ghost action background that preserves the underlying surface (links, tertiary buttons)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{transparent.green.30.10}",
+            "$description": "Ghost action hover state; adds a subtle tint to signal interactivity."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{transparent.green.30.15}",
+            "$description": "Ghost action pressed state; slightly stronger tint for feedback."
+          }
+        },
+        "content": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.green.67}",
+            "$description": "Text and icon color for actions and links in the role context."
+          },
+          "on-surface": {
+            "$type": "color",
+            "$value": "{color.green.75}",
+            "$description": "Slightly darker action/link content for slightly darker surfaces to maintain contrast."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.0}",
+            "$description": "Action/link content on inverted or dark surfaces."
+          }
+        },
+        "border": {
+          "weak": {
+            "$type": "color",
+            "$value": "{transparent.black.5}",
+            "$description": "Subtle border for low-emphasis actions, lightweight inputs, and quiet containers."
+          },
+          "heavy": {
+            "$type": "color",
+            "$value": "{color.green.15}",
+            "$description": "Standard border for actions, inputs, and general UI boundaries."
+          },
+          "heavier": {
+            "$type": "color",
+            "$value": "{color.green.60}",
+            "$description": "High-contrast border for selected, active, or critical emphasis."
+          }
+        }
+      }
+    },
+    "info": {
+      "surface": {
+        "subtle": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.blue.5}",
+            "$description": "Background surface at subtle for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.blue.100}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "soft": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.blue.8}",
+            "$description": "Background surface at soft for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.blue.95}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "medium": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.blue.15}",
+            "$description": "Background surface at medium for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.blue.90}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "strong": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.blue.22}",
+            "$description": "Background surface at strong for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.blue.82}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        },
+        "intense": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.blue.30}",
+            "$description": "Background surface at intense for containers, sections, and app panels in the role family."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.blue.75}",
+            "$description": "Inverse contrast color to use on this surface in dark or inverted contexts."
+          }
+        }
+      },
+      "content": {
+        "plain": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.30}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.45}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.75}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.45}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.60}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.60}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.60}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.75}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.45}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.75}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.90}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.30}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.90}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.100}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.15}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.100}",
+              "$description": "Text and icons in the role context; choose level by required contrast and hierarchy."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.105}",
+              "$description": "Slightly darker text/icon color for slightly darker surfaces to preserve contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.5}",
+              "$description": "Text/icon color for content on inverted or dark surfaces."
+            }
+          }
+        },
+        "stroke": {
+          "weakest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.15}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.22}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.90}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weaker": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.30}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.37}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.75}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "weak": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.45}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.52}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.60}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavy": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.60}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.67}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.45}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heavier": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.75}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.82}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.30}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          },
+          "heaviest": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.90}",
+              "$description": "Strokes for controls, inputs, and dividers in the role context; pick weight by emphasis."
+            },
+            "on-surface": {
+              "$type": "color",
+              "$value": "{color.blue.95}",
+              "$description": "Slightly darker stroke for slightly darker surfaces to maintain contrast."
+            },
+            "inverse": {
+              "$type": "color",
+              "$value": "{color.blue.15}",
+              "$description": "Stroke color for elements on inverted or dark surfaces."
+            }
+          }
+        }
+      },
+      "effect": {
+        "shadow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.blue.95.10}",
+            "$description": "Elevation shadow for subtle depth (cards, small surfaces)."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.blue.95.15}",
+            "$description": "Elevation shadow for medium depth (panels, popovers)."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.blue.95.30}",
+            "$description": "Strong elevation shadow for overlays and modals (combine with blur for backdrops)."
+          }
+        },
+        "glow": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.blue.45.20}",
+            "$description": "Subtle outer glow for emphasis or luminous accents."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.blue.45.40}",
+            "$description": "Moderate outer glow for highlighted states or featured elements."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.blue.45.60}",
+            "$description": "Strong outer glow for standout emphasis and special effects."
+          }
+        },
+        "light": {
+          "soft": {
+            "$type": "color",
+            "$value": "{transparent.blue.5.40}",
+            "$description": "Soft light tint for highlights or gently elevated surfaces."
+          },
+          "medium": {
+            "$type": "color",
+            "$value": "{transparent.blue.5.60}",
+            "$description": "Medium light tint for pronounced highlights."
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{transparent.blue.5.80}",
+            "$description": "Intense light tint for dramatic highlights or illuminated accents."
+          }
+        }
+      },
+      "action": {
+        "primary": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.blue.75}",
+            "$description": "Solid fill for primary actions and links (buttons, CTAs, prominent interactive elements)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.blue.82}",
+            "$description": "Hover state for primary actions and links; slightly stronger to increase affordance."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.blue.90}",
+            "$description": "Pressed/active state for primary actions and links; strongest for tactile feedback."
+          }
+        },
+        "toned": {
+          "transparent": {
+            "default": {
+              "$type": "color",
+              "$value": "{transparent.blue.67.10}",
+              "$description": "Low-emphasis background for actions and link containers using a transparent role color on light surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{transparent.blue.67.15}",
+              "$description": "Hover state for toned actions/links; slightly stronger while remaining subtle."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{transparent.blue.67.20}",
+              "$description": "Pressed state for toned actions/links; stronger for clear interaction feedback."
+            }
+          },
+          "fix": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.blue.8}",
+              "$description": "Fixed low-contrast fill for de-emphasized actions on busy imagery or complex surfaces."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.blue.15}",
+              "$description": "Hover state for fixed fill; slightly stronger to improve affordance."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.blue.22}",
+              "$description": "Pressed state for fixed fill; stronger for tactile feedback."
+            }
+          }
+        },
+        "ghost": {
+          "default": {
+            "$type": "color",
+            "$value": "{transparent.white.none}",
+            "$description": "Ghost action background that preserves the underlying surface (links, tertiary buttons)."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{transparent.blue.37.10}",
+            "$description": "Ghost action hover state; adds a subtle tint to signal interactivity."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{transparent.blue.37.15}",
+            "$description": "Ghost action pressed state; slightly stronger tint for feedback."
+          }
+        },
+        "content": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.blue.75}",
+            "$description": "Text and icon color for actions and links in the role context."
+          },
+          "on-surface": {
+            "$type": "color",
+            "$value": "{color.blue.82}",
+            "$description": "Slightly darker action/link content for slightly darker surfaces to maintain contrast."
+          },
+          "inverse": {
+            "$type": "color",
+            "$value": "{color.cold-gray.0}",
+            "$description": "Action/link content on inverted or dark surfaces."
+          }
+        },
+        "border": {
+          "weak": {
+            "$type": "color",
+            "$value": "{transparent.black.5}",
+            "$description": "Subtle border for low-emphasis actions, lightweight inputs, and quiet containers."
+          },
+          "heavy": {
+            "$type": "color",
+            "$value": "{color.blue.15}",
+            "$description": "Standard border for actions, inputs, and general UI boundaries."
+          },
+          "heavier": {
+            "$type": "color",
+            "$value": "{color.blue.67}",
+            "$description": "High-contrast border for selected, active, or critical emphasis."
+          }
+        }
+      }
+    },
+    "data-viz": {
+      "category": {
+        "1": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.pink.60}"
+          },
+          "unfocused": {
+            "$type": "color",
+            "$value": "{transparent.pink.60.40}"
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{color.pink.90}"
+          }
+        },
+        "2": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.purple.60}"
+          },
+          "unfocused": {
+            "$type": "color",
+            "$value": "{transparent.purple.60.40}"
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{color.purple.90}"
+          }
+        },
+        "3": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.cyan.60}"
+          },
+          "unfocused": {
+            "$type": "color",
+            "$value": "{transparent.cyan.60.40}"
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{color.cyan.90}"
+          }
+        },
+        "4": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.green.60}"
+          },
+          "unfocused": {
+            "$type": "color",
+            "$value": "{transparent.green.60.40}"
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{color.green.90}"
+          }
+        },
+        "5": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.yellow.60}"
+          },
+          "unfocused": {
+            "$type": "color",
+            "$value": "{transparent.yellow.60.40}"
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{color.yellow.90}"
+          }
+        },
+        "6": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.fuchsia.60}"
+          },
+          "unfocused": {
+            "$type": "color",
+            "$value": "{transparent.fuchsia.60.40}"
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{color.fuchsia.90}"
+          }
+        },
+        "7": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.blue.60}"
+          },
+          "unfocused": {
+            "$type": "color",
+            "$value": "{transparent.blue.60.40}"
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{color.blue.90}"
+          }
+        },
+        "8": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.teal.60}"
+          },
+          "unfocused": {
+            "$type": "color",
+            "$value": "{transparent.teal.60.40}"
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{color.teal.90}"
+          }
+        },
+        "9": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.lime.60}"
+          },
+          "unfocused": {
+            "$type": "color",
+            "$value": "{transparent.lime.60.40}"
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{color.lime.90}"
+          }
+        },
+        "10": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.orange.60}"
+          },
+          "unfocused": {
+            "$type": "color",
+            "$value": "{transparent.orange.60.40}"
+          },
+          "intense": {
+            "$type": "color",
+            "$value": "{color.orange.90}"
+          }
+        }
+      },
+      "scale": {
+        "pink": {
+          "1": {
+            "$type": "color",
+            "$value": "{color.pink.30}"
+          },
+          "2": {
+            "$type": "color",
+            "$value": "{color.pink.37}"
+          },
+          "3": {
+            "$type": "color",
+            "$value": "{color.pink.45}"
+          },
+          "4": {
+            "$type": "color",
+            "$value": "{color.pink.52}"
+          },
+          "5": {
+            "$type": "color",
+            "$value": "{color.pink.60}"
+          },
+          "6": {
+            "$type": "color",
+            "$value": "{color.pink.67}"
+          },
+          "7": {
+            "$type": "color",
+            "$value": "{color.pink.75}"
+          },
+          "8": {
+            "$type": "color",
+            "$value": "{color.pink.82}"
+          },
+          "9": {
+            "$type": "color",
+            "$value": "{color.pink.90}"
+          }
+        },
+        "fuchsia": {
+          "1": {
+            "$type": "color",
+            "$value": "{color.fuchsia.30}"
+          },
+          "2": {
+            "$type": "color",
+            "$value": "{color.fuchsia.37}"
+          },
+          "3": {
+            "$type": "color",
+            "$value": "{color.fuchsia.45}"
+          },
+          "4": {
+            "$type": "color",
+            "$value": "{color.fuchsia.52}"
+          },
+          "5": {
+            "$type": "color",
+            "$value": "{color.fuchsia.60}"
+          },
+          "6": {
+            "$type": "color",
+            "$value": "{color.fuchsia.67}"
+          },
+          "7": {
+            "$type": "color",
+            "$value": "{color.fuchsia.75}"
+          },
+          "8": {
+            "$type": "color",
+            "$value": "{color.fuchsia.82}"
+          },
+          "9": {
+            "$type": "color",
+            "$value": "{color.fuchsia.90}"
+          }
+        },
+        "purple": {
+          "1": {
+            "$type": "color",
+            "$value": "{color.purple.30}"
+          },
+          "2": {
+            "$type": "color",
+            "$value": "{color.purple.37}"
+          },
+          "3": {
+            "$type": "color",
+            "$value": "{color.purple.45}"
+          },
+          "4": {
+            "$type": "color",
+            "$value": "{color.purple.52}"
+          },
+          "5": {
+            "$type": "color",
+            "$value": "{color.purple.60}"
+          },
+          "6": {
+            "$type": "color",
+            "$value": "{color.purple.67}"
+          },
+          "7": {
+            "$type": "color",
+            "$value": "{color.purple.75}"
+          },
+          "8": {
+            "$type": "color",
+            "$value": "{color.purple.82}"
+          },
+          "9": {
+            "$type": "color",
+            "$value": "{color.purple.90}"
+          }
+        },
+        "blue": {
+          "1": {
+            "$type": "color",
+            "$value": "{color.blue.30}"
+          },
+          "2": {
+            "$type": "color",
+            "$value": "{color.blue.37}"
+          },
+          "3": {
+            "$type": "color",
+            "$value": "{color.blue.45}"
+          },
+          "4": {
+            "$type": "color",
+            "$value": "{color.blue.52}"
+          },
+          "5": {
+            "$type": "color",
+            "$value": "{color.blue.60}"
+          },
+          "6": {
+            "$type": "color",
+            "$value": "{color.blue.67}"
+          },
+          "7": {
+            "$type": "color",
+            "$value": "{color.blue.75}"
+          },
+          "8": {
+            "$type": "color",
+            "$value": "{color.blue.82}"
+          },
+          "9": {
+            "$type": "color",
+            "$value": "{color.blue.90}"
+          }
+        },
+        "cyan": {
+          "1": {
+            "$type": "color",
+            "$value": "{color.cyan.30}"
+          },
+          "2": {
+            "$type": "color",
+            "$value": "{color.cyan.37}"
+          },
+          "3": {
+            "$type": "color",
+            "$value": "{color.cyan.45}"
+          },
+          "4": {
+            "$type": "color",
+            "$value": "{color.cyan.52}"
+          },
+          "5": {
+            "$type": "color",
+            "$value": "{color.cyan.60}"
+          },
+          "6": {
+            "$type": "color",
+            "$value": "{color.cyan.67}"
+          },
+          "7": {
+            "$type": "color",
+            "$value": "{color.cyan.75}"
+          },
+          "8": {
+            "$type": "color",
+            "$value": "{color.cyan.82}"
+          },
+          "9": {
+            "$type": "color",
+            "$value": "{color.cyan.90}"
+          }
+        },
+        "teal": {
+          "1": {
+            "$type": "color",
+            "$value": "{color.teal.30}"
+          },
+          "2": {
+            "$type": "color",
+            "$value": "{color.teal.37}"
+          },
+          "3": {
+            "$type": "color",
+            "$value": "{color.teal.45}"
+          },
+          "4": {
+            "$type": "color",
+            "$value": "{color.teal.52}"
+          },
+          "5": {
+            "$type": "color",
+            "$value": "{color.teal.60}"
+          },
+          "6": {
+            "$type": "color",
+            "$value": "{color.teal.67}"
+          },
+          "7": {
+            "$type": "color",
+            "$value": "{color.teal.75}"
+          },
+          "8": {
+            "$type": "color",
+            "$value": "{color.teal.82}"
+          },
+          "9": {
+            "$type": "color",
+            "$value": "{color.teal.90}"
+          }
+        },
+        "green": {
+          "1": {
+            "$type": "color",
+            "$value": "{color.green.30}"
+          },
+          "2": {
+            "$type": "color",
+            "$value": "{color.green.37}"
+          },
+          "3": {
+            "$type": "color",
+            "$value": "{color.green.45}"
+          },
+          "4": {
+            "$type": "color",
+            "$value": "{color.green.52}"
+          },
+          "5": {
+            "$type": "color",
+            "$value": "{color.green.60}"
+          },
+          "6": {
+            "$type": "color",
+            "$value": "{color.green.67}"
+          },
+          "7": {
+            "$type": "color",
+            "$value": "{color.green.75}"
+          },
+          "8": {
+            "$type": "color",
+            "$value": "{color.green.82}"
+          },
+          "9": {
+            "$type": "color",
+            "$value": "{color.green.90}"
+          }
+        },
+        "lime": {
+          "1": {
+            "$type": "color",
+            "$value": "{color.lime.30}"
+          },
+          "2": {
+            "$type": "color",
+            "$value": "{color.lime.37}"
+          },
+          "3": {
+            "$type": "color",
+            "$value": "{color.lime.45}"
+          },
+          "4": {
+            "$type": "color",
+            "$value": "{color.lime.52}"
+          },
+          "5": {
+            "$type": "color",
+            "$value": "{color.lime.60}"
+          },
+          "6": {
+            "$type": "color",
+            "$value": "{color.lime.67}"
+          },
+          "7": {
+            "$type": "color",
+            "$value": "{color.lime.75}"
+          },
+          "8": {
+            "$type": "color",
+            "$value": "{color.lime.82}"
+          },
+          "9": {
+            "$type": "color",
+            "$value": "{color.lime.90}"
+          }
+        },
+        "yellow": {
+          "1": {
+            "$type": "color",
+            "$value": "{color.yellow.30}"
+          },
+          "2": {
+            "$type": "color",
+            "$value": "{color.yellow.37}"
+          },
+          "3": {
+            "$type": "color",
+            "$value": "{color.yellow.45}"
+          },
+          "4": {
+            "$type": "color",
+            "$value": "{color.yellow.52}"
+          },
+          "5": {
+            "$type": "color",
+            "$value": "{color.yellow.60}"
+          },
+          "6": {
+            "$type": "color",
+            "$value": "{color.yellow.67}"
+          },
+          "7": {
+            "$type": "color",
+            "$value": "{color.yellow.75}"
+          },
+          "8": {
+            "$type": "color",
+            "$value": "{color.yellow.82}"
+          },
+          "9": {
+            "$type": "color",
+            "$value": "{color.yellow.90}"
+          }
+        },
+        "orange": {
+          "1": {
+            "$type": "color",
+            "$value": "{color.orange.30}"
+          },
+          "2": {
+            "$type": "color",
+            "$value": "{color.orange.37}"
+          },
+          "3": {
+            "$type": "color",
+            "$value": "{color.orange.45}"
+          },
+          "4": {
+            "$type": "color",
+            "$value": "{color.orange.52}"
+          },
+          "5": {
+            "$type": "color",
+            "$value": "{color.orange.60}"
+          },
+          "6": {
+            "$type": "color",
+            "$value": "{color.orange.67}"
+          },
+          "7": {
+            "$type": "color",
+            "$value": "{color.orange.75}"
+          },
+          "8": {
+            "$type": "color",
+            "$value": "{color.orange.82}"
+          },
+          "9": {
+            "$type": "color",
+            "$value": "{color.orange.90}"
+          }
+        }
+      },
+      "utility": {
+        "axis": {
+          "$type": "color",
+          "$value": "{color.cold-gray.60}"
+        },
+        "grid": {
+          "$type": "color",
+          "$value": "{transparent.cold-gray.60.30}"
+        },
+        "label": {
+          "$type": "color",
+          "$value": "{color.cold-gray.75}"
+        }
+      }
+    }
+  },
+  "spacing": {
+    "micro": {
+      "xs": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.2}",
+        "$description": "Tiny gaps."
+      },
+      "sm": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.4}",
+        "$description": "Tiny gaps."
+      },
+      "md": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.6}",
+        "$description": "Tiny gaps."
+      },
+      "lg": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.8}",
+        "$description": "Tiny gaps."
+      },
+      "xl": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.12}",
+        "$description": "Tiny gaps."
+      }
+    },
+    "inset": {
+      "xs": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.8}",
+        "$description": "Margin and padding."
+      },
+      "sm": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.16}",
+        "$description": "Margin and padding."
+      },
+      "md": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.24}",
+        "$description": "Margin and padding."
+      },
+      "lg": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.32}",
+        "$description": "Margin and padding."
+      },
+      "xl": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.48}",
+        "$description": "Margin and padding."
+      }
+    },
+    "stack": {
+      "xs": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.16}",
+        "$description": "Gaps for grid and wraps."
+      },
+      "sm": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.24}",
+        "$description": "Gaps for grid and wraps."
+      },
+      "md": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.32}",
+        "$description": "Gaps for grid and wraps."
+      },
+      "lg": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.48}",
+        "$description": "Gaps for grid and wraps."
+      },
+      "xl": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.64}",
+        "$description": "Gaps for grid and wraps."
+      }
+    },
+    "layout": {
+      "xs": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.32}",
+        "$description": "General layout gaps."
+      },
+      "sm": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.48}",
+        "$description": "General layout gaps."
+      },
+      "md": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.64}",
+        "$description": "General layout gaps."
+      },
+      "lg": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.96}",
+        "$description": "General layout gaps."
+      },
+      "xl": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.128}",
+        "$description": "General layout gaps."
+      }
+    },
+    "wide": {
+      "xs": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.64}",
+        "$description": "Large scale arrangement."
+      },
+      "sm": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.96}",
+        "$description": "Large scale arrangement."
+      },
+      "md": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.128}",
+        "$description": "Large scale arrangement."
+      },
+      "lg": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.192}",
+        "$description": "Large scale arrangement."
+      },
+      "xl": {
+        "$type": "spacing",
+        "$value": "{spacing.pixel.256}",
+        "$description": "Large scale arrangement."
+      }
+    }
+  },
+  "sizing": {
+    "icon": {
+      "xs": {
+        "$type": "sizing",
+        "$value": "{size.pixel.12}"
+      },
+      "sm": {
+        "$type": "sizing",
+        "$value": "{size.pixel.16}"
+      },
+      "md": {
+        "$type": "sizing",
+        "$value": "{size.pixel.20}"
+      },
+      "lg": {
+        "$type": "sizing",
+        "$value": "{size.pixel.24}"
+      },
+      "xl": {
+        "$type": "sizing",
+        "$value": "{size.pixel.32}"
+      }
+    },
+    "atom": {
+      "xs": {
+        "$type": "sizing",
+        "$value": "{size.pixel.16}"
+      },
+      "sm": {
+        "$type": "sizing",
+        "$value": "{size.pixel.24}"
+      },
+      "md": {
+        "$type": "sizing",
+        "$value": "{size.pixel.32}"
+      },
+      "lg": {
+        "$type": "sizing",
+        "$value": "{size.pixel.48}"
+      },
+      "xl": {
+        "$type": "sizing",
+        "$value": "{size.pixel.64}"
+      }
+    },
+    "molecule": {
+      "xs": {
+        "$type": "sizing",
+        "$value": "{size.pixel.32}"
+      },
+      "sm": {
+        "$type": "sizing",
+        "$value": "{size.pixel.48}"
+      },
+      "md": {
+        "$type": "sizing",
+        "$value": "{size.pixel.64}"
+      },
+      "lg": {
+        "$type": "sizing",
+        "$value": "{size.pixel.96}"
+      },
+      "xl": {
+        "$type": "sizing",
+        "$value": "{size.pixel.128}"
+      }
+    },
+    "component": {
+      "xs": {
+        "$type": "sizing",
+        "$value": "{size.pixel.64}"
+      },
+      "sm": {
+        "$type": "sizing",
+        "$value": "{size.pixel.96}"
+      },
+      "md": {
+        "$type": "sizing",
+        "$value": "{size.pixel.128}"
+      },
+      "lg": {
+        "$type": "sizing",
+        "$value": "{size.pixel.192}"
+      },
+      "xl": {
+        "$type": "sizing",
+        "$value": "{size.pixel.256}"
+      }
+    },
+    "container": {
+      "xs": {
+        "$type": "sizing",
+        "$value": "{size.pixel.128}"
+      },
+      "sm": {
+        "$type": "sizing",
+        "$value": "{size.pixel.256}"
+      },
+      "md": {
+        "$type": "sizing",
+        "$value": "{size.pixel.512}"
+      },
+      "lg": {
+        "$type": "sizing",
+        "$value": "{size.pixel.768}"
+      },
+      "xl": {
+        "$type": "sizing",
+        "$value": "{size.pixel.1024}"
+      }
+    }
+  },
+  "radius": {
+    "xs": {
+      "$type": "borderRadius",
+      "$value": "{border-radius.pixel.4}",
+      "$description": "Corner radius scale for controls, cards, and containers; select size to match density and brand softness."
+    },
+    "sm": {
+      "$type": "borderRadius",
+      "$value": "{border-radius.pixel.8}",
+      "$description": "Corner radius scale for controls, cards, and containers; select size to match density and brand softness."
+    },
+    "md": {
+      "$type": "borderRadius",
+      "$value": "{border-radius.pixel.16}",
+      "$description": "Corner radius scale for controls, cards, and containers; select size to match density and brand softness."
+    },
+    "lg": {
+      "$type": "borderRadius",
+      "$value": "{border-radius.pixel.24}",
+      "$description": "Corner radius scale for controls, cards, and containers; select size to match density and brand softness."
+    },
+    "xl": {
+      "$type": "borderRadius",
+      "$value": "{border-radius.pixel.32}",
+      "$description": "Corner radius scale for controls, cards, and containers; select size to match density and brand softness."
+    },
+    "pill": {
+      "$type": "borderRadius",
+      "$value": "{border-radius.pixel.1000}",
+      "$description": "Fully rounded corners for pills, tags, chips, and circular elements."
+    }
+  },
+  "border-width": {
+    "xs": {
+      "$type": "borderWidth",
+      "$value": "{border-width.pixel.05}",
+      "$description": "Standard border width scale for controls, inputs, cards, and containers; choose size by density and emphasis."
+    },
+    "sm": {
+      "$type": "borderWidth",
+      "$value": "{border-width.pixel.1}",
+      "$description": "Standard border width scale for controls, inputs, cards, and containers; choose size by density and emphasis."
+    },
+    "md": {
+      "$type": "borderWidth",
+      "$value": "{border-width.pixel.2}",
+      "$description": "Standard border width scale for controls, inputs, cards, and containers; choose size by density and emphasis."
+    },
+    "lg": {
+      "$type": "borderWidth",
+      "$value": "{border-width.pixel.4}",
+      "$description": "Standard border width scale for controls, inputs, cards, and containers; choose size by density and emphasis."
+    },
+    "focus": {
+      "$type": "borderWidth",
+      "$value": "{border-width.pixel.1}",
+      "$description": "Outline width for focus rings and accessibility indicators."
+    }
+  },
+  "elevation": {
+    "xs": {
+      "hard-layer": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "type": "dropShadow",
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.1}",
+            "blur": "{dimension.pixel.2}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.soft}"
+          }
+        ]
+      },
+      "soft-layer": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.1}",
+            "blur": "{dimension.pixel.3}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.medium}",
+            "type": "dropShadow"
+          }
+        ]
+      },
+      "complete": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.1}",
+            "blur": "{dimension.pixel.1}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.soft}",
+            "type": "dropShadow"
+          },
+          {
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.2}",
+            "blur": "{dimension.pixel.6}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.medium}",
+            "type": "dropShadow"
+          }
+        ]
+      }
+    },
+    "sm": {
+      "hard-layer": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "type": "dropShadow",
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.2}",
+            "blur": "{dimension.pixel.4}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.soft}"
+          }
+        ]
+      },
+      "soft-layer": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.2}",
+            "blur": "{dimension.pixel.6}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.medium}",
+            "type": "dropShadow"
+          }
+        ]
+      },
+      "complete": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "type": "dropShadow",
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.2}",
+            "blur": "{dimension.pixel.2}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.soft}"
+          },
+          {
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.4}",
+            "blur": "{dimension.pixel.12}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.medium}",
+            "type": "dropShadow"
+          }
+        ]
+      }
+    },
+    "md": {
+      "hard-layer": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "type": "dropShadow",
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.4}",
+            "blur": "{dimension.pixel.8}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.soft}"
+          }
+        ]
+      },
+      "soft-layer": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.4}",
+            "blur": "{dimension.pixel.12}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.medium}",
+            "type": "dropShadow"
+          }
+        ]
+      },
+      "complete": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "type": "dropShadow",
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.4}",
+            "blur": "{dimension.pixel.4}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.soft}"
+          },
+          {
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.8}",
+            "blur": "{dimension.pixel.20}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.medium}",
+            "type": "dropShadow"
+          }
+        ]
+      }
+    },
+    "lg": {
+      "hard-layer": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "type": "dropShadow",
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.6}",
+            "blur": "{dimension.pixel.12}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.soft}"
+          }
+        ]
+      },
+      "soft-layer": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.8}",
+            "blur": "{dimension.pixel.24}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.medium}",
+            "type": "dropShadow"
+          }
+        ]
+      },
+      "complete": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "type": "dropShadow",
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.8}",
+            "blur": "{dimension.pixel.8}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.soft}"
+          },
+          {
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.12}",
+            "blur": "{dimension.pixel.24}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.medium}",
+            "type": "dropShadow"
+          }
+        ]
+      }
+    },
+    "xl": {
+      "hard-layer": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "type": "dropShadow",
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.8}",
+            "blur": "{dimension.pixel.16}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.soft}"
+          }
+        ]
+      },
+      "soft-layer": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.12}",
+            "blur": "{dimension.pixel.32}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.medium}",
+            "type": "dropShadow"
+          }
+        ]
+      },
+      "complete": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "type": "dropShadow",
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.12}",
+            "blur": "{dimension.pixel.12}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.soft}"
+          },
+          {
+            "x": "{dimension.pixel.null}",
+            "y": "{dimension.pixel.16}",
+            "blur": "{dimension.pixel.32}",
+            "spread": "0",
+            "color": "{color.neutral.effect.shadow.medium}",
+            "type": "dropShadow"
+          }
+        ]
+      }
+    }
+  },
+  "typography": {
+    "display": {
+      "xs": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.32}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.25}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Brand related titles."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.800}",
+            "fontSize": "{font-size.pixel.32}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.25}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Brand related titles."
+        }
+      },
+      "sm": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.40}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.50}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Brand related titles."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.800}",
+            "fontSize": "{font-size.pixel.40}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.50}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Brand related titles."
+        }
+      },
+      "md": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.48}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.50}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Brand related titles."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.800}",
+            "fontSize": "{font-size.pixel.48}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.50}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Brand related titles."
+        }
+      },
+      "lg": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.64}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.75}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Brand related titles."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.800}",
+            "fontSize": "{font-size.pixel.64}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.75}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Brand related titles."
+        }
+      },
+      "xl": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.80}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.100}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Brand related titles."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.800}",
+            "fontSize": "{font-size.pixel.80}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.100}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Brand related titles."
+        }
+      }
+    },
+    "heading": {
+      "xs": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.24}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.25}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.24}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.25}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        }
+      },
+      "sm": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.32}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.25}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.32}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.25}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        }
+      },
+      "md": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.40}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.50}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.40}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.50}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        }
+      },
+      "lg": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.48}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.50}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.48}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.50}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        }
+      },
+      "xl": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.64}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.75}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.64}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.75}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        }
+      },
+      "xxl": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.80}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.100}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.80}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.100}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Use to create hierarchy."
+        }
+      }
+    },
+    "title": {
+      "xs": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.10}"
+          },
+          "$description": "Titles for UI elements."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.10}"
+          },
+          "$description": "Titles for UI elements."
+        }
+      },
+      "sm": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.18}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.10}"
+          },
+          "$description": "Titles for UI elements."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.18}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.10}"
+          },
+          "$description": "Titles for UI elements."
+        }
+      },
+      "md": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.20}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.10}"
+          },
+          "$description": "Titles for UI elements."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.20}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.10}"
+          },
+          "$description": "Titles for UI elements."
+        }
+      },
+      "lg": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.24}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.25}"
+          },
+          "$description": "Titles for UI elements."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.24}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.25}"
+          },
+          "$description": "Titles for UI elements."
+        }
+      },
+      "xl": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.32}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.50}"
+          },
+          "$description": "Titles for UI elements."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.32}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.negative.50}"
+          },
+          "$description": "Titles for UI elements."
+        }
+      }
+    },
+    "body": {
+      "sm": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.14}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}",
+            "paragraphSpacing": "{paragraph-spacing.pixel.8}"
+          },
+          "$description": "Textual content."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.14}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}",
+            "paragraphSpacing": "{paragraph-spacing.pixel.8}"
+          },
+          "$description": "Textual content."
+        }
+      },
+      "md": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}",
+            "paragraphSpacing": "{paragraph-spacing.pixel.8}"
+          },
+          "$description": "Textual content."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}",
+            "paragraphSpacing": "{paragraph-spacing.pixel.8}"
+          },
+          "$description": "Textual content."
+        }
+      },
+      "lg": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.18}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}",
+            "paragraphSpacing": "{paragraph-spacing.pixel.8}"
+          },
+          "$description": "Textual content."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.18}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}",
+            "paragraphSpacing": "{paragraph-spacing.pixel.8}"
+          },
+          "$description": "Textual content."
+        }
+      }
+    },
+    "label": {
+      "xs": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.12}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.positive.5}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Interaction label."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.12}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.positive.5}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Interaction label."
+        }
+      },
+      "sm": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.14}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.positive.10}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Interaction label."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.14}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.positive.10}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Interaction label."
+        }
+      },
+      "md": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.positive.10}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Interaction label."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.positive.10}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Interaction label."
+        }
+      },
+      "lg": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.18}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.positive.25}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Interaction label."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.18}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.positive.25}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Interaction label."
+        }
+      },
+      "xl": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.20}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.positive.25}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Interaction label."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.20}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.positive.25}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Interaction label."
+        }
+      }
+    },
+    "caption": {
+      "sm": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.300}",
+            "fontSize": "{font-size.pixel.10}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Low importance & additional information."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.10}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Low importance & additional information."
+        }
+      },
+      "md": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.300}",
+            "fontSize": "{font-size.pixel.12}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Low importance & additional information."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.12}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Low importance & additional information."
+        }
+      },
+      "lg": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.300}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Low importance & additional information."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.100}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Low importance & additional information."
+        }
+      }
+    },
+    "overline": {
+      "sm": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.300}",
+            "fontSize": "{font-size.pixel.12}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.positive.10}",
+            "textCase": "{text-case.uppercase}"
+          },
+          "$description": "Short text above headings and titles."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.12}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.positive.10}",
+            "textCase": "{text-case.uppercase}"
+          },
+          "$description": "Short text above headings and titles."
+        }
+      },
+      "md": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.300}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.positive.25}",
+            "textCase": "{text-case.uppercase}"
+          },
+          "$description": "Short text above headings and titles."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.positive.25}",
+            "textCase": "{text-case.uppercase}"
+          },
+          "$description": "Short text above headings and titles."
+        }
+      },
+      "lg": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.300}",
+            "fontSize": "{font-size.pixel.20}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.positive.25}",
+            "textCase": "{text-case.uppercase}"
+          },
+          "$description": "Short text above headings and titles."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.main}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.20}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.positive.25}",
+            "textCase": "{text-case.uppercase}"
+          },
+          "$description": "Short text above headings and titles."
+        }
+      }
+    },
+    "code": {
+      "sm": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.technic}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.none}"
+          },
+          "$description": "Technical data, code and things to copy."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.technic}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.none}"
+          },
+          "$description": "Technical data, code and things to copy."
+        }
+      },
+      "md": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.technic}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.24}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.none}"
+          },
+          "$description": "Technical data, code and things to copy."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.technic}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.24}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.none}"
+          },
+          "$description": "Technical data, code and things to copy."
+        }
+      },
+      "lg": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.technic}",
+            "fontWeight": "{font-weight.numeric.400}",
+            "fontSize": "{font-size.pixel.32}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.none}"
+          },
+          "$description": "Technical data, code and things to copy."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.technic}",
+            "fontWeight": "{font-weight.numeric.600}",
+            "fontSize": "{font-size.pixel.32}",
+            "lineHeight": "{line-height.percent.120}",
+            "letterSpacing": "{letter-spacing.pixel.none}"
+          },
+          "$description": "Technical data, code and things to copy."
+        }
+      }
+    },
+    "lead": {
+      "sm": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Hero description, subtitles, chapô etc..."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.16}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Hero description, subtitles, chapô etc..."
+        }
+      },
+      "md": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.18}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Hero description, subtitles, chapô etc..."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.18}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Hero description, subtitles, chapô etc..."
+        }
+      },
+      "lg": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.20}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Hero description, subtitles, chapô etc..."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.20}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Hero description, subtitles, chapô etc..."
+        }
+      },
+      "xl": {
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.500}",
+            "fontSize": "{font-size.pixel.24}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Hero description, subtitles, chapô etc..."
+        },
+        "emphasized": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.brand}",
+            "fontWeight": "{font-weight.numeric.700}",
+            "fontSize": "{font-size.pixel.24}",
+            "lineHeight": "{line-height.percent.150}",
+            "letterSpacing": "{letter-spacing.pixel.none}",
+            "textCase": "{text-case.none}"
+          },
+          "$description": "Hero description, subtitles, chapô etc..."
+        }
+      }
+    }
+  },
+  "opacity": {
+    "state": {
+      "hidden": {
+        "$type": "opacity",
+        "$value": "{opacity.transparent.50}",
+        "$description": "out of view."
+      },
+      "disabled": {
+        "$type": "opacity",
+        "$value": "{opacity.transparent.30}",
+        "$description": "to use on interactive elements that are disabled."
+      }
+    },
+    "interaction": {
+      "visited": {
+        "$type": "opacity",
+        "$value": "{opacity.transparent.80}",
+        "$description": "To use on link and button on the state visited."
+      },
+      "default": {
+        "$type": "opacity",
+        "$value": "{opacity.opaque}",
+        "$description": "Default opacity for regular interactive elements."
+      }
+    }
+  },
+  "blur-size": {
+    "xxs": {
+      "$type": "dimension",
+      "$value": "{dimension.pixel.4}",
+      "$description": "Blur radius for backdrops and modal scrims."
+    },
+    "xs": {
+      "$type": "dimension",
+      "$value": "{dimension.pixel.8}",
+      "$description": "Blur radius for backdrops and modal scrims."
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "{dimension.pixel.16}",
+      "$description": "Blur radius for backdrops and modal scrims."
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "{dimension.pixel.32}",
+      "$description": "Blur radius for backdrops and modal scrims."
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "{dimension.pixel.64}",
+      "$description": "Blur radius for backdrops and modal scrims."
+    },
+    "xl": {
+      "$type": "dimension",
+      "$value": "{dimension.pixel.128}",
+      "$description": "Blur radius for backdrops and modal scrims."
+    },
+    "xxl": {
+      "$type": "dimension",
+      "$value": "{dimension.pixel.256}",
+      "$description": "Blur radius for backdrops and modal scrims."
+    },
+    "max": {
+      "$type": "dimension",
+      "$value": "{dimension.pixel.1024}",
+      "$description": "Maximum blur radius for heavy backdrops and full-screen overlays."
+    }
+  }
+}

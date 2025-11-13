@@ -22,10 +22,10 @@ const OUTPUT_FILE = resolve(__dirname, '../src/styles/tokens.css');
 
 // Token file names
 const TOKEN_FILES = {
-  primitives: 'primitives.json',
-  brand: 'brand.json',
-  semantic: 'semantic.json',
-  component: 'component.json',
+  primitives: 'primitive-tokens.JSON',
+  brand: 'brand-tokens.JSON',
+  semantic: 'semantic-tokens.JSON',
+  component: 'component-tokens.JSON',
 };
 
 interface TokenValue {
@@ -57,6 +57,8 @@ function loadTokenFile(filename: string): TokenObject {
  * Flatten nested token object into dot-notation paths
  * e.g., { color: { neutral: { surface: { default: '#fff' } } } }
  * becomes { 'color.neutral.surface.default': '#fff' }
+ * 
+ * Complex objects (typography, elevation) are decomposed into separate properties
  */
 function flattenTokens(
   obj: TokenObject,
@@ -74,11 +76,25 @@ function flattenTokens(
       // Check if it's a token value object with $value
       if ('$value' in value) {
         const tokenValue = (value as TokenValue).$value;
+        
         if (typeof tokenValue === 'string' || typeof tokenValue === 'number') {
           result[path] = tokenValue;
         } else if (typeof tokenValue === 'object' && tokenValue !== null) {
-          // Handle complex values like typography or shadows
-          result[path] = JSON.stringify(tokenValue);
+          // Handle complex values (typography, shadows, etc.)
+          if (Array.isArray(tokenValue)) {
+            // Arrays (like elevation shadows) - store as JSON for now
+            result[path] = JSON.stringify(tokenValue);
+          } else {
+            // Objects (like typography) - decompose into separate properties
+            for (const subKey in tokenValue) {
+              if (typeof tokenValue[subKey] === 'string' || typeof tokenValue[subKey] === 'number') {
+                result[`${path}.${subKey}`] = tokenValue[subKey];
+              } else {
+                // Nested objects - stringify
+                result[`${path}.${subKey}`] = JSON.stringify(tokenValue[subKey]);
+              }
+            }
+          }
         }
       } else {
         // Recurse into nested object
@@ -144,23 +160,9 @@ function toCSSVariableName(path: string): string {
 function formatCSSValue(value: string | number): string {
   const str = String(value);
 
-  // If it's a JSON string (for complex values), parse and format
-  if (str.startsWith('{') || str.startsWith('[')) {
-    try {
-      const parsed = JSON.parse(str);
-
-      // Handle typography tokens
-      if (parsed.fontFamily) {
-        return str; // Keep as-is for now, will need special handling in components
-      }
-
-      // Handle shadow tokens
-      if (Array.isArray(parsed)) {
-        return str; // Keep as-is for now
-      }
-    } catch {
-      // Not JSON, continue
-    }
+  // Remove quotes from font family strings
+  if (str.startsWith('"') && str.endsWith('"')) {
+    return str.slice(1, -1);
   }
 
   return str;
@@ -185,10 +187,32 @@ function generateCSS(tokens: Record<string, string | number>): string {
   // Sort tokens alphabetically for consistency
   const sortedPaths = Object.keys(tokens).sort();
 
+  // Group tokens by category for better readability
+  const categories = new Map<string, string[]>();
+  
   for (const path of sortedPaths) {
-    const cssVar = toCSSVariableName(path);
-    const value = formatCSSValue(tokens[path]);
-    lines.push(`  ${cssVar}: ${value};`);
+    const category = path.split('.')[0];
+    if (!categories.has(category)) {
+      categories.set(category, []);
+    }
+    categories.get(category)!.push(path);
+  }
+
+  // Generate CSS with category comments
+  let isFirst = true;
+  for (const [category, paths] of Array.from(categories.entries()).sort()) {
+    if (!isFirst) {
+      lines.push('');
+    }
+    lines.push(`  /* ${category} */`);
+    
+    for (const path of paths) {
+      const cssVar = toCSSVariableName(path);
+      const value = formatCSSValue(tokens[path]);
+      lines.push(`  ${cssVar}: ${value};`);
+    }
+    
+    isFirst = false;
   }
 
   lines.push('}');
