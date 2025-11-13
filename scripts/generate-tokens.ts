@@ -320,18 +320,50 @@ function main() {
   };
 
   for (const [path, value] of Object.entries(semanticResolved)) {
-    // Only resolve if it's a simple string with references, not a JSON object
-    if (typeof value === 'string' && value.includes('{') && !value.startsWith('{') && !value.startsWith('[')) {
-      finalSemantic[path] = resolveReferences(value, allTokensWithResolved);
+    if (typeof value === 'string') {
+      // Check if it's a JSON object (complex token) - these are already resolved
+      const isComplexToken = value.startsWith('{') || value.startsWith('[');
+      if (isComplexToken) {
+        try {
+          JSON.parse(value);
+          // Valid JSON object, already resolved in pass 3
+          finalSemantic[path] = value;
+        } catch {
+          // Not valid JSON, it's a simple reference like "{token.path}"
+          finalSemantic[path] = resolveReferences(value, allTokensWithResolved);
+        }
+      } else if (value.includes('{')) {
+        // Simple string with reference
+        finalSemantic[path] = resolveReferences(value, allTokensWithResolved);
+      } else {
+        // No reference, keep as-is
+        finalSemantic[path] = value;
+      }
     } else {
       finalSemantic[path] = value;
     }
   }
 
   for (const [path, value] of Object.entries(componentResolved)) {
-    // Only resolve if it's a simple string with references, not a JSON object
-    if (typeof value === 'string' && value.includes('{') && !value.startsWith('{') && !value.startsWith('[')) {
-      finalComponent[path] = resolveReferences(value, allTokensWithResolved);
+    if (typeof value === 'string') {
+      // Check if it's a JSON object (complex token) - these are already resolved
+      const isComplexToken = value.startsWith('{') || value.startsWith('[');
+      if (isComplexToken) {
+        try {
+          JSON.parse(value);
+          // Valid JSON object, already resolved in pass 3
+          finalComponent[path] = value;
+        } catch {
+          // Not valid JSON, it's a simple reference like "{token.path}"
+          finalComponent[path] = resolveReferences(value, allTokensWithResolved);
+        }
+      } else if (value.includes('{')) {
+        // Simple string with reference
+        finalComponent[path] = resolveReferences(value, allTokensWithResolved);
+      } else {
+        // No reference, keep as-is
+        finalComponent[path] = value;
+      }
     } else {
       finalComponent[path] = value;
     }
