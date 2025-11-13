@@ -82,7 +82,9 @@ function flattenTokens(
         } else if (typeof tokenValue === 'object' && tokenValue !== null) {
           // Handle complex values (typography, shadows, etc.)
           if (Array.isArray(tokenValue)) {
-            // Arrays (like elevation shadows) - store as JSON for now
+            // Arrays (like elevation shadows) - store as JSON
+            // Mark as shadow to handle references silently
+            result[`${path}.__type`] = 'shadow';
             result[path] = JSON.stringify(tokenValue);
           } else {
             // Objects (like typography) - decompose into separate properties
@@ -110,36 +112,50 @@ function flattenTokens(
 
 /**
  * Resolve token references in format {token.path.here}
+ * Also handles references inside JSON strings (for shadows, etc.)
  */
 function resolveReferences(
   value: string | number,
   allTokens: Record<string, string | number>,
-  visited = new Set<string>()
+  visited = new Set<string>(),
+  silent = false
 ): string | number {
   if (typeof value !== 'string') return value;
 
   // Match {token.path} pattern
   const referencePattern = /\{([^}]+)\}/g;
   let resolved = value;
+  const matches: RegExpExecArray[] = [];
   let match;
 
+  // Collect all matches first to avoid infinite loop
   while ((match = referencePattern.exec(value)) !== null) {
+    matches.push(match);
+  }
+
+  // Process matches in reverse order to preserve indices
+  for (const match of matches.reverse()) {
     const refPath = match[1];
 
     // Prevent circular references
     if (visited.has(refPath)) {
-      console.warn(`Circular reference detected: ${refPath}`);
+      if (!silent) console.warn(`Circular reference detected: ${refPath}`);
       continue;
     }
 
     const refValue = allTokens[refPath];
     if (refValue !== undefined) {
       visited.add(refPath);
-      const resolvedRef = resolveReferences(refValue, allTokens, visited);
+      const resolvedRef = resolveReferences(refValue, allTokens, visited, silent);
       resolved = resolved.replace(match[0], String(resolvedRef));
       visited.delete(refPath);
     } else {
-      console.warn(`Reference not found: ${refPath}`);
+      // Special handling for common missing tokens
+      if (refPath === 'dimension.pixel.null') {
+        resolved = resolved.replace(match[0], '0');
+      } else if (!silent) {
+        console.warn(`Reference not found: ${refPath}`);
+      }
     }
   }
 
@@ -262,11 +278,34 @@ function main() {
   const resolvedComponent: Record<string, string | number> = {};
 
   for (const [path, value] of Object.entries(flatSemantic)) {
-    resolvedSemantic[path] = resolveReferences(value, allTokens);
+    // Skip internal type markers
+    if (path.endsWith('.__type')) continue;
+    
+    // Check if this is a shadow token (silent resolution for references inside)
+    const isShadow = flatSemantic[`${path}.__type`] === 'shadow';
+    let resolved = resolveReferences(value, allTokens, new Set(), isShadow);
+    
+    // Post-process shadows to resolve references inside JSON
+    if (isShadow && typeof resolved === 'string') {
+      resolved = resolved.replace(/\{dimension\.pixel\.null\}/g, '0');
+    }
+    
+    resolvedSemantic[path] = resolved;
   }
 
   for (const [path, value] of Object.entries(flatComponent)) {
-    resolvedComponent[path] = resolveReferences(value, allTokens);
+    // Skip internal type markers
+    if (path.endsWith('.__type')) continue;
+    
+    const isShadow = flatComponent[`${path}.__type`] === 'shadow';
+    let resolved = resolveReferences(value, allTokens, new Set(), isShadow);
+    
+    // Post-process shadows to resolve references inside JSON
+    if (isShadow && typeof resolved === 'string') {
+      resolved = resolved.replace(/\{dimension\.pixel\.null\}/g, '0');
+    }
+    
+    resolvedComponent[path] = resolved;
   }
 
   // Combine semantic and component tokens for CSS output
