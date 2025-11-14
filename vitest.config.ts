@@ -23,8 +23,16 @@ export default defineConfig({
         '**/*.test.tsx',
         '**/index.ts',
         'dist/',
+        'storybook-static/',
         '.storybook/',
         'scripts/',
+        // Configuration files
+        '.eslintrc.cjs',
+        '**/*.config.ts',
+        '**/*.config.js',
+        '**/*.config.cjs',
+        // Examples and demos (visual components, not critical to test)
+        'src/examples/**',
       ],
       thresholds: {
         lines: 80,
