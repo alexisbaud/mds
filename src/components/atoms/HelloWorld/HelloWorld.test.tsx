@@ -2,7 +2,7 @@
  * Tests for HelloWorld component
  */
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '../../../tests/utils/test-helpers';
+import { render, screen } from '../../../../tests/utils/test-helpers';
 import { HelloWorld } from './HelloWorld';
 
 describe('HelloWorld', () => {

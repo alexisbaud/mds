@@ -14,7 +14,7 @@ import { HelloWorld } from './HelloWorld';
  * Use this as a template when creating new components.
  */
 const meta = {
-  title: 'Components/HelloWorld',
+  title: 'Atoms/HelloWorld',
   component: HelloWorld,
   parameters: {
     docs: {
