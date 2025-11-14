@@ -1,6 +1,6 @@
 {
   "name": "mds",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Modul Design System - TypeScript/React/Vite",
   "type": "module",
   "main": "./dist/mds.umd.cjs",
@@ -21,8 +21,9 @@
   ],
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "tsc && vite build",
-    "build:storybook": "storybook build",
+    "build": "npm run generate:tokens && tsc -p tsconfig.build.json && vite build && npm run build:copy-css",
+    "build:copy-css": "mkdir -p dist/styles && cp src/styles/*.css dist/styles/",
+    "build:storybook": "npm run generate:tokens && storybook build",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
     "lint": "eslint src --ext ts,tsx",
@@ -75,7 +76,7 @@
     "tsx": "^4.7.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.8",
+    "vite-plugin-dts": "^4.5.4",
     "vitest": "^1.0.4"
   }
 }
-

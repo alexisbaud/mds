@@ -1,0 +1,11 @@
+Tentative de build Storybook échouée à cause du parsing MDX.
+
+Problème : MDX parse le JSX/TSX dans les code blocks, même avec ```text.
+
+Solutions possibles :
+1. Utiliser <pre><code> au lieu de code fences
+2. Retirer temporairement les docs/ du pattern stories
+3. Échapper tous les <> dans le code JSX
+4. Configurer le plugin MDX différemment
+
+Pour l'instant, on va temporairement exclure les docs/ du build Storybook.

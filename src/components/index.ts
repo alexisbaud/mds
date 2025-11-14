@@ -1,3 +1,3 @@
-// Component exports will be added here
-export {};
+// Component exports
+export * from './HelloWorld';
 

@@ -1,0 +1,43 @@
+/**
+ * HelloWorld Styles
+ * 
+ * Demonstrates proper token consumption:
+ * - NO magic values
+ * - ALL styles reference CSS variables from tokens
+ * - Variants use semantic tokens
+ */
+
+.hello-world {
+  padding: var(--spacing-inset-lg);
+  border-radius: var(--radius-md);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Default variant - Neutral */
+.hello-world--default {
+  background: var(--color-neutral-surface-soft);
+  color: var(--color-neutral-content-heavy);
+  border: 1px solid var(--color-neutral-content-weakest);
+}
+
+/* Brand variant */
+.hello-world--brand {
+  background: var(--color-brand-surface-soft);
+  color: var(--color-brand-content-plain-heavy-default);
+  border: 1px solid var(--color-brand-content-plain-weakest-default);
+}
+
+/* Accent variant */
+.hello-world--accent {
+  background: var(--color-accent-surface-soft);
+  color: var(--color-accent-content-plain-heavy-default);
+  border: 1px solid var(--color-accent-content-plain-weakest-default);
+}
+
+/* Text element */
+.hello-world__text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+

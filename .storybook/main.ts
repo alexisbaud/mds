@@ -11,7 +11,8 @@ function getAbsolutePath(value: string): string {
 
 const config: StorybookConfig = {
   stories: [
-    '../docs/**/*.mdx',
+    // TODO: Re-enable docs after fixing MDX code block parsing issues
+    // '../docs/**/*.mdx',
     '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
@@ -31,6 +32,20 @@ const config: StorybookConfig = {
   },
   core: {
     disableTelemetry: true,
+  },
+  viteFinal: async (config) => {
+    // Remove vite-plugin-dts from Storybook build
+    if (config.plugins) {
+      config.plugins = config.plugins.filter(
+        (plugin) => {
+          if (plugin && typeof plugin === 'object' && 'name' in plugin) {
+            return plugin.name !== 'vite:dts';
+          }
+          return true;
+        }
+      );
+    }
+    return config;
   },
 };
 

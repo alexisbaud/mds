@@ -13,7 +13,7 @@ La séparation des préoccupations (SoC) est un principe fondamental dans MDS po
 **Les styles (apparence) doivent être découplés de la logique (comportement).**
 
 ❌ **Mauvais exemple :**
-```tsx
+```text
 function Button({ onClick }) {
   return (
     <button
@@ -31,7 +31,7 @@ function Button({ onClick }) {
 ```
 
 ✅ **Bon exemple :**
-```tsx
+```text
 import './Button.css';
 
 function Button({ onClick }) {
@@ -79,7 +79,7 @@ function Button({ onClick }) {
 **Chaque composant a une responsabilité unique et bien définie.**
 
 ❌ **Mauvais (composant multi-responsabilités) :**
-```tsx
+```text
 function UserDashboard() {
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState([]);
@@ -93,7 +93,7 @@ function UserDashboard() {
 ```
 
 ✅ **Bon (composants décomposés) :**
-```tsx
+```text
 function UserDashboard() {
   return (
     <DashboardLayout>
@@ -110,7 +110,7 @@ function UserDashboard() {
 **Les props des composants doivent avoir des interfaces TypeScript claires et stables.**
 
 ✅ **Bon exemple :**
-```tsx
+```text
 /**
  * Button component with multiple variants and states
  * @param variant - Visual style variant
@@ -167,7 +167,7 @@ components/
 **Extraire la logique complexe dans des hooks customs.**
 
 ✅ **Exemple :**
-```tsx
+```text
 // useToggle.ts
 export function useToggle(initialState = false) {
   const [isOn, setIsOn] = useState(initialState);

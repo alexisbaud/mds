@@ -12,7 +12,7 @@ Les tests garantissent la stabilité et la qualité du design system. Chaque com
 
 **Vérifier que le composant se rend correctement.**
 
-```tsx
+```text
 import { render, screen } from '@/tests/utils/test-helpers';
 import { Button } from './Button';
 
@@ -36,7 +36,7 @@ describe('Button', () => {
 
 **Vérifier les événements et les comportements interactifs.**
 
-```tsx
+```text
 import { render, screen, userEvent } from '@/tests/utils/test-helpers';
 
 describe('Button interactions', () => {
@@ -66,7 +66,7 @@ describe('Button interactions', () => {
 
 **Vérifier l'accessibilité au clavier.**
 
-```tsx
+```text
 describe('Button keyboard navigation', () => {
   it('triggers onClick on Enter key', async () => {
     const handleClick = vi.fn();
@@ -100,7 +100,7 @@ describe('Button keyboard navigation', () => {
 
 **Vérifier les attributs ARIA et le contraste.**
 
-```tsx
+```text
 import { axe } from 'jest-axe';
 
 describe('Button accessibility', () => {
@@ -129,7 +129,7 @@ describe('Button accessibility', () => {
 
 **Vérifier toutes les variantes et tous les états.**
 
-```tsx
+```text
 describe('Button variants', () => {
   it.each([
     ['primary', 'button-primary'],
@@ -156,7 +156,7 @@ describe('Button states', () => {
 
 ## Configuration Vitest
 
-```ts
+```text
 // vitest.config.ts
 export default defineConfig({
   test: {
@@ -179,7 +179,7 @@ export default defineConfig({
 
 ## Helpers de test
 
-```tsx
+```text
 // tests/utils/test-helpers.ts
 import { render, type RenderOptions } from '@testing-library/react';
 import { type ReactElement } from 'react';
@@ -228,7 +228,7 @@ Avant de valider un composant :
 
 ## Structure de tests recommandée
 
-```tsx
+```text
 describe('ComponentName', () => {
   describe('Rendering', () => {
     // Tests de rendu
@@ -261,14 +261,14 @@ describe('ComponentName', () => {
 ### Utiliser les queries accessibles
 
 ✅ **Préférer :**
-```tsx
+```text
 screen.getByRole('button', { name: 'Submit' })
 screen.getByLabelText('Email')
 screen.getByPlaceholderText('Enter your name')
 ```
 
 ❌ **Éviter :**
-```tsx
+```text
 container.querySelector('.button')  // Trop fragile
 screen.getByTestId('submit-btn')    // Moins accessible
 ```
@@ -276,7 +276,7 @@ screen.getByTestId('submit-btn')    // Moins accessible
 ### Tester le comportement, pas l'implémentation
 
 ✅ **Bon :**
-```tsx
+```text
 it('shows error message when email is invalid', async () => {
   render(<Form />);
   await user.type(screen.getByLabelText('Email'), 'invalid-email');
@@ -287,7 +287,7 @@ it('shows error message when email is invalid', async () => {
 ```
 
 ❌ **Mauvais :**
-```tsx
+```text
 it('sets error state to true', () => {
   const { result } = renderHook(() => useForm());
   act(() => result.current.validateEmail('invalid'));
@@ -298,7 +298,7 @@ it('sets error state to true', () => {
 
 ### Nettoyer après chaque test
 
-```tsx
+```text
 import { cleanup } from '@testing-library/react';
 import { afterEach } from 'vitest';
 

@@ -2,7 +2,7 @@
  * Test helpers for MDS components
  * Provides reusable utilities for testing React components
  */
-import { render, type RenderOptions } from '@testing-library/react';
+import { render, type RenderOptions, type RenderResult } from '@testing-library/react';
 import { type ReactElement } from 'react';
 
 /**
@@ -11,7 +11,7 @@ import { type ReactElement } from 'react';
 export const customRender = (
   ui: ReactElement,
   options?: Omit<RenderOptions, 'wrapper'>
-) => {
+): RenderResult => {
   return render(ui, { ...options });
 };
 

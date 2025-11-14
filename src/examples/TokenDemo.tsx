@@ -17,7 +17,7 @@ export const TokenDemo = () => {
             Design Tokens Demo
           </h2>
           <p className="token-demo__body">
-            Ce composant démontre l'utilisation des tokens sémantiques MDS.
+            Ce composant démontre l&apos;utilisation des tokens sémantiques MDS.
             Toutes les couleurs, espacements et typographies proviennent de
             variables CSS générées depuis les fichiers JSON.
           </p>

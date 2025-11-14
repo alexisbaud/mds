@@ -1,0 +1,85 @@
+name: ✨ Feature Request
+description: Suggérer une nouvelle fonctionnalité ou amélioration
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de partager votre idée pour améliorer MDS !
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problème à résoudre
+      description: Quel problème cette fonctionnalité résoudrait-elle ?
+      placeholder: "Ex: Je souhaiterais pouvoir... mais actuellement..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution proposée
+      description: Comment imaginez-vous cette fonctionnalité ?
+      placeholder: Décrivez la solution que vous envisagez
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type de feature
+      description: De quel type de fonctionnalité s'agit-il ?
+      options:
+        - Nouveau composant
+        - Amélioration de composant existant
+        - Nouveaux tokens
+        - Documentation
+        - Outils/Scripts
+        - Autre
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considérées
+      description: Avez-vous envisagé d'autres solutions ?
+      placeholder: Décrivez les alternatives que vous avez considérées
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Exemples ou références
+      description: Liens vers d'autres design systems, exemples de code, etc.
+      placeholder: |
+        - Material UI fait X de cette façon: ...
+        - Exemple de code: ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Contexte additionnel
+      description: Tout autre contexte pertinent
+      placeholder: Mockups, diagrammes, cas d'usage détaillés, etc.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Avant de soumettre
+      options:
+        - label: J'ai vérifié qu'une issue similaire n'existe pas déjà
+          required: true
+        - label: Cette fonctionnalité serait utile à plusieurs utilisateurs
+          required: true
+        - label: J'ai réfléchi aux alternatives
+          required: false
+

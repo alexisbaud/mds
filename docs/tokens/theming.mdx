@@ -36,7 +36,7 @@ Redéfinissez les variables CSS directement dans `:root` pour un changement glob
 ```
 
 **Utilisation :**
-```tsx
+```text
 import 'mds/styles/tokens.css';
 import './custom-theme.css';  // Après tokens.css
 
@@ -79,7 +79,7 @@ Utilisez des attributs comme `[data-theme]` pour des thèmes switchables :
 ```
 
 **Utilisation :**
-```tsx
+```text
 function App() {
   const [theme, setTheme] = useState('light');
   
@@ -105,7 +105,7 @@ Alternativement, utilisez des classes :
 }
 ```
 
-```tsx
+```text
 <div className={`app ${isDark ? 'theme-dark' : ''}`}>
   {/* ... */}
 </div>
@@ -186,7 +186,7 @@ Respectez les préférences système de l'utilisateur :
 }
 ```
 
-```tsx
+```text
 function App() {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [theme, setTheme] = useState(prefersDark ? 'dark' : 'light');
@@ -223,7 +223,7 @@ Vérifiez toujours que vos paires `surface/content` respectent les cibles APCA. 
 
 ### 3. Tester l'accessibilité
 
-```tsx
+```text
 // Testez avec addon a11y de Storybook
 export const DarkTheme = {
   decorators: [
@@ -263,7 +263,7 @@ export const DarkTheme = {
 
 Créez un helper pour générer des thèmes programmatiquement :
 
-```tsx
+```text
 // utils/theme-generator.ts
 export function generateTheme(overrides: Record<string, string>) {
   return Object.entries(overrides)
@@ -280,7 +280,7 @@ const darkTheme = generateTheme({
 
 ### Persistance du thème
 
-```tsx
+```text
 // hooks/useTheme.ts
 export function useTheme() {
   const [theme, setTheme] = useState(() => {
@@ -298,7 +298,7 @@ export function useTheme() {
 
 ## Exemple complet : Theme Switcher
 
-```tsx
+```text
 import { useEffect, useState } from 'react';
 import { Button } from 'mds';
 import './themes.css';

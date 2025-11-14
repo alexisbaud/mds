@@ -19,7 +19,7 @@ L'accessibilité (a11y) est une priorité dans MDS. Tous les composants doivent 
 - `Arrow keys` : navigation dans listes/menus
 
 **Exemple Button :**
-```tsx
+```text
 function Button({ onClick, isDisabled, children }) {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (isDisabled) return;
@@ -79,7 +79,7 @@ function Button({ onClick, isDisabled, children }) {
 | Alert | `role="alert"` | `aria-live="assertive"` |
 
 **Exemple Switch :**
-```tsx
+```text
 function Switch({ isChecked, onChange, label }) {
   return (
     <button
@@ -107,7 +107,7 @@ function Switch({ isChecked, onChange, label }) {
 - `aria-live` : annonces dynamiques
 
 **Exemple Dropdown :**
-```tsx
+```text
 function Dropdown({ isOpen, label, children }) {
   return (
     <div>
@@ -154,7 +154,7 @@ color.brand.surface.intense + color.brand.content.inverse = Lc 90 ✅
 **Tous les éléments interactifs doivent avoir un label accessible.**
 
 ✅ **Bon :**
-```tsx
+```text
 // Label visible
 <label htmlFor="email">Email</label>
 <input id="email" type="email" />
@@ -176,7 +176,7 @@ color.brand.surface.intense + color.brand.content.inverse = Lc 90 ✅
 ```
 
 ❌ **Mauvais :**
-```tsx
+```text
 <button>
   <Icon /> {/* Pas de label ! */}
 </button>
@@ -187,7 +187,7 @@ color.brand.surface.intense + color.brand.content.inverse = Lc 90 ✅
 **Les modales et overlays doivent piéger le focus.**
 
 ✅ **Implémentation :**
-```tsx
+```text
 import { createFocusTrap } from '@/utils/accessibility';
 
 function Modal({ isOpen, onClose, children }) {
@@ -216,7 +216,7 @@ function Modal({ isOpen, onClose, children }) {
 
 **Utiliser `aria-live` pour les changements dynamiques.**
 
-```tsx
+```text
 import { announceToScreenReader } from '@/utils/accessibility';
 
 function SaveButton({ onSave }) {
@@ -250,7 +250,7 @@ Avant de valider un composant, vérifier :
 
 Détecte automatiquement les violations a11y via axe-core.
 
-```tsx
+```text
 // Button.stories.tsx
 export default {
   component: Button,
@@ -269,7 +269,7 @@ export default {
 
 ### Tests automatisés
 
-```tsx
+```text
 import { render } from '@/tests/utils/test-helpers';
 import { axe } from 'jest-axe';
 
