@@ -1,5 +1,9 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
+import { createRequire } from "node:module";
 import type { StorybookConfig } from '@storybook/react-vite';
 import { join, dirname } from 'path';
+
+const require = createRequire(import.meta.url);
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -13,26 +17,23 @@ const config: StorybookConfig = {
   stories: [
     // TODO: Re-enable docs after fixing MDX code block parsing issues
     // '../docs/**/*.mdx',
-    '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
+
   addons: [
-    getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-actions'),
-    getAbsolutePath('@storybook/addon-controls'),
-    getAbsolutePath('@storybook/addon-docs'),
+    getAbsolutePath('@storybook/addon-docs')
   ],
+
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
-  docs: {
-    autodocs: 'tag',
-  },
+
   core: {
     disableTelemetry: true,
   },
+
   viteFinal: async (config) => {
     // Remove vite-plugin-dts from Storybook build
     if (config.plugins) {
@@ -46,7 +47,7 @@ const config: StorybookConfig = {
       );
     }
     return config;
-  },
+  }
 };
 
 export default config;
