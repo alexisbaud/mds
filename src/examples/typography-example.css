@@ -1,0 +1,28 @@
+/**
+ * Example: How to use decomposed typography tokens
+ */
+
+.title-display {
+  /* Typography tokens - decomposed properties */
+  font-family: var(--typography-display-xs-default-fontFamily);
+  font-size: var(--typography-display-xs-default-fontSize);
+  font-weight: var(--typography-display-xs-default-fontWeight);
+  line-height: var(--typography-display-xs-default-lineHeight);
+  letter-spacing: var(--typography-display-xs-default-letterSpacing);
+  text-transform: var(--typography-display-xs-default-textCase);
+  
+  /* Additional styling with other tokens */
+  color: var(--color-brand-content-plain-heavy-default);
+  margin-bottom: var(--spacing-stack-md);
+}
+
+.title-heading {
+  /* Different typography, same pattern */
+  font-family: var(--typography-heading-md-default-fontFamily);
+  font-size: var(--typography-heading-md-default-fontSize);
+  font-weight: var(--typography-heading-md-default-fontWeight);
+  line-height: var(--typography-heading-md-default-lineHeight);
+  letter-spacing: var(--typography-heading-md-default-letterSpacing);
+  
+  color: var(--color-neutral-content-heavy);
+}

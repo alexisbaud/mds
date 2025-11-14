@@ -54,11 +54,44 @@ function loadTokenFile(filename: string): TokenObject {
 }
 
 /**
+ * Check if a value is a typography object (has fontFamily, fontSize, etc.)
+ */
+function isTypographyObject(value: unknown): boolean {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+    return false;
+  }
+  const obj = value as Record<string, unknown>;
+  return 'fontFamily' in obj || 'fontSize' in obj || 'lineHeight' in obj;
+}
+
+/**
+ * Decompose complex objects (typography) into individual properties
+ * e.g., { fontFamily: "IBM Plex Sans", fontSize: "16px" }
+ * becomes { 'fontFamily': 'IBM Plex Sans', 'fontSize': '16px' }
+ */
+function decomposeObject(
+  obj: Record<string, unknown>,
+  path: string,
+  result: Record<string, string | number>
+): void {
+  for (const [key, value] of Object.entries(obj)) {
+    const propPath = `${path}.${key}`;
+    if (typeof value === 'string' || typeof value === 'number') {
+      result[propPath] = value;
+    } else if (typeof value === 'object' && value !== null) {
+      // Nested object or array - stringify it
+      result[propPath] = JSON.stringify(value);
+    }
+  }
+}
+
+/**
  * Flatten nested token object into dot-notation paths
  * e.g., { color: { neutral: { surface: { default: '#fff' } } } }
  * becomes { 'color.neutral.surface.default': '#fff' }
  * 
- * Complex objects (typography, shadows) are stored as JSON strings
+ * Complex objects (typography) are decomposed into individual properties
+ * Arrays (shadows) are kept as JSON strings
  */
 function flattenTokens(
   obj: TokenObject,
@@ -79,8 +112,14 @@ function flattenTokens(
         if (typeof tokenValue === 'string' || typeof tokenValue === 'number') {
           result[path] = tokenValue;
         } else if (typeof tokenValue === 'object' && tokenValue !== null) {
-          // Store complex values as JSON strings (will be resolved later)
-          result[path] = JSON.stringify(tokenValue);
+          // Check if it's a typography object that should be decomposed
+          if (isTypographyObject(tokenValue)) {
+            // Decompose into individual properties
+            decomposeObject(tokenValue as Record<string, unknown>, path, result);
+          } else {
+            // Keep as JSON string (e.g., shadows/arrays)
+            result[path] = JSON.stringify(tokenValue);
+          }
         }
       } else {
         // Recurse into nested object
@@ -269,14 +308,15 @@ function main() {
     ...flatComponent,
   };
 
-  // PASS 3: Resolve complex objects in semantic and component tokens
-  console.log('🔄 Resolving complex objects (typography, shadows)...');
+  // PASS 3: Resolve complex objects (shadows - arrays) in semantic and component tokens
+  // Note: Typography objects are already decomposed in PASS 1
+  console.log('🔄 Resolving complex objects (shadows)...');
   const semanticResolved: Record<string, string | number> = {};
   const componentResolved: Record<string, string | number> = {};
 
   for (const [path, value] of Object.entries(flatSemantic)) {
-    // Check if value is a JSON string (complex object)
-    if (typeof value === 'string' && (value.startsWith('{') || value.startsWith('['))) {
+    // Check if value is a JSON array (shadows)
+    if (typeof value === 'string' && value.startsWith('[')) {
       try {
         const parsed = JSON.parse(value);
         const resolved = resolveObjectReferences(parsed, allTokens);
@@ -286,13 +326,14 @@ function main() {
         semanticResolved[path] = value;
       }
     } else {
+      // Simple value or decomposed property - keep as-is for now
       semanticResolved[path] = value;
     }
   }
 
   for (const [path, value] of Object.entries(flatComponent)) {
-    // Check if value is a JSON string (complex object)
-    if (typeof value === 'string' && (value.startsWith('{') || value.startsWith('['))) {
+    // Check if value is a JSON array (shadows)
+    if (typeof value === 'string' && value.startsWith('[')) {
       try {
         const parsed = JSON.parse(value);
         const resolved = resolveObjectReferences(parsed, allTokens);
@@ -302,6 +343,7 @@ function main() {
         componentResolved[path] = value;
       }
     } else {
+      // Simple value or decomposed property - keep as-is for now
       componentResolved[path] = value;
     }
   }
@@ -321,22 +363,22 @@ function main() {
 
   for (const [path, value] of Object.entries(semanticResolved)) {
     if (typeof value === 'string') {
-      // Check if it's a JSON object (complex token) - these are already resolved
-      const isComplexToken = value.startsWith('{') || value.startsWith('[');
-      if (isComplexToken) {
+      // Check if it's a JSON array (shadows) - these are already resolved
+      const isJsonArray = value.startsWith('[');
+      if (isJsonArray) {
         try {
           JSON.parse(value);
-          // Valid JSON object, already resolved in pass 3
+          // Valid JSON array (shadows), already resolved in pass 3
           finalSemantic[path] = value;
         } catch {
-          // Not valid JSON, it's a simple reference like "{token.path}"
+          // Not valid JSON, treat as simple reference
           finalSemantic[path] = resolveReferences(value, allTokensWithResolved);
         }
       } else if (value.includes('{')) {
-        // Simple string with reference
+        // Simple string with reference like "{token.path}"
         finalSemantic[path] = resolveReferences(value, allTokensWithResolved);
       } else {
-        // No reference, keep as-is
+        // No reference, keep as-is (includes decomposed properties)
         finalSemantic[path] = value;
       }
     } else {
@@ -346,22 +388,22 @@ function main() {
 
   for (const [path, value] of Object.entries(componentResolved)) {
     if (typeof value === 'string') {
-      // Check if it's a JSON object (complex token) - these are already resolved
-      const isComplexToken = value.startsWith('{') || value.startsWith('[');
-      if (isComplexToken) {
+      // Check if it's a JSON array (shadows) - these are already resolved
+      const isJsonArray = value.startsWith('[');
+      if (isJsonArray) {
         try {
           JSON.parse(value);
-          // Valid JSON object, already resolved in pass 3
+          // Valid JSON array (shadows), already resolved in pass 3
           finalComponent[path] = value;
         } catch {
-          // Not valid JSON, it's a simple reference like "{token.path}"
+          // Not valid JSON, treat as simple reference
           finalComponent[path] = resolveReferences(value, allTokensWithResolved);
         }
       } else if (value.includes('{')) {
-        // Simple string with reference
+        // Simple string with reference like "{token.path}"
         finalComponent[path] = resolveReferences(value, allTokensWithResolved);
       } else {
-        // No reference, keep as-is
+        // No reference, keep as-is (includes decomposed properties)
         finalComponent[path] = value;
       }
     } else {
@@ -375,7 +417,8 @@ function main() {
     ...finalComponent,
   };
 
-  console.log(`  Resolved ${Object.keys(cssTokens).length} tokens for CSS`);
+  console.log(`  Generated ${Object.keys(cssTokens).length} CSS variables`);
+  console.log(`    (typography tokens decomposed into individual properties)`);
 
   // Generate CSS
   console.log('\n✍️  Generating CSS...');
